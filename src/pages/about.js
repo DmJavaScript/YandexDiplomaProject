@@ -1,1 +1,1 @@
-import "about.css";
+import "./about.css";

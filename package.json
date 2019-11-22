@@ -34,12 +34,11 @@
     "@babel/preset-env": "7.7.1",
     "@glidejs/glide": "3.4.1",
     "babel-polyfill": "6.26.0",
-    "image-webpack-loader": "6.0.0",
-    "webpack-dev-server": "3.9.0"
+    "image-webpack-loader": "6.0.0"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production --config",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch --config",
+    "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
     "deploy": "cross-env NODE_ENV=production gh-pages -d dist"
   },
   "repository": {

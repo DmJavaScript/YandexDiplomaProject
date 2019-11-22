@@ -1,1 +1,1 @@
-import "details.css";
+import "./details.css";

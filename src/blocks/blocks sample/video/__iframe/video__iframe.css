@@ -1,6 +1,0 @@
-.video__iframe {
-    width: 100%;
-    height: 100%;
-    border-width: 0px;  /* убирает рамку вокруг видео вместо устаревшего свойства frameborder="0" в HMTL файле */
-    z-index: 0;
-}

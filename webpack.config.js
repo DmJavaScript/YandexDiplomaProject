@@ -9,10 +9,14 @@ const isDev = process.env.NODE_ENV === 'development';
 
 
 module.exports = {
-    entry: { main: ['./src/pages/index.css', './src/pages/about.css', './src/pages/details.css'] },
+    entry: {
+        main: './src/pages/index.js',
+        about: './src/pages/about.js',
+        details: './src/pages/details.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: './css/[name].[chunkhash].css'
+        filename: './scripts/[name].[chunkhash].js'
     },
     module: {
         rules: [
@@ -52,7 +56,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({ //
-            filename: './css/[name].[contenthash].css',
+            filename: './styles/[name].[contenthash].css',
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,

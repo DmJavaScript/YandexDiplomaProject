@@ -1,0 +1,42 @@
+@import url('__container/additional__container.css');
+
+.additional {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    margin: 102px auto 115px;
+}
+
+
+@media screen and (max-width : 1024px) {
+    .additional {
+        margin: 104px auto 155px;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .additional {
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width : 767px) and (min-width : 376px) {
+    .additional {
+        width: calc(278/375*100%);
+        margin: 0px auto 64px;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего и малого смартфона */
+    .additional {
+        position: relative;
+        left: -5px;
+        width: 278px;
+        height: auto;
+        margin: 0px auto 67px;
+    }
+}
+

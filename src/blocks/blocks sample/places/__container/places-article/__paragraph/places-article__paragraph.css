@@ -1,0 +1,48 @@
+.places-article__paragraph {
+    margin: 0px 0px 25px;
+    line-height: 30px;
+    font-size: 18px;
+
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+.places-article__paragraph:last-of-type  {
+    margin: 0px 0px 0px;
+}
+
+
+@media screen and (max-width : 768px) {
+    /* стили для планшета */
+    .places-article__paragraph  {
+        margin: -10px 0px 24px;
+        line-height: 27px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width : 760px) {
+    .places-article__paragraph  {
+        margin: 7px 0px 28px;
+    }
+
+    .busted {
+        margin: 7px 0px 35px;
+    }
+
+    .pushed {
+        margin: 7px 0px 33px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .places-article__paragraph  {
+        line-height: 30px;
+        font-size: 18px;
+    }
+
+    .busted {
+        margin: 3px 0px 35px;
+    }
+}

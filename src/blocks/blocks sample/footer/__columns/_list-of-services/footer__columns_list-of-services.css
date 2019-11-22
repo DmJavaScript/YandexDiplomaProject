@@ -1,0 +1,12 @@
+.footer__columns_list-of-services {
+    justify-content: center;
+    margin: 0px 0px 0px;
+    padding-left: 0; /* Убираем отступ у списка в браузерах Firefox, Safari, Chrome */
+}
+
+
+@media screen and (max-width : 767px) and (min-width : 376px) {
+    .footer__columns_list-of-services {
+        max-width: 10vw;
+    }
+}

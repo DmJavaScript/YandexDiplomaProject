@@ -1,0 +1,24 @@
+.used-technologies__title {
+  font-family:'Roboto Slab';
+  font-weight: normal;
+  font-size: 2.5em;
+  line-height: 46px;
+  margin: 80px 0 0 7%;
+
+  align-self: flex-start;
+  max-width: 336px;
+}
+
+@media screen and (max-width : 1150px) {
+.used-technologies__title {
+    margin: 40px 0 0 7%;
+    font-size: 1.875em;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width : 768px) {
+.used-technologies__title {
+    margin: 40px 0 0 5%;
+  }
+}

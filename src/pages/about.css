@@ -1,0 +1,79 @@
+@import url('../vendor/normalize.css');
+@import url('../blocks/header/header.css');
+@import url('about/content-about.css');
+@import url('../blocks/footer/footer.css');
+
+@font-face {
+  src: url('../fonts/roboto-regular-webfont.woff') format('woff');
+  font-family: 'Roboto';
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('../fonts/roboto-medium-webfont.woff') format('woff');
+  font-family: 'Roboto';
+  font-weight: medium;
+}
+
+@font-face {
+  src: url('../fonts/roboto-bold-webfont.woff') format('woff');
+  font-family: 'Roboto';
+  font-weight: bold;
+}
+
+@font-face {
+  src: url('../fonts/robotoslab-regular-webfont.woff') format('woff');
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('../fonts/robotoslab-regular-webfont.woff') format('woff');
+  font-family: 'Roboto Slab';
+  font-weight: bold;
+}
+
+@font-face {
+  src: url('../fonts/source-sans-pro-regular.woff2') format('woff2');
+  font-family: 'Source Sans Pro';
+  font-weight: normal;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system,
+               BlinkMacSystemFont,
+               "Segoe UI",
+               Ubuntu,
+               Cantarell,
+               "Helvetica Neue",
+               sans-serif;
+}
+
+.page {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid;
+  border-color: rgba(255, 255, 255, 0) #B6BCBF;
+  background-color: #ffffff;
+  color:  #1A1B22;
+  font-family: 'Roboto';
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.page {
+      min-width: 320px;
+  }
+}

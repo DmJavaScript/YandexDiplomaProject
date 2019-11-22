@@ -1,0 +1,13 @@
+.footer__social-links_icon-link {
+  display: inline;
+  list-style-type: none; /* Убираем маркеры */
+}
+
+.footer__social-links_icon-link a img {
+
+}
+
+.footer__social-links_icon-link a img:hover {
+  opacity: 0.7;
+  color: #B6BCBF;
+}

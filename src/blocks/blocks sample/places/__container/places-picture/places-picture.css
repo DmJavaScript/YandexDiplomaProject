@@ -1,0 +1,55 @@
+
+
+@media screen and (max-width : 1024px) {
+    /* стили для нетбуков */
+    .places-picture {
+        max-width: 440px;
+        margin-top: 10px;
+    }
+    
+    .places-picture:first-of-type {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width : 1023px) {
+    /* стили для планшета */
+    .places-picture {
+        align-self: flex-end;
+        width: 340px;
+    }
+}
+
+@media screen and (max-width : 767px) and (min-width : 376px) {
+    .places-picture  {
+        min-width: 100vw;
+        position: relative;
+        left: -6.2%;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+    .places-picture  {
+        position: relative;
+        right: 16px;
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width : 374px) {
+    /* стили для среднего смартфона */
+    .places-picture  {
+        width: 108.5%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (max-width : 320px) {
+    .places-picture  {
+        width: 111%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+}

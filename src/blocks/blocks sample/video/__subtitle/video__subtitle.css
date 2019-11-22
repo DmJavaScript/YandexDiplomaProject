@@ -1,0 +1,47 @@
+.video__subtitle {
+    position: absolute;
+    bottom: 27px;
+    line-height: 15px;
+    font-size: 14px;
+    margin: 0 30px;
+    z-index: 4;
+
+    font-family: 'Inter';
+    font-weight: normal;
+}
+
+
+@media screen and (max-width : 1024px) {
+    .video__subtitle {
+        bottom: 11%;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    /* стили для планшета */
+    .video__subtitle {
+        bottom: 24px;
+        margin: 0 24px;
+    }
+}
+
+@media screen and (max-width : 767px) and (min-width : 376px) {
+    /* стили для планшета */
+    .video__subtitle {
+        line-height: 23px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    .video__subtitle {
+        bottom: 23px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    .video__subtitle {
+        bottom: 15px;
+        margin: 0 16px;
+    }
+}

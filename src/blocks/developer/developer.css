@@ -1,0 +1,31 @@
+@import url('developer-about.css');
+@import url('developer-photo-container.css');
+@import url('__photo/developer__photo.css');
+@import url('developer-arcicle-container.css');
+@import url('__about/developer__about.css');
+@import url('__cv/developer__cv.css');
+
+.developer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  width: 86%;
+  height: 100%;
+}
+
+@media screen and (max-width : 768px) {
+.developer {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width : 690px) {
+.developer {
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,5 @@
+@media screen and (max-width : 1440px) and (min-width : 760px) {
+.footer-lifting-up {
+    margin: -80px 0;
+  }
+}

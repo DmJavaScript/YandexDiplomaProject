@@ -1,0 +1,30 @@
+.search-table__cell_heading {
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 1.625em;
+  color: #1A1B22;
+  line-height: 30px;
+
+  width: 88%;
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width : 768px) {
+.search-table__cell_heading {
+    width: 86%;
+
+    font-size: 	1.4em;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.search-table__cell_heading {
+    width: 89%;
+    margin: 0 auto;
+    line-height: 26px;
+  }
+}

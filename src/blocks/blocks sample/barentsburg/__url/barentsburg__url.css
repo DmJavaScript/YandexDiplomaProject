@@ -1,0 +1,52 @@
+@import url('_website/barentsburg__url_website.css');
+
+.barentsburg__url {
+    position: absolute;
+    bottom: 45px;
+    left: 502px;
+    width: 282px;
+    height: 73px;
+    line-height: 20px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: #aaaaaa;
+    text-decoration: none;
+    white-space: pre-line;
+
+    font-family: 'Inter';
+    font-weight: normal;
+}
+
+
+@media screen and (max-width : 1024px) {
+    /* стили для планшета */
+    .barentsburg__url {
+        left: 51%;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    /* стили для планшета */
+    .barentsburg__url {
+        left: 430px;
+    }
+}
+
+@media screen and (max-width : 767px) and (min-width : 376px) {
+    .barentsburg__url {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        margin: (32/375*100vw) 0px;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего и малого смартфона */
+    .barentsburg__url {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        margin: 30px 0px;
+    }
+}

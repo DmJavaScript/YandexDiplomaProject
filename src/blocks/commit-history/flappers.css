@@ -1,0 +1,23 @@
+.flappers {
+  z-index: 1;
+  width: 88px;
+  height: 288px;
+  position: absolute;
+  top: 177px;
+}
+
+.flappers:first-of-type {
+  left: 0px;
+  background: linear-gradient(to left, rgba(245, 246, 247, 0) 0%, #F5F6F7 100%);
+}
+
+.flappers:nth-of-type(2) {
+  right: 0px;
+  background: linear-gradient(to right, rgba(245, 246, 247, 0) 0%, #F5F6F7 100%);
+}
+
+@media screen and (max-width : 768px) {
+.flappers {
+    display: none;
+  }
+}

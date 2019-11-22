@@ -1,0 +1,17 @@
+@import url('flappers.css');
+@import url('comment-card/comment-card.css');
+
+.comments-carousel-container {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-x: scroll;
+  width: 100%;
+
+  position: relative;
+}
+
+@media screen and (max-width : 768px) {
+.comments-carousel-container {
+    margin-left: 5%;
+  }
+}

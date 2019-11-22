@@ -1,0 +1,43 @@
+@import url('__container/places__container.css');
+
+.places {
+    display: flex;
+    flex-direction: column;
+    width: 984px;
+    height: auto;
+    margin: 0px auto;
+}
+
+
+@media screen and (max-width : 1024px) {
+    /* стили для нетбуков */
+    .places {
+        width: 928px;
+    }
+}
+
+@media screen and (max-width : 1023px) {
+    .places {
+        width: calc(720/768*100%);
+    }
+}
+
+@media screen and (max-width : 767px) and (min-width : 376px) {
+    .places {
+        width: calc(346/375*100%);
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+    .places {
+        width: calc(346/375*100%);
+    }
+}
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .places {
+        width: 288px;
+    }
+}

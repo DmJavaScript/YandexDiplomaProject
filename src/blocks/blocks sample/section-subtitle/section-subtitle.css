@@ -1,0 +1,95 @@
+.section-subtitle {
+    display: block;
+    width: 640px;
+    max-height: 58px;
+    text-align: center;
+    margin: 38px auto 0px;
+    line-height: 35px;
+    font-size: 24px;
+    padding: 0px;
+
+    font-family: 'Inter';
+    font-weight: normal;
+}
+
+.additional .section-subtitle {
+    margin: 32px auto 0px;
+}
+
+.comments .section-subtitle {
+    min-width: 650px;
+    margin: 38px 23% 0px;
+}
+
+
+@media screen and (max-width : 1024px) {
+    /* стили для нетбуков */
+    .section-subtitle {
+        width: 70%;
+        margin: 39px 15% 0px;
+    }
+
+    .comments .section-subtitle {
+        margin: 38px auto 0px;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    /* стили для планшета */
+    .section-subtitle {
+        width: 90%;
+        margin: 32px auto 0px;
+    }
+    
+    .additional .section-subtitle {
+        margin: 30px auto 0px;
+    }
+
+    .comments .section-subtitle {
+        margin: 30px auto 0px;
+    }
+}
+
+@media screen and (max-width : 767px) and (min-width : 376px) {
+    .section-subtitle {
+        width: 100%;
+        margin: 16px auto 0px;
+        line-height: 23px;
+        font-size: 20px;
+    }
+
+    .comments .section-subtitle {
+        min-width: 90%;
+    }
+}
+
+@media screen and (max-width : 430px) and (min-width : 376px) {
+    .video .section-subtitle {
+        margin: 46px auto 5px;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+    .section-subtitle {
+        width: 100%;
+        margin: 22px auto 29px;
+        line-height: 23px;
+        font-size: 16px;
+    }
+
+    .additional .section-subtitle {
+        margin: 19px auto 18px;
+    }
+
+    .comments .section-subtitle {
+        min-width: 90vw;
+        margin: 22px auto 0px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    .section-subtitle {
+        margin: 22px auto 39px;
+    }
+}

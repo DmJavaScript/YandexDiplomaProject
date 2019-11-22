@@ -1,0 +1,41 @@
+@import url('__page/navigation__page.css');
+
+.navigation-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  position: relative;
+  width: 189px;
+
+  top: 2px;
+  margin-left: 0; /* Отступ слева в браузере IE и Opera */
+  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+  list-style-type: none; /* Убираем маркеры */
+
+  font-family:'Roboto';
+  font-weight: 500;
+  font-size: 1.125em;
+}
+
+@media screen and (max-width : 768px) {
+.navigation-container {
+    top: 0;
+  }
+}
+
+@media screen and (max-width : 420px) {
+.navigation-container {
+    width: 148px;
+
+    top: 2px;
+
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width : 320px) {
+  /* стили для малого смартфона */
+.navigation-container {
+    top: 0;
+  }
+}

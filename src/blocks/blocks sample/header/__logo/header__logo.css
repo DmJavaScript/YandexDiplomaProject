@@ -1,0 +1,22 @@
+.header__logo {
+    margin-bottom: 5px;
+}
+
+.header__logo:hover {
+    opacity: 0.7;
+}
+
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего и малого смартфона */
+    .header__logo {
+        top: 16px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .header__logo img{
+        width: 79.9%;
+    }
+}

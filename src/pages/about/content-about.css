@@ -1,0 +1,9 @@
+@import url('../../blocks/used-technologies/used-technologies.css');
+@import url('../../blocks/developer/developer.css');
+@import url('../../blocks/commit-history/commit-history.css');
+
+.content-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

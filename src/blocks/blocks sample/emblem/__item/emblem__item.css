@@ -1,0 +1,87 @@
+@import url('_city-name/emblem__item_city-name.css');
+
+.emblem__item {
+    position: relative;
+    width: 208px;
+    height: 284px;
+}
+
+.emblem__item:nth-child(2)  {
+    background: url('../../../images/emblem/gerb-Velikogo-Novgoroda.png') center top no-repeat;
+}
+
+.emblem__item:nth-child(3) {
+    background: url('../../../images/emblem/gerb-rostov-velikiy.png') center top no-repeat;
+}
+
+.emblem__item:nth-child(4) {
+    background: url('../../../images/emblem/gerb-Tambova.png') center top no-repeat;
+}
+
+.emblem__item:nth-child(5) {
+    background: url('../../../images/emblem/gerb-Elabuga.png') center top no-repeat;
+}
+
+.emblem__item:last-child {
+    background: url('../../../images/emblem/gerb-Permskoi-oblasti.png') center top no-repeat;
+}
+
+
+@media screen and (max-width : 1100px) and (min-width : 769px) {
+    .emblem__item:nth-child(2)  {
+        background-size: auto 200px;
+    }
+
+    .emblem__item:nth-child(3) {
+        background-size: auto 200px;
+    }
+
+    .emblem__item:nth-child(4) {
+        background-size: auto 200px;
+    }
+
+    .emblem__item:nth-child(5) {
+        background-size: auto 200px;
+    }
+
+    .emblem__item:last-child {
+        background-size: auto 200px;
+    }
+
+    .emblem__item {
+        width: 17.2%;
+    }
+}
+
+@media screen and (max-width : 1000px) and (min-width : 601px) {
+    /* стили для планшета */
+    .emblem__item {
+        width: 33.3%;
+        top: 7.5%;
+        background-size: auto 226px;
+    }
+
+    .emblem__item:nth-child(5) {
+        top: 0%;
+    }
+
+    .emblem__item:last-child {
+        top: 0%;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    /* стили для среднего и малого смартфона */
+    .emblem__item {
+        height: auto;
+        background-size: auto 226px;
+        margin-top: 49px;
+    }
+
+    .emblem__item:nth-child(2) {
+        margin-top: 0px;
+    }
+
+}
+
+

@@ -1,0 +1,36 @@
+@import url('__paragraph/places-article__paragraph.css');
+
+.places-article {
+    align-self: flex-start;
+    width: 488px;
+}
+
+
+@media screen and (max-width : 1024px) {
+    /* стили для нетбуков */
+    .places-article {
+        width: 456px;
+    }
+}
+
+@media screen and (max-width : 1023px) {
+    /* стили для планшета */
+    .places-article {
+        width: 48.8%;
+    }
+}
+
+@media screen and (max-width : 767px) { 
+    .places-article {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (max-width : 320px) {
+    .places-article {
+        min-width: 290px;
+    }
+}
+

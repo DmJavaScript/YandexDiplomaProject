@@ -1,0 +1,21 @@
+@import url('_mark/search-analitics__data_mark.css');
+@import url('_mon/search-analitics__data_mon.css');
+@import url('_tue/search-analitics__data_tue.css');
+@import url('_wed/search-analitics__data_wed.css');
+@import url('_thu/search-analitics__data_thu.css');
+@import url('_fri/search-analitics__data_fri.css');
+@import url('_sat/search-analitics__data_sat.css');
+@import url('_sun/search-analitics__data_sun.css');
+
+
+
+.search-analitics__data {
+  width: 100%;
+
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-size: 0.75em;
+  line-height: 22px;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+}

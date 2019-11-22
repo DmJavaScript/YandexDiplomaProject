@@ -1,0 +1,9 @@
+.header__navigation {
+  color: #1A1B22;
+  margin: 0;
+
+  font-family:'Roboto';
+  font-weight: normal;
+  font-size: 1.125em;
+  line-height: 24px;
+}

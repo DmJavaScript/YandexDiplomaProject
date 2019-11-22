@@ -1,0 +1,32 @@
+@import url('logo-link.css');
+@import url('navigation-white-color.css');
+@import url('navigation-black-color.css');
+@import url('navigation-container.css');
+
+.navigation-loft {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 86%;
+  height: 80px;
+  margin: 0px auto;
+}
+
+@media screen and (max-width : 768px) {
+.navigation-loft {
+    width: 90%;
+    height: 63px;
+    margin: 0px auto;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.navigation-loft {
+    padding: 0 5%;
+    height: 56px;
+    margin: 0px auto;
+  }
+}

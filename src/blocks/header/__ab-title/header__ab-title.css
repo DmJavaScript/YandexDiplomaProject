@@ -1,0 +1,34 @@
+.header__ab-title {
+  width: 86%;
+  min-width: 446px;
+  margin: 80px auto 0;
+
+  font-family:'Roboto Slab';
+  font-weight: normal;
+  color: #1A1B22;
+  font-size: 2.500em;
+  line-height: 46px;
+}
+
+@media screen and (max-width : 768px) {
+.header__ab-title {
+    width: 90%;
+    margin: 30px auto 0;
+
+    font-size: 1.875em;
+  }
+}
+
+@media screen and (max-width : 500px) {
+.header__ab-title {
+    min-width: 89%;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.header__ab-title {
+    min-width: 288px;
+    margin: 16px auto 0;
+  }
+}

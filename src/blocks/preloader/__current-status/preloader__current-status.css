@@ -1,0 +1,8 @@
+.preloader__current-status {
+  margin: 24px auto 0;
+
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-size: 1.125em;
+  color: #B6BCBF;
+}

@@ -1,0 +1,16 @@
+.navigation__page_chosen {
+  text-decoration: none;
+  padding-bottom: 25px;
+}
+
+@media screen and (max-width : 768px) {
+.navigation__page_chosen {
+    padding-bottom: 17px;
+  }
+}
+
+@media screen and (max-width : 320px) {
+.navigation__page_chosen {
+    padding-bottom: 17px;
+  }
+}

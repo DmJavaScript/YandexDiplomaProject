@@ -1,0 +1,15 @@
+.comment-card__commentator-email {
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-size: 0.875em;
+  color:  #1A1B22;
+  line-height: 24px;
+  margin: 0;
+}
+
+@media screen and (max-width : 768px) {
+  .comment-card__commentator-email {
+    font-size: 0.875em;
+    line-height: 22px;
+  }
+}

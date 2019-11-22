@@ -1,0 +1,61 @@
+.header__search_input {
+  font-family:'Roboto';
+  font-weight: normal;
+  color: #B6BCBF;
+  font-size: 1em;
+  padding-left: 1.5em;
+
+  width: 42vw;
+  min-width: 446px;
+  max-width: 608px;
+  height: 60px;
+  border-radius: 32px;
+  border: none;
+  outline: none;
+}
+
+.header__search_input:focus {
+  color: #1A1B22;
+  outline: none;
+
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+@media screen and (max-width : 768px) {
+.header__search_input {
+    width: 56vw;
+    height: 54px;
+    margin: 0px auto;
+    border-radius: 28px;
+
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width : 500px) {
+.header__search_input {
+    min-width: 83vw;
+  }
+}
+
+@media screen and (max-width : 392px) {
+.header__search_input {
+    margin: 16px auto 0;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.header__search_input {
+    padding-left: 1em;
+    min-width: 272px;
+    height: 56px;
+    margin: 0px auto;
+
+
+    border-radius: 28px;
+    font-size: 1em;
+  }
+}

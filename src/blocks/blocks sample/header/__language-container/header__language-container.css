@@ -1,0 +1,13 @@
+﻿.header__language-container {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .header__language-container {
+        position: relative;
+        bottom: -5px;
+    }
+}

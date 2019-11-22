@@ -1,0 +1,32 @@
+.search__analitics-link {
+  font-family: 'Roboto';
+  font-weight: medium;
+  font-size: 1.125em;
+  color: #1A1B22;
+  text-decoration: none;
+
+  padding: 0 10px 10px 0;
+}
+
+@media screen and (max-width : 768px) {
+.search__analitics-link {
+    padding: 0 5px 5px 0;
+  }
+}
+
+@media screen and (max-width : 595px) {
+  /* стили для малого смартфона */
+  .search__analitics-link {
+      width: 100%;
+      margin: 16px auto 0px;
+
+      padding: 0;
+    }
+  }
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.search__analitics-link {
+    width: 89%;
+  }
+}

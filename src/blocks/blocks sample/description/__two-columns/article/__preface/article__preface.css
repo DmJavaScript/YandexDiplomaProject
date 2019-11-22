@@ -1,0 +1,54 @@
+.article__preface {
+    width: 693px;
+    margin: 0px 10px 0px 0px;
+    line-height: 1.48rem;
+    font-size: 14px;
+    
+    font-family: 'Inter';
+    font-weight: normal;
+}
+
+
+@media screen and (max-width : 1280px) {
+    .article__preface {
+        width: calc(893/1280*100%);
+        margin-right: 14px;
+    }
+}
+
+@media screen and (max-width : 1024px) {
+    .article__preface {
+        width: calc(723/1024*100%);
+        line-height: 1.5rem;
+        margin: 0px 10px 0px 0px;
+    }
+}
+
+@media screen and (max-width : 1000px) {
+    .article__preface {
+        order: 2;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+    .article__preface {
+        line-height: 27px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .article__preface {
+        width: 288px;
+        line-height: 1.93749rem;
+        font-size: 17.77px;
+        margin: auto 0;
+    }
+
+    .article__preface span {
+        hyphens: auto;
+    }
+}

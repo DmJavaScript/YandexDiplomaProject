@@ -1,0 +1,19 @@
+﻿@import url('_chosen/header__language_chosen.css');
+@import url('_link/header__language_link.css');
+
+.header__language {
+    display: inline;
+    list-style-type: none; /* Убираем маркеры */
+    font-size: 24px;
+
+    font-family: 'Inter';
+    font-weight: normal;
+}
+
+
+@media screen and (max-width : 320px) {
+    /* стили для среднего смартфона */
+    .header__language {
+        font-size: 17px;
+    }
+}

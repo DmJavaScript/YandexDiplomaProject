@@ -1,0 +1,49 @@
+@import url('_overview/additional__card_overview.css');
+@import url('_picture/additional__card_picture.css');
+@import url('_title/additional__card_title.css');
+
+.additional__card {
+    position: relative;
+    width: 284px;
+    height: 330px;
+}
+
+
+@media screen and (max-width : 1279px) {
+    /* стили для нетбуков */
+    .additional__card {
+        width: 24.2%;
+        height: 280px;
+    }
+}
+
+@media screen and (max-width : 1023px) and (min-width : 769px) {
+    .additional__card {
+        width: calc(284/584*100%);
+        height: 390px;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .additional__card {
+        width: 284px;
+        height: 330px;
+    }
+}
+
+@media screen and (max-width : 767px) and (min-width : 701px) {
+    .additional__card {
+        width: 100%;
+        min-height: 603px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width : 700px) and (min-width : 376px) {
+    .additional__card {
+        width: 100%;
+        height: 87px;
+        margin-bottom: 5px;
+        padding-bottom: 100%;
+    }
+}

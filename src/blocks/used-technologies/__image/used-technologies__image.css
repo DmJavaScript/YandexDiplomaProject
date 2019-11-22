@@ -1,0 +1,12 @@
+
+@media screen and (max-width : 1150px) {
+.used-technologies__image {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width : 320px) {
+.used-technologies__image {
+  }
+
+}

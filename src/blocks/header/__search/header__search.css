@@ -1,0 +1,20 @@
+@import url('input-container.css');
+
+.header__search {
+  display: flex;
+  position: relative;
+  margin: 64px auto 0;
+}
+
+@media screen and (max-width : 768px) {
+  .header__search {
+    margin: 24px auto 0;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+  .header__search {
+    margin: 24px auto 0;
+  }
+}

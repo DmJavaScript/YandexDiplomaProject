@@ -1,0 +1,68 @@
+@import url('__columns/footer__columns.css');
+@import url('__copyright/footer__copyright.css');
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1184px;
+    height: 71px;
+    margin: 165px auto 0px;
+}
+
+@media screen and (max-width : 1279px) and (min-width : 1025px) {
+    .footer {
+        width: calc(1184/1279*100%);
+    }
+}
+
+@media screen and (max-width : 1024px) {
+    /* стили для нетбуков */
+    .footer {
+        width: calc(928/1024*100%);
+        margin: 107px auto 0px;
+    }
+}
+
+@media screen and (max-width : 1023px) and (min-width : 769px) {
+    .footer {
+        width: calc(720/768*100%);
+    }
+}
+
+@media screen and (max-width : 768px) {
+    /* стили для планшета*/
+    .footer {
+        width: 720px;
+        height: 50px;
+        margin: 100px auto 0px;
+    }
+}
+
+@media screen and (max-width : 767px) and (min-width : 376px) {
+    .footer {
+        flex-direction: column;
+        width: calc(343/375*100%);
+        height: calc(335/375*100%);
+        margin: 48px auto 0px;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+    .footer {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: calc(343/375*100%);
+        height: 325px;
+        margin: 54px auto 0px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .footer {
+        width: 288px;
+        margin: 64px auto 0px;
+    }
+}

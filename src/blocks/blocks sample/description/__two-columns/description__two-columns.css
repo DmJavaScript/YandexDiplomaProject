@@ -1,0 +1,48 @@
+@import url('article/__preface/article__preface.css');
+@import url('article/__aside/article__aside.css');
+
+.description__two-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+    width: 984px;
+    height: 154px;
+    margin: 27px 0px 35px;
+}
+
+
+@media screen and (max-width : 1024px) {
+    /* стили для планшета */
+    .description__two-columns {
+        margin-bottom: 45px;
+    }
+}
+
+@media screen and (max-width : 1000px) {
+    /* стили для планшета */
+    .description__two-columns {
+        flex-direction: column;
+        width: 100%;
+        min-height: 225px;
+        overflow: auto;
+        margin: 12px 0px 30px;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+    .description__two-columns {
+        min-height: 516px;
+        overflow: none;
+        margin: 14px 0px 42px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .description__two-columns {
+        min-height: 750px;
+        margin: 14px 0px 33px;
+    }
+}

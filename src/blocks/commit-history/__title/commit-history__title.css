@@ -1,0 +1,25 @@
+.commit-history__title {
+  margin: 72px 7% 64px;
+
+  font-family:'Roboto Slab';
+  font-weight: normal;
+  color: #1A1B22;
+  font-size: 1.875em;
+  line-height: 40px;
+}
+
+@media screen and (max-width : 768px) {
+.commit-history__title {
+    width: 50%;
+    max-width: 336px;
+    margin: 40px 5% 32px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width : 435px) {
+.commit-history__title {
+  height: 120px;
+  margin: 32px 5% 16px;
+  }
+}

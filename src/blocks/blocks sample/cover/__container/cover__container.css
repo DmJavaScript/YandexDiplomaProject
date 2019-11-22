@@ -1,0 +1,42 @@
+.cover__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 594px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width : 1280px)  {
+    .cover__container  {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    /* стили для планшета */
+    .cover__container  {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    .cover__container  {
+        height: 340px;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+    .cover__container  {
+        height: 272px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .cover__container  {
+        height: 216px;
+    }
+}

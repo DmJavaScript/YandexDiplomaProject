@@ -1,0 +1,25 @@
+.description__title {
+    margin: 0px 0 33px;
+    font-size: 54px;
+    
+    font-family: 'Inter';
+    font-weight: 900;
+}
+
+
+@media screen and (max-width : 673px) {
+    .description__title {
+        line-height: 44px;
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+    .description__title {
+        margin: 0px 0 23px;
+        font-size: 32px;
+        line-height: 35px;
+    }
+}
+

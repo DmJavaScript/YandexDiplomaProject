@@ -1,0 +1,36 @@
+@import url('_page/footer__navigation_page.css');
+@import url('_page-link/footer__navigation_page-link.css');
+
+.footer__navigation {
+  width: 28%;
+  min-width: 360px;
+  height: 22px;
+}
+
+.footer__navigation ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin: 0 0;
+  padding-left: 0; /* Убираем отступ у списка в браузерах Firefox, Safari, Chrome */
+}
+
+
+@media screen and (max-width : 760px) {
+.footer__navigation {
+    min-width: 53%;
+    width: 340px;
+  }
+}
+
+@media screen and (max-width : 515px) {
+.footer__navigation {
+    min-width: 184px;
+}
+
+.footer__navigation ul {
+    flex-direction: column;
+    height: 120px;
+  }
+}

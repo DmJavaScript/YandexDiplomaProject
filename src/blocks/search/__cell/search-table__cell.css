@@ -1,0 +1,71 @@
+@import url('_image/search-table__cell_image.css');
+@import url('_data/search-table__cell_data.css');
+@import url('_heading/search-table__cell_heading.css');
+@import url('_text/search-table__cell_text.css');
+@import url('_news-source/search-table__cell_news-source.css');
+@import url('_text-container/search-table__cell_text-container.css');
+
+.search-table__cell {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 15px;
+  max-width: 32.5%;
+  min-width: 32.5%;
+  min-height: 576px;
+  margin-top: 1%;
+
+  background-color: white;
+
+  -webkit-transition-duration: 2s;
+  -moz-transition-duration: 2s;
+  -o-transition-duration: 2s;
+  transition-duration: 2s;
+}
+
+@media screen and (max-width : 950px) {
+.search-table__cell {
+    min-height: auto;
+  }
+}
+
+@media screen and (max-width : 845px) {
+.search-table__cell {
+   min-width: 32%;
+  }
+}
+
+@media screen and (max-width : 768px) {
+.search-table__cell {
+    min-width: 224px;
+    width: 29%;
+    height: 420px;
+
+    padding: 0;
+
+    -moz-transform:  scale(1);
+    -ms-transform:  scale(1);
+    -webkit-transform:  scale(1);
+    -o-transform:  scale(1);
+    transform:  scale(1);
+  }
+}
+
+@media screen and (max-width : 760px) {
+  .search-table__cell {
+      min-width: 49%;
+      height: 474px;
+    }
+  }
+
+
+@media screen and (max-width : 515px) {
+/* стили для малого смартфона */
+.search-table__cell {
+    min-width: 288px;
+    height: 446px;
+    margin-top: 8px;
+
+    padding: 0;
+  }
+}

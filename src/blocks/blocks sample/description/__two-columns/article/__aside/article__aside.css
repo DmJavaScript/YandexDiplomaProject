@@ -1,0 +1,26 @@
+@import url('_bold/article__aside_bold.css');
+@import url('../__author/article__author.css');
+@import url('../__release-date/article__release-date.css');
+
+
+
+.article__aside {
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+    min-width: 155px;
+}
+
+
+@media screen and (max-width : 1000px) {
+    .article__aside {
+        order: 1;
+        min-height: 63px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    .article__aside {
+        min-height: 50px;
+    }
+}

@@ -1,0 +1,65 @@
+@import url('__city-name/barentsburg__city-name.css');
+@import url('__geographic-coordinates/barentsburg__geographic-coordinates.css');
+@import url('__map/barentsburg__map.css');
+@import url('__overview/barentsburg__overview.css');
+@import url('__url/barentsburg__url.css');
+
+.barentsburg {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 1184px;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width : 1183px) and (min-width : 1025px) {
+    .barentsburg {
+        width: calc(928/1024*100%);
+    }
+}
+
+@media screen and (max-width : 1024px) {
+    /* стили для нетбуков */
+    .barentsburg {
+        width: 928px;
+    }
+}
+
+@media screen and (max-width : 1023px) and (min-width : 769px) {
+    .barentsburg {
+        max-width: calc(720/768*100%);
+    }
+}
+
+@media screen and (max-width : 768px) {
+    /* стили для планшета */
+    .barentsburg {
+        width: 720px;
+    }
+}
+
+@media screen and (max-width : 720px) {
+    .barentsburg {
+        width: calc(343/375*100%);
+    }
+}
+
+@media screen and (max-width : 375px) {
+    /* стили для среднего смартфона */
+        .barentsburg {
+        justify-content: flex-start;
+        height: 100%;
+        margin-top: 24px;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    /* стили для малого смартфона */
+    .barentsburg {
+        width: (288/320*100%);
+        height: 492px;
+        margin-top: 0px;
+    }
+}
+

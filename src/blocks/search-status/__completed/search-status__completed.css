@@ -1,0 +1,9 @@
+.search-status__completed {
+  width: 90%;
+  max-width: 340px;
+  margin: 16px auto 0;
+  text-align: center;
+  font-weight: normal;
+  font-size: 1.125em;
+  color: #B6BCBF;
+}

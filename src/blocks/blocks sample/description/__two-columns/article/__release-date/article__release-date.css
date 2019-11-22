@@ -1,0 +1,18 @@
+.article__release-date {
+    margin: 0px 0px;
+    line-height: 16px;
+    font-size: 10px;
+    
+    font-family: 'Inter';
+    font-weight: normal;
+}
+
+
+@media screen and (max-width : 1000px) {
+    /* стили для планшета */
+    .article__release-date {
+        top: 0px;
+    }
+}
+
+

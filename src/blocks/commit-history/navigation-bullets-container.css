@@ -1,0 +1,30 @@
+@import url('__item/navigation-bullets__item.css');
+
+.navigation-bullets-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px auto 0;
+  width: 40px;
+  padding: 0;
+}
+
+@media screen and (max-width : 768px) {
+.navigation-bullets-container {
+    margin: 75px auto 0;
+    width: 40px;
+  }
+}
+
+@media screen and (max-width : 593px) {
+.navigation-bullets-container {
+    margin: 70px auto 30px;
+  }
+}
+
+@media screen and (max-width : 435px) {
+.navigation-bullets-container {
+    margin-bottom: 0px;
+    width: 72px;
+  }
+}

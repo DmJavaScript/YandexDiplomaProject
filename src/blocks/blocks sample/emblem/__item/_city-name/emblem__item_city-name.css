@@ -1,0 +1,61 @@
+.emblem__item_city-name {
+    position: relative;
+    top: 265px;
+    text-align: center;
+    hyphens: none;
+    line-height: 26px;
+    font-size: 24px;
+    color: #cccccc;
+    margin: 0 auto;
+
+    font-family: 'Inter';
+    font-weight: bold;
+}
+
+
+@media screen and (max-width : 1024px) {
+    .emblem__item_city-name {
+        top: 240px;
+    }
+
+    .taken{
+        left: -9%;
+    }
+}
+
+@media screen and (max-width : 1000px) {
+    .taken{
+        left: 0%;
+    }
+}
+
+@media screen and (max-width : 768px) and (min-width : 376px) {
+    .taken{
+        left: 0;
+    }
+
+    .emblem__item_city-name {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    /* стили для планшета */
+    .emblem__item_city-name {
+        top: 0px;
+        margin-top: 265px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    .taken{
+        left: -7%;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    .taken{
+        left: 0;
+        margin-top: 263px;
+    }
+}

@@ -9,5 +9,8 @@
   height: 374px;
   width: 100%;
   background-color: #F5F6F7;
-  border: 1px solid white;
+}
+
+.search-status_hidden {
+  display: none;
 }

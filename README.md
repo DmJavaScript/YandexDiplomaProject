@@ -2,7 +2,7 @@
 # ссылка на мой репозиторий https://github.com/DmJavaScript/YandexDiplomaProject
 Дипломный проект по курсу Фронтэнд-разработки написанный на HTML, CSS, JavaScript
 
-1.Сайт "NewsAnalizer" Актуальная версия программы v.0.0.6 от 22 ноября 2019г.
+1.Сайт "NewsAnalizer" Актуальная версия программы v.0.0.8 от 23 ноября 2019г.
 
 2.Данная версия содержит код проектной дипломной работы в рамках курса по изучению языков программирования HTML, CSS, Javascript
 
@@ -28,15 +28,11 @@
     "gh-pages": "~2.1.1",
     "html-webpack-plugin": "3.2.0",
     "mini-css-extract-plugin": "0.8.0",
-    "optimize-css-assets-webpack-plugin": "5.0.3",
     "path": "0.12.7",
     "postcss-loader": "3.0.0",
     "style-loader": "1.0.0",
-    "tapable": "1.1.3",
-    "uglifyjs-webpack-plugin": "2.2.0",
     "webpack-cli": "3.3.10",
     "webpack-md5-hash": "0.0.6",
-    "webpack-merge": "4.2.2",
     "webpack": "4.41.2"
     "@babel/cli": "7.7.0",
     "@babel/core": "7.7.2",

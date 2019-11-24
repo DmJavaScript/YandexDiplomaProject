@@ -34,13 +34,14 @@
 }
 
 @font-face {
-  src: url('../fonts/source-sans-pro-regular.woff2') format('woff2');
+  src: url('../fonts/source-sans-pro-regular.woff') format('woff');
   font-family: 'Source Sans Pro';
   font-weight: normal;
 }
 
 html {
   font-size: 16px;
+  font-family: 'Roboto';
 }
 
 body {
@@ -57,10 +58,8 @@ body {
   max-width: 1440px;
   height: 100%;
   margin: 0 auto;
-  border-color: rgba(255, 255, 255, 0) #B6BCBF;
   background-color: #ffffff;
   color:  #1A1B22;
-  font-family: 'Roboto';
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -15,9 +15,9 @@
 
 <body>
   <div class='page'>
-    <header class='header header-details' aria-labelledby='Фотография смартфона в руке. На экране отображена диаграмма аналитики.'>
+    <header class='header header-details' aria-label='Фотография смартфона в руке. На экране отображена диаграмма аналитики.'>
       <nav class='navigation-loft'>
-        <a href='./index.html' class='logo-link' alt='название сайта'>NewsAnalyzer</a>
+        <a href='./index.html' class='logo-link'>NewsAnalyzer</a>
         <ul class='navigation-container'>
           <li class='navigation__page'>
             <a href='./index.html' class='navigation__page_link'>Главная</a>
@@ -25,7 +25,6 @@
             <a href='./about.html' class='navigation__page_link'>О проекте</a>
         </ul>
       </nav>
-      <div class='header__bottom-line'></div>
       <div class='page-title-container'>
         <p class='header__navigation'>Главная</p>
         <span class='header__span'> / </span>
@@ -45,12 +44,15 @@
     <main class='content-details'>
       <table class='search-analitics'>
         <caption class='search-analitics__table-title'>Аналитика по дням</caption>
-        <tread class='search-analitics-table'>
+        <thead class='search-analitics-table'>
           <tr class='search-analitics__bars-headers'>
             <th class='search-analitics__bar-title'>Дата<br><span class='search-analitics__bar-title_month'>(Август)</span></th>
             <th class='search-analitics__bar-title'>Кол-во упоминаний</th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
-        </tread>
+        </thead>
         <tbody class='search-analitics-bars-container'>
           <tr class='search-analitics__ruller'>
             <th class='search-analitics__ruller_horizontal-mark'>0</th>
@@ -64,42 +66,63 @@
             <td class='search-analitics__data'>
               <div class='search-analitics__data_mon'>15</div>
             </td>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr class='search-analitics-bar'>
             <th class='search-analitics__data_mark'>20, вт</th>
             <td class='search-analitics__data'>
                 <div class='search-analitics__data_tue'>18</div>
             </td>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr class='search-analitics-bar'>
             <th class='search-analitics__data_mark'>21, ср</th>
             <td class='search-analitics__data'>
                 <div class='search-analitics__data_wed'>11</div>
             </td>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr class='search-analitics-bar'>
             <th class='search-analitics__data_mark'>22, чт</th>
             <td class='search-analitics__data'>
                 <div class='search-analitics__data_thu'>39</div>
             </td>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr class='search-analitics-bar'>
             <th class='search-analitics__data_mark'>23, пт</th>
             <td class='search-analitics__data'>
                 <div class='search-analitics__data_fri'>45</div>
             </td>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr class='search-analitics-bar'>
             <th class='search-analitics__data_mark'>24, cб</th>
             <td class='search-analitics__data'>
                 <div class='search-analitics__data_sat'>73</div>
             </td>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr class='search-analitics-bar'>
             <th class='search-analitics__data_mark'>25, вс</th>
             <td class='search-analitics__data'>
                 <div class='search-analitics__data_sun'>34</div>
             </td>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr class='search-analitics__ruller'>
             <th class='search-analitics__ruller_horizontal-mark'>0</th>
@@ -138,6 +161,6 @@
       </nav>
     </footer>
   </div>
-</body>
 <script src="<%=htmlWebpackPlugin.files.chunks.details.entry %>"></script>
+</body>
 </html>

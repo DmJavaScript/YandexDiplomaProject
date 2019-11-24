@@ -3,8 +3,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 
 
@@ -43,7 +41,7 @@ module.exports = {
             {
                 test: /\.(png|jpg|gif|ico|svg)$/,
                 use: {
-                loader: 'file-loader?name=./images/[dir]/[name].[ext]'
+                loader: 'file-loader?name=./images/[name].[ext]'
                 },
             },
             {
@@ -57,14 +55,6 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({ //
             filename: './styles/[name].[contenthash].css',
-        }),
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorPluginOptions: {
-                    preset: ['default'],
-            },
-            canPrint: true
         }),
         new HtmlWebpackPlugin({
             inject: false,
@@ -87,16 +77,6 @@ module.exports = {
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         }),
-        new WebpackMd5Hash(),
-        new UglifyJsPlugin({
-            uglifyOptions: {
-                compress: {
-                    global_defs: {
-                        '@alert': 'console.log',
-                    },
-                    drop_console: true
-                }
-            }
-        })
+        new WebpackMd5Hash()
     ]
 };

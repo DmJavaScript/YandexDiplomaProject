@@ -10,8 +10,6 @@
   width: 100%;
   margin: 0 auto;
   background-color: #F5F6F7;
-
-  border: 1px solid green;
 }
 
 @media screen and (max-width : 768px) {

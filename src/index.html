@@ -15,9 +15,9 @@
 
 <body>
   <div class='page'>
-    <header class='header header-index' aria-labelledby='Фотография смартфона в руке. На экране отображена диаграмма аналитики.'>
+    <header class='header header-index' aria-label='Фотография смартфона в руке. На экране отображена диаграмма аналитики.'>
       <nav class='navigation-loft'>
-        <a href='./index.html' class='logo-link navigation-white-color' alt='название сайта'>NewsAnalyzer</a>
+        <a href='./index.html' class='logo-link navigation-white-color'>NewsAnalyzer</a>
         <ul class='navigation-container'>
           <li class='navigation__page'>
             <a href='./index.html' class='navigation__page_chosen navigation-white-color'>Главная</a>
@@ -25,7 +25,6 @@
             <a href='./about.html' class='navigation__page_link'>О проекте</a>
         </ul>
       </nav>
-      <div class='header__bottom-line'></div>
       <h1 class='header__title'>Что в мире <span class='header__title_break'>творится?</span></h1>
       <p class='header__subtitle'>Введите в поиске любую тему и узнайте, насколько популярной она&nbsp;была в новостях за прошедшую неделю.</p>
       <form id='form-search' class='header__search' name='search'>
@@ -43,6 +42,7 @@
           <a href='./details.html' class='search__analitics-link' target='_blank'><nav>Посмотреть&nbsp;аналитику&nbsp;&nbsp;&#x276F;</nav></a>
         </div>
         <section class='search-table'>
+          <h3 class='visually-hidden' hidden>Секция таблицы с карточками полученными со стороннего сервера</h3>
           <article class='search-table__cell'>
             <img class='search-table__cell_image' src="<%=require('./images/search-results/result_template_01.png')%>" alt='картинка к новости'>
             <p class='search-table__cell_data'>2 августа, 2019</p>
@@ -103,18 +103,20 @@
         <button id='button-search' type='submit' class='button search__button-open-more'>Показать еще</button>
       </section>
 
-      <section class='preloader'>
+      <section class='preloader preloader_hidden'>
+        <h3 class='visually-hidden' hidden>Секция прелоудера для ожидания загрузки данных</h3>
         <i class='preloader__circle'></i>
         <p class='preloader__current-status'>Идет поиск новостей…</p>
       </section>
 
-      <section class='search-status'>
+      <section class='search-status search-status_hidden'>
         <img class='search-status__img-done' src="<%=require('./images/search-status/no-results.svg')%>" alt='поиск новостей завершён'>
         <h4 class='search-status__not-found'>Ничего не найдено</h4>
         <p class='search-status__completed'>К сожалению по вашему запросу ничего не найдено.</p>
       </section>
 
-      <article class='developer'>
+      <section class='developer'>
+        <h2 class='visually-hidden' hidden>Секция о разработчике данного проекта</h2>
         <picture class='developer-photo-container'>
           <source media='(max-width : 320px)' srcset="<%=require('./images/developer/developer_photo_template-small.png')%>">
           <img class='developer__photo' src="<%=require('./images/developer/developer_photo_template.png')%>" alt='фотография разработчика'>
@@ -124,7 +126,7 @@
           <p class='developer__cv'>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
           <p class='developer__cv'>Также&nbsp;можно&nbsp;рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам. Если хотите, оставьте свои контакты: email и телефон. Так заказчики смогут с вами связаться.</p>
         </article>
-      </article>
+      </section>
     </main>
 
     <footer class='footer footer-lifting-up'>
@@ -153,6 +155,6 @@
       </nav>
     </footer>
   </div>
-</body>
 <script src="<%=htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
 </html>

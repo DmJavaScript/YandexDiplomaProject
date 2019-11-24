@@ -10,15 +10,17 @@
   align-items: center;
   position: relative;
   width: 86%;
+  padding: 0 7%;
   height: 80px;
-  margin: 0px auto;
+
+  border-bottom: 2px solid #C4C4C4;
 }
 
 @media screen and (max-width : 768px) {
 .navigation-loft {
     width: 90%;
     height: 63px;
-    margin: 0px auto;
+    padding: 0 5%;
   }
 }
 

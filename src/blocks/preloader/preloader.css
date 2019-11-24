@@ -1,3 +1,4 @@
+@import url('visually-hidden.css');
 @import url('__circle/preloader__circle.css');
 @import url('__current-status/preloader__current-status.css');
 
@@ -8,4 +9,8 @@
   height: 282px;
   width: 100%;
   background-color: #F5F6F7;
+}
+
+.preloader_hidden {
+  display: none;
 }

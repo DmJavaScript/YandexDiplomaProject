@@ -15,9 +15,9 @@
 
 <body>
   <div class='page'>
-    <header class='header header-about' aria-labelledby='Фотография смартфона в руке. На экране отображена диаграмма аналитики.'>
+    <header class='header header-about' aria-label='Фотография смартфона в руке. На экране отображена диаграмма аналитики.'>
       <nav class='navigation-loft'>
-        <a href='./index.html' class='logo-link' alt='название сайта'>NewsAnalyzer</a>
+        <a href='./index.html' class='logo-link'>NewsAnalyzer</a>
         <ul class='navigation-container'>
           <li class='navigation__page'>
             <a href='./index.html' class='navigation__page_link'>Главная</a>
@@ -25,7 +25,6 @@
             <a href='./about.html' class='navigation__page_chosen navigation-black-color'>О проекте</a>
         </ul>
       </nav>
-      <div class='header__bottom-line'></div>
       <h1 class='header__ab-title'>Клиентам</h1>
       <p class='header__ab-subtitle'>Этот сайт — дипломный проект студента Яндекс.Практикума. Его цель — показать, чему научился студент и какими технологиями владеет.</p>
       <p class='header__ab-subtitle'>Вёрстка сайта выполнена по методологии БЭМ. Это делает сайт гибким и масштабируемым. Кроме того, добавлять новые страницы и функциальность проще и быстрее, чем в проектах, выполненных по другим методологиям. Также сайт проще и дешевле поддерживать.</p>
@@ -48,6 +47,7 @@
       </section>
 
       <section class='developer developer-about'>
+        <h2 class='visually-hidden' hidden>Секция о разработчике данного проекта</h2>
         <picture class='developer-photo-container'>
           <source media='(max-width : 320px)' srcset="<%=require('./images/developer/developer_photo_template-small.png')%>">
           <img class='developer__photo' src="<%=require('./images/developer/developer_photo_template.png')%>" alt='фотография разработчика'>
@@ -59,12 +59,12 @@
         </article>
       </section>
 
-      <aside class='commit-history'>
+      <section class='commit-history'>
         <h2 class='commit-history__title'>История коммитов из&nbsp;GitHub</h2>
         <a href='https://github.com/DmJavaScript/YandexDiplomaProject/commits/develop' class='commit-history__external-link' target='_blank'>Открыть в&nbsp;Github&nbsp;&nbsp;&#x276F;</a>
         <div class='flappers'></div>
         <div class='flappers'></div>
-        <section class='comments-carousel-container'>
+        <div class='comments-carousel-container'>
           <article class='comment-card'>
             <p class='comment-card__date'>14 августа, 2019</p>
             <div class='commentator-container'>
@@ -110,24 +110,24 @@
             </div>
             <p class='comment-card__quote'>Emmet (formerly Zen Coding) is a web-developer’s toolkit that can greatly improve your HTML & CSS workflow.</p>
           </article>
-        </section>
+        </div>
         <div class='slider-controls'>
           <div id='left-control' class='slider-controls__item'></div>
           <div id='right-control' class='slider-controls__item'></div>
         </div>
         <nav class='navigation-bullets'>
-            <ul class='navigation-bullets-container'>
-                <li class='navigation-bullets__item'>
-                <li class='navigation-bullets__item'>
-                <li class='navigation-bullets__item'>
-                <li class='navigation-bullets__item'>
-                <li class='navigation-bullets__item'>
-            </ul>
-          </nav>
+          <ul class='navigation-bullets-container'>
+              <li class='navigation-bullets__item'>
+              <li class='navigation-bullets__item'>
+              <li class='navigation-bullets__item'>
+              <li class='navigation-bullets__item'>
+              <li class='navigation-bullets__item'>
+          </ul>
+        </nav>
         <form action='https://github.com/DmJavaScript/YandexDiplomaProject' target='_blank'>
           <button id='button-github' type='submit' class='button commit-history__button'>Открыть в Github</button>
         </form>
-      </aside>
+      </section>
     </main>
 
 
@@ -157,6 +157,6 @@
       </nav>
     </footer>
   </div>
-</body>
 <script src="<%=htmlWebpackPlugin.files.chunks.about.entry %>"></script>
+</body>
 </html>

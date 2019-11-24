@@ -10,7 +10,7 @@
   <title>NewsAnalyzer дипломный проект</title>
   <link rel='icon' href="<%=require('./images/head/favicon.svg')%>" sizes='any' type='image/svg+xml'>
   <link rel='alternate icon' href="<%=require('./images/head/favicon.png')%>" sizes='any' type='image/png'>
-  <link rel='stylesheet' href='<%=htmlWebpackPlugin.files.chunks.main.css %>'>
+  <link rel='stylesheet' href='<%=htmlWebpackPlugin.files.chunks.main.css %>' type='text/css'>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
       <section class='search'>
         <div class='search-results-text-container'>
           <h2 class='search__results-title'>Результаты поиска</h2>
-          <a href='./details.html' class='search__analitics-link' target='_blank'><nav>Посмотреть&nbsp;аналитику&nbsp;&nbsp;&#62;</nav></a>
+          <a href='./details.html' class='search__analitics-link' target='_blank'><nav>Посмотреть&nbsp;аналитику&nbsp;&nbsp;&#x276F;</nav></a>
         </div>
         <section class='search-table'>
           <article class='search-table__cell'>
@@ -154,5 +154,5 @@
     </footer>
   </div>
 </body>
-<script src=' '></script>
+<script src="<%=htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </html>

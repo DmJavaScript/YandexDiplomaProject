@@ -10,7 +10,7 @@
   <title>NewsAnalyzer дипломный проект</title>
   <link rel='icon' href="<%=require('./images/head/favicon.svg')%>" sizes='any' type='image/svg+xml'>
   <link rel='alternate icon' href="<%=require('./images/head/favicon.png')%>" sizes='any' type='image/png'>
-  <link rel='stylesheet' href='<%=htmlWebpackPlugin.files.chunks.about.css %>'>
+  <link rel='stylesheet' href='<%=htmlWebpackPlugin.files.chunks.about.css %>' type='text/css'>
 </head>
 
 <body>
@@ -61,7 +61,7 @@
 
       <aside class='commit-history'>
         <h2 class='commit-history__title'>История коммитов из&nbsp;GitHub</h2>
-        <a href='https://github.com/DmJavaScript/YandexDiplomaProject/commits/develop' class='commit-history__external-link' target='_blank'>Открыть в&nbsp;Github&nbsp;&nbsp;&#62;</a>
+        <a href='https://github.com/DmJavaScript/YandexDiplomaProject/commits/develop' class='commit-history__external-link' target='_blank'>Открыть в&nbsp;Github&nbsp;&nbsp;&#x276F;</a>
         <div class='flappers'></div>
         <div class='flappers'></div>
         <section class='comments-carousel-container'>
@@ -158,5 +158,5 @@
     </footer>
   </div>
 </body>
-<script src=' '></script>
+<script src="<%=htmlWebpackPlugin.files.chunks.about.entry %>"></script>
 </html>

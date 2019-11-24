@@ -10,7 +10,7 @@
   <title>NewsAnalyzer Новостная аналитика</title>
   <link rel='icon' href="<%=require('./images/head/favicon.svg')%>" sizes='any' type='image/svg+xml'>
   <link rel='alternate icon' href="<%=require('./images/head/favicon.png')%>" sizes='any' type='image/png'>
-  <link rel='stylesheet' href='<%=htmlWebpackPlugin.files.chunks.details.css %>'>
+  <link rel='stylesheet' href='<%=htmlWebpackPlugin.files.chunks.details.css %>' type='text/css'>
 </head>
 
 <body>
@@ -139,5 +139,5 @@
     </footer>
   </div>
 </body>
-<script src=' '></script>
+<script src="<%=htmlWebpackPlugin.files.chunks.details.entry %>"></script>
 </html>

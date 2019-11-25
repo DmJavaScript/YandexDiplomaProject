@@ -1,11 +1,7 @@
-@import url('visually-hidden.css');
-@import url('developer-about.css');
-@import url('developer-photo-container.css');
-@import url('__photo/developer__photo.css');
-@import url('developer-arcicle-container.css');
-@import url('__about/developer__about.css');
-@import url('__cv/developer__cv.css');
-
+@import url('_stretch-down/developer_stretch-down.css');
+@import url('/blocks/visually-hidden/visually-hidden.css');
+@import url('__photo-container/developer__photo-container.css');
+@import url('__article-container/developer__article-container.css');
 
 .developer {
   display: flex;

@@ -1,0 +1,17 @@
+@import url('__bar-title-month/search-analitics__bar-title-month.css');
+
+.search-analitics__bar-title {
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-size: 0.75em;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #B6BCBF;
+  text-align: start;
+}
+
+.search-analitics__bar-title:first-of-type {
+  width: 104px;
+  word-spacing: 60px;
+}

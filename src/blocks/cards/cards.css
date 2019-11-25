@@ -1,0 +1,30 @@
+@import url('../visually-hidden/visually-hidden.css');
+@import url('__cell/cards__cell.css');
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  justify-content: space-between;
+  width: 86%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width : 768px) {
+.cards {
+    width: 90%;
+    margin: 22px auto 0;
+  }
+}
+
+@media screen and (max-width : 515px) {
+/* стили для малого смартфона */
+.cards {
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    width: 288px;
+    margin: 30px auto 0;
+
+    background-color: #F5F6F7;
+  }
+}

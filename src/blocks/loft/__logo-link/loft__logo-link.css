@@ -1,0 +1,26 @@
+@import url('_color_white/loft__link_color_white.css');
+@import url('_color_black/loft__link_color_black.css');
+
+.loft__logo-link {
+  margin-left: 0; /* Отступ слева в браузере IE и Opera */
+  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+
+  font-family:'Roboto Slab';
+  font-weight: bold;
+  font-size: 1.25em;
+  text-decoration: none;
+}
+
+
+@media screen and (max-width : 768px) {
+.loft__logo-link {
+    font-size: 1.25em;
+  }
+}
+
+@media screen and (max-width : 420px) {
+/* стили для малого смартфона */
+.loft__logo-link {
+    font-size: 1em;
+  }
+}

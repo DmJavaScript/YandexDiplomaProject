@@ -1,0 +1,8 @@
+.search-analitics__ruller-horizontal-mark {
+  width: 115px;
+  text-align: end;
+}
+
+.search-analitics__ruller-horizontal-mark:first-child {
+  min-width: 115px;
+}

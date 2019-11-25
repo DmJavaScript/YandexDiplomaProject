@@ -1,0 +1,32 @@
+@import url('__logo-link/loft__logo-link.css');
+@import url('__container/loft__container.css');
+
+.loft {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 86%;
+  padding: 0 7%;
+  height: 80px;
+
+  border-bottom: 2px solid #C4C4C4;
+}
+
+@media screen and (max-width : 768px) {
+.loft {
+    width: 90%;
+    height: 63px;
+    padding: 0 5%;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.loft {
+    padding: 0 5%;
+    height: 56px;
+    margin: 0px auto;
+  }
+}

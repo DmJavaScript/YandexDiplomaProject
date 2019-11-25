@@ -1,0 +1,9 @@
+.footer__icon-link {
+  color: #B6BCBF;
+  display: inline;
+  list-style-type: none; /* Убираем маркеры */
+}
+
+.footer__icon-link a img:hover {
+  opacity: 0.7;
+}

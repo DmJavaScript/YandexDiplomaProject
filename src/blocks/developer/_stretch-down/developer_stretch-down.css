@@ -1,0 +1,11 @@
+@media screen and (max-width : 768px) {
+.developer_stretch-down {
+    margin-bottom: 62px;
+  }
+}
+
+@media screen and (max-width : 690px) {
+  .developer_stretch-down {
+      margin-bottom: 38px;
+    }
+  }

@@ -1,0 +1,16 @@
+@import url('__card/slider__card.css');
+
+.commit-history__slider {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-x: scroll;
+  width: 100%;
+
+  position: relative;
+}
+
+@media screen and (max-width : 768px) {
+.commit-history__slider {
+    margin-left: 5%;
+  }
+}

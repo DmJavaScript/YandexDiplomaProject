@@ -1,5 +1,5 @@
 @import url('__title/used-technologies__title.css');
-@import url('used-technologies-container.css');
+@import url('__container/used-technologies__container.css');
 
 .used-technologies {
   display: flex;

@@ -1,5 +1,5 @@
-@import url('_text/header__week-data_text.css');
-@import url('_number/header__week-data_number.css');
+@import url('__week-text/header__week-text.css');
+@import url('__week-number/header__week-number.css');
 
 .header__week-data {
   display: flex;

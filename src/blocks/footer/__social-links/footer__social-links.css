@@ -1,5 +1,5 @@
-@import url('_item/footer__social-links_item.css');
-@import url('_image-icon/footer__social-links_image-icon.css');
+@import url('__icon-link/footer__icon-link.css');
+@import url('__image-icon/footer__image-icon.css');
 
 .footer__social-links {
   min-width: 70px;

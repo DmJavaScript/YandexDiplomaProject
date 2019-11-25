@@ -1,8 +1,0 @@
-@import url('search-analitics-bar.css');
-
-.search-analitics-bars-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 629px;
-}

@@ -1,9 +1,10 @@
 @import url('__title/commit-history__title.css');
 @import url('__external-link/commit-history__external-link.css');
-@import url('comments-carousel-container.css');
-@import url('slider-controls.css');
-@import url('navigation-bullets.css');
-@import url('commit-history__button.css');
+@import url('__slider/__flapers/slider__flappers.css');
+@import url('__slider/commit-history__slider.css');
+@import url('__slider/__controls/slider__controls.css');
+@import url('__slider/__bullets/slider__bulets.css');
+@import url('__button/commit-history__button.css');
 
 
 .commit-history {

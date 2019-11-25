@@ -1,5 +1,6 @@
 @import url('__table-title/search-analitics__table-title.css');
-@import url('search-analitics-table.css');
+@import url('__table/search-analitics__table.css');
+@import url('__bars-container/search-analitics__bars-container.css');
 
 .search-analitics {
   display: flex;

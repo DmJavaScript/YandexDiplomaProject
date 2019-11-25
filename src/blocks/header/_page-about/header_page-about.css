@@ -1,0 +1,15 @@
+.header_page-about {
+  margin-bottom: 96px;
+}
+
+@media screen and (max-width : 768px) {
+.header_page-about {
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width : 320px) {
+.header_page-about {
+    margin-bottom: 30px;
+  }
+}

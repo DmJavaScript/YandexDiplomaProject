@@ -17,9 +17,8 @@
   }
 }
 
-@media screen and (max-width : 435px) {
+@media screen and (max-width : 591px) {
 .commit-history__title {
-  height: 120px;
   margin: 32px 5% 16px;
   }
 }

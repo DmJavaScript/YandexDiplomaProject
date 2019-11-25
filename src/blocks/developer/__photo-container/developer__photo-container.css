@@ -1,0 +1,14 @@
+@import url('__photo/developer__photo.css');
+
+.developer__photo-container {
+  min-width: 229px;
+  margin-right: 4.5%;
+  margin-bottom: auto;
+}
+
+
+@media screen and (max-width : 690px) {
+.developer__photo-container {
+    margin: 0 0;
+  }
+}

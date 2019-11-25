@@ -1,0 +1,10 @@
+@import url('__control-item/slider__control-item.css');
+
+.slider__controls {
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -166px;
+  padding-bottom: 122px;
+}

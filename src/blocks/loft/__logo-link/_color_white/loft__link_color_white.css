@@ -1,0 +1,7 @@
+.loft__link_color_white {
+  color: #ffffff;
+}
+
+.loft__link_color_white:last-child {
+  border-bottom: 3px solid #ffffff;
+}

@@ -1,0 +1,21 @@
+@import url('__cell-heading/cards__cell-heading.css');
+@import url('__cell-text/cards__cell-text.css');
+
+.cards__article-container {
+    margin: 12px auto 54px;
+}
+
+@media screen and (max-width : 768px) {
+.cards__article-container {
+    margin: 12px auto 48px;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.cards__article-container {
+    width: 100%;
+    height: 150px;
+    margin: 15px auto 0;
+  }
+}

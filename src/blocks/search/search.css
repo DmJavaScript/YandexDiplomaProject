@@ -1,5 +1,5 @@
-@import url('search-results-text-container.css');
-@import url('search-table.css');
+@import url('__header-container/search__header-container.css');
+@import url('../cards/cards.css');
 @import url('__button-open-more/search__button-open-more.css');
 
 .search {

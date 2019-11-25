@@ -1,5 +1,4 @@
-@import url('_page/footer__navigation_page.css');
-@import url('_page-link/footer__navigation_page-link.css');
+@import url('__links/footer__links.css');
 
 .footer__navigation {
   width: 28%;

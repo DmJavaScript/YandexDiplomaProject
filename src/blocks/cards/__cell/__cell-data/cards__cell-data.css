@@ -1,0 +1,28 @@
+.cards__cell-data {
+  font-family: 'Source Sans Pro';
+  font-weight: normal;
+  font-size: 1.125em;
+  color: #B6BCBF;
+
+  width: 88%;
+  margin: 20px auto 0;
+}
+
+@media screen and (max-width : 768px) {
+.cards__cell-data {
+    width: 86%;
+    margin: 16px auto 0;
+
+    font-size: 1.125em;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.cards__cell-data {
+    width: 89%;
+    margin: 12px auto 0;
+
+    font-size: 1.125em;
+  }
+}

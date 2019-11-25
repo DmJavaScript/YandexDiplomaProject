@@ -1,0 +1,16 @@
+.loft__page-chosen {
+  text-decoration: none;
+  padding-bottom: 25px;
+}
+
+@media screen and (max-width : 768px) {
+.loft__page-chosen {
+    padding-bottom: 17px;
+  }
+}
+
+@media screen and (max-width : 320px) {
+.loft__page-chosen {
+    padding-bottom: 17px;
+  }
+}

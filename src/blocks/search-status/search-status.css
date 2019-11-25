@@ -1,4 +1,4 @@
-@import url('/blocks/visually-hidden/visually-hidden.css');
+@import url('../visually-hidden/visually-hidden.css');
 @import url('__img-done/search-status__img-done.css');
 @import url('__not-found/search-status__not-found.css');
 @import url('__completed/search-status__completed.css');

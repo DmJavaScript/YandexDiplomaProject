@@ -1,4 +1,4 @@
-@import url('/blocks/visually-hidden/visually-hidden.css');
+@import url('../../visually-hidden/visually-hidden.css');
 @import url('__cell-image/cards__cell-image.css');
 @import url('__cell-data/cards__cell-data.css');
 @import url('__cell-news-source/cards__cell-news-source.css');

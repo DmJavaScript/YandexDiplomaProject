@@ -22,6 +22,10 @@
   transition-duration: 2s;
 }
 
+.cards__cell.visually-hidden {
+  display: none;
+}
+
 @media screen and (max-width : 950px) {
 .cards__cell {
     min-height: auto;

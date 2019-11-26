@@ -3,14 +3,13 @@
   font-weight: normal;
   color: #B6BCBF;
   font-size: 1em;
-  padding-left: 1.5em;
+  padding: 23px 0 23px 25px;
 
   width: 40vw;
   min-width: 446px;
   max-width: 608px;
-  height: 60px;
   border-radius: 32px;
-  border: none;
+  border: 1px solid transparent;
   outline: none;
 }
 
@@ -26,7 +25,7 @@
 @media screen and (max-width : 768px) {
 .header__search-input {
     width: 56vw;
-    height: 54px;
+    padding: 19px 0 19px 25px;
     margin: 0px auto;
     border-radius: 28px;
 
@@ -45,7 +44,6 @@
 .header__search-input {
     padding-left: 1em;
     min-width: 272px;
-    height: 56px;
     margin: 0px auto;
 
 

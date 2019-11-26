@@ -1,8 +1,7 @@
+@import url('_hover-white/loft__page-link_hover-white.css');
+@import url('_hover-black/loft__page-link_hover-black.css');
+
 .loft__page-link {
   color: #B6BCBF;
   text-decoration: none;
-}
-
-.loft__page-link:hover {
-  color: #1A1B22;
 }

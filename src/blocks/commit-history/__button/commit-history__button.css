@@ -12,11 +12,9 @@
   background-color:#F5F6F7;
   border-radius: 28px;
   cursor: pointer;
-  cursor: hand;
-
 
   font-family:'Roboto';
-  font-weight: medium;
+  font-weight: 500;
   color: #1A1B22;
   font-size: 1.125em;
 }

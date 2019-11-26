@@ -1,6 +1,6 @@
 .search__button-open-more {
   font-family:'Roboto';
-  font-weight: medium;
+  font-weight: 500;
   color: #1A1B22;
   font-size: 1.125em;
 
@@ -8,11 +8,12 @@
   border-radius: 32px;
   border: none;
   outline: none;
-  width: 20%;
-  height: 64px;
-  margin: 64px auto 80px;
-
   cursor: pointer;
+
+  min-width: 240px;
+  width: 20%;
+  padding: 22px 0;
+  margin: 64px auto 80px;
 }
 
 .search__button-open-more:hover {
@@ -21,18 +22,16 @@
 
 @media screen and (max-width : 768px) {
 .search__button-open-more {
-    width: 240px;
-    height: 56px;
+    padding: 18px 0;
     border-radius: 28px;
     margin: 32px auto 40px;
   }
 }
 
-@media screen and (max-width : 320px) {
+@media screen and (max-width : 515px) {
 /* стили для малого смартфона */
 .search__button-open-more {
-    width: 288px;
-    height: 56px;
+    min-width: 288px;
     margin: 13px auto 44px;
     border-radius: 28px;
   }

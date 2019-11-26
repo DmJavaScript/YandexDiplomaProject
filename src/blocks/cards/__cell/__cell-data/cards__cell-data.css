@@ -17,12 +17,15 @@
   }
 }
 
+@media screen and (max-width : 760px) {
+.cards__cell-data {
+  margin: 12px auto 0;
+  }
+}
+
 @media screen and (max-width : 320px) {
 /* стили для малого смартфона */
 .cards__cell-data {
     width: 89%;
-    margin: 12px auto 0;
-
-    font-size: 1.125em;
   }
 }

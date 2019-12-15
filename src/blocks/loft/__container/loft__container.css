@@ -1,4 +1,4 @@
-@import url('__page/loft__page.css');
+@import url('../__page/loft__page.css');
 
 .loft__container {
   display: flex;

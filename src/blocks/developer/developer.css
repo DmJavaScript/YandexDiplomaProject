@@ -1,4 +1,6 @@
-@import url('_stretch-down/developer_stretch-down.css');
+@import url('_index-down/developer_index-down.css');
+@import url('_about-down/developer_about-down.css');
+@import url('__fake-header/developer__fake-header.css');
 @import url('./../visually-hidden/visually-hidden.css');
 @import url('__photo-container/developer__photo-container.css');
 @import url('__article-container/developer__article-container.css');

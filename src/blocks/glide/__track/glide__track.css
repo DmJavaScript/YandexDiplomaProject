@@ -1,0 +1,5 @@
+@import url('../__slides/glide__slides.css');
+
+.glide__track {
+  overflow: hidden;
+}

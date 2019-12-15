@@ -1,6 +1,6 @@
-@import url('__navigation/header__navigation.css');
-@import url('__span/header__span.css');
-@import url('__page-title/header__page-title.css');
+@import url('../__navigation/header__navigation.css');
+@import url('../__span/header__span.css');
+@import url('../__page-title/header__page-title.css');
 
 .header__mark-container {
   display: flex;
@@ -18,7 +18,7 @@
   }
 }
 
-@media screen and (max-width : 320px) {
+@media screen and (max-width : 420px) {
 .header__mark-container {
     display: none;
   }

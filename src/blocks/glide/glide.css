@@ -1,0 +1,26 @@
+@import url('__track/glide__track.css');
+@import url('__arrows/glide__arrows.css');
+@import url('__bullets/glide__bullets.css');
+
+.glide {
+  cursor: -webkit-grab;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}

@@ -1,0 +1,23 @@
+.slider__flapper {
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  width: 88px;
+  height: 288px;
+}
+
+.slider__flapper:nth-last-child(3) {
+  left: 0px;
+  background: linear-gradient(to left, rgba(245, 246, 247, 0) 0%, #F5F6F7 100%);
+}
+
+.slider__flapper:nth-last-child(2) {
+  right: 0px;
+  background: linear-gradient(to right, rgba(245, 246, 247, 0) 0%, #F5F6F7 100%);
+}
+
+@media screen and (max-width : 990px) {
+.slider__flapper {
+    display: none;
+  }
+}

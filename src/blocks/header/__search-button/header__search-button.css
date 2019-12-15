@@ -1,0 +1,48 @@
+.header__search-button {
+  font-family:'Roboto';
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 1.125em;
+
+  background-color: #2F71E5;
+  border-radius: 32px;
+  border: 1px solid transparent;
+  outline: none;
+  width: 168px;
+  padding: 22px 0;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.header__search-button:hover {
+  background-color: #347EFF;
+}
+
+.header__search-button:focus,
+.header__search-button:active {
+  background-color: #2A65CC;
+}
+
+.header__search-button:disabled {
+  background-color: #B6BCBF;
+}
+
+@media screen and (max-width : 768px) {
+.header__search-button {
+    z-index: 1;
+    width: 160px;
+    padding: 18px 0;
+    border-radius: 28px;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.header__search-button {
+    min-width: 288px;
+    margin: 72px auto 0;
+  }
+}

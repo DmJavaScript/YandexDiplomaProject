@@ -17,9 +17,10 @@
   }
 }
 
-@media screen and (max-width : 320px) {
+@media screen and (max-width : 420px) {
   .header__request-title {
-      width: 288px;
-      margin: 16px auto;
+
+      font-size: 1.875em;
+      margin: 16px auto 16px;
     }
   }

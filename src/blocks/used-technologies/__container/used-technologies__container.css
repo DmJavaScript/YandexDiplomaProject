@@ -1,4 +1,4 @@
-@import url('__image/used-technologies__image.css');
+@import url('../__image/used-technologies__image.css');
 
 .used-technologies__container {
   display: flex;

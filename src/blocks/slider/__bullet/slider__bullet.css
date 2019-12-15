@@ -1,0 +1,16 @@
+.slider__bullet {
+  background-color:  #D1D2D6;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  line-height: 0;
+  margin: 0 4px;
+}
+
+.slider__bullet[class*=active] {
+  background-color: #1A1B22;
+}

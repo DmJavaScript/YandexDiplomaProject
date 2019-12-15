@@ -1,4 +1,5 @@
-@import url('__input-container/header__input-container.css');
+@import url('../__input-container/header__input-container.css');
+@import url('../__input-requirements/header__input-requirements.css');
 
 .header__search-form {
   display: flex;

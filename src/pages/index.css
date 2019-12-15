@@ -75,3 +75,41 @@ body {
       min-width: 320px;
   }
 }
+
+
+
+.header__error-message {
+  text-align:left;
+  width:100%;
+  overflow:hidden;
+  white-space: nowrap;
+
+  position: absolute;
+  margin: 0;
+  z-index: 1;
+  left: 22px;
+  top: -24px;
+  max-width: 220px;
+  padding: 5px 10px;
+  background-color: rgb(15, 53, 15);
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-size: 0.8em;
+  color: #ffffff;
+}
+
+.header__error-message_live-string {
+  display:inline-block;
+  width:100%;
+  text-indent:0;
+  animation: header__error-message 10s linear infinite;
+}
+
+@keyframes header__error-message {
+  0%   { transform: translate(100%, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
+.header__error-message_hidden {
+  opacity: 0;
+}

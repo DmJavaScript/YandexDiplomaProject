@@ -1,5 +1,5 @@
-@import url('__about/developer__about.css');
-@import url('__cv/developer__cv.css');
+@import url('../__about/developer__about.css');
+@import url('../__cv/developer__cv.css');
 
 .developer__article-container {
   flex-direction: column;
@@ -29,7 +29,7 @@
 .developer__article-container {
     min-width: 60%;
     max-height: auto;
-    margin-top: 33px;
+    margin-top: 42px;
     margin-right: 0;
   }
 }

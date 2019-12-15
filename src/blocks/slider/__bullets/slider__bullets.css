@@ -1,0 +1,41 @@
+@import url('../__bullet/slider__bullet.css');
+
+.slider__bulets {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.slider__bullets {
+  position: absolute;
+  z-index: 2;
+  bottom: -56px;
+  left: 50%;
+  display: inline-flex;
+  list-style: none;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width : 990px) {
+.slider__bullets {
+    left: 43%;
+  }
+}
+
+@media screen and (max-width : 768px) {
+.slider__bullets {
+  left: 45%;
+  bottom: -42px;
+}
+}
+
+@media screen and (max-width : 591px) {
+  .slider__bullets {
+      bottom: -30px;
+  }
+}
+
+@media screen and (max-width : 435px) {
+  .slider__bullets {
+      bottom: -25px;
+  }
+}

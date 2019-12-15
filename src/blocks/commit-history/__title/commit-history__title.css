@@ -4,9 +4,17 @@
   font-family:'Roboto Slab';
   font-weight: normal;
   color: #1A1B22;
-  font-size: 1.875em;
-  line-height: 40px;
+  font-size: 2.5em;
+  line-height: 46px;
 }
+
+@media screen and (max-width : 990px) {
+  .commit-history__title {
+      margin: 40px 7% 32px;
+      font-size: 1.875em;
+      line-height: 41px;
+    }
+  }
 
 @media screen and (max-width : 768px) {
 .commit-history__title {
@@ -19,6 +27,7 @@
 
 @media screen and (max-width : 591px) {
 .commit-history__title {
-  margin: 32px 5% 16px;
+    margin: 32px 5% 16px;
+    line-height: 40px;
   }
 }

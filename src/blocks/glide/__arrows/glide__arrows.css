@@ -1,0 +1,5 @@
+@import url('../__arrow/glide__arrow.css');
+
+.glide__arrows {
+  user-select: none;
+}

@@ -1,5 +1,5 @@
-@import url('__results-title/search__results-title.css');
-@import url('__analitics-link/search__analitics-link.css');
+@import url('../__results-title/search__results-title.css');
+@import url('../__analitics-link/search__analitics-link.css');
 
 .search__header-container {
   display: flex;

@@ -1,3 +1,5 @@
+@import url('../__title-break/header__title-break.css');
+
 .header__title {
   width: 42%;
   min-width: 446px;
@@ -17,10 +19,6 @@
 
     font-size: 2.25em;
     line-height: 40px;
-  }
-
-.header__title_break {
-    display: block;
   }
 }
 

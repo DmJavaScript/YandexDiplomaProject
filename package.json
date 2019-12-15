@@ -31,7 +31,7 @@
     "@glidejs/glide": "3.4.1",
     "babel-polyfill": "6.26.0",
     "image-webpack-loader": "6.0.0",
-    "webpack-dev-server": "3.9.0"
+    "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",

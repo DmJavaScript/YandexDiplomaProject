@@ -1,4 +1,4 @@
-@import url('../visually-hidden/visually-hidden.css');
+@import url('_display-none/preloader_display-none.css');
 @import url('__fake-header/preloader__fake-header.css');
 @import url('__circle/preloader__circle.css');
 @import url('__current-status/preloader__current-status.css');

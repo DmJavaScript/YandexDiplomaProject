@@ -1,0 +1,4 @@
+.slider__arrow--next {
+  background: url('../../../images/slider/button_scroll_right.svg') center;
+  right: 1.5rem;
+}

@@ -6,8 +6,8 @@
 .commit-history__button {
   display: block;
   width: 288px;
-  height: 56px;
-  margin: 24px auto 0;
+  padding: 15px 0 17px;
+  margin: 48px auto 0;
   border: 1px solid #1A1B22;
   background-color:#F5F6F7;
   border-radius: 28px;
@@ -17,6 +17,7 @@
   font-weight: 500;
   color: #1A1B22;
   font-size: 1.125em;
+  line-height: 24px;
 }
 
 .commit-history__button:hover {

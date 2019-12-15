@@ -1,0 +1,22 @@
+@import url('../__bar-title/search-analitics__bar-title.css');
+
+.search-analitics__bars-headers {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  height: 44px;
+  margin: 48px auto 0;
+  border-bottom: 2px solid #1A1B22;
+}
+
+@media screen and (max-width : 768px) {
+.search-analitics__bars-headers {
+  }
+}
+
+@media screen and (max-width : 320px) {
+.search-analitics__bars-headers {
+    height: 40px;
+    margin: 16px auto 0;
+  }
+}

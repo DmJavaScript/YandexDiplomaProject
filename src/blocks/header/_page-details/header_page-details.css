@@ -9,7 +9,7 @@
   }
 }
 
-@media screen and (max-width : 320px) {
+@media screen and (max-width : 480px) {
 /* стили для малого смартфона */
 .header_page-details {
     padding-bottom: 24px;

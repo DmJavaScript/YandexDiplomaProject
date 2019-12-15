@@ -1,9 +1,10 @@
 @import url('__title/commit-history__title.css');
 @import url('__external-link/commit-history__external-link.css');
-@import url('__slider/__flapers/slider__flappers.css');
+@import url('../slider/slider.css');
+@import url('../glide/glide.css');
+/* @import url('../../../node_modules/@glidejs/glide/dist/css/glide.core.min.css');
+@import url('../../../node_modules/@glidejs/glide/dist/css/glide.theme.min.css'); */
 @import url('__slider/commit-history__slider.css');
-@import url('__slider/__controls/slider__controls.css');
-@import url('__slider/__bullets/slider__bulets.css');
 @import url('__button/commit-history__button.css');
 
 
@@ -17,7 +18,7 @@
   height: 606px;
 }
 
-@media screen and (max-width : 768px) {
+@media screen and (max-width : 990px) {
 .commit-history {
     height: 462px;
     overflow: hidden;

@@ -1,0 +1,14 @@
+.footer__copyright {
+  font-family:'Roboto';
+  font-weight: normal;
+  color: #B6BCBF;
+  font-size: 1em;
+  margin: 5px 0 0;
+}
+
+@media screen and (max-width : 760px) {
+.footer__copyright {
+    position: absolute;
+    bottom: 22px;
+  }
+}

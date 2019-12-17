@@ -1,0 +1,19 @@
+.search-analitics__table-title {
+  line-height: 30px;
+  text-align: start;
+
+  font-family:'Roboto Slab';
+  font-weight: normal;
+  font-size: 1.625em;
+}
+
+@media screen and (max-width : 768px) {
+.search-analitics__table-title {
+  }
+}
+
+@media screen and (max-width : 320px) {
+.search-analitics__table-title {
+    font-size: 1.375em;
+  }
+}

@@ -1,0 +1,39 @@
+
+@import url('_page-index/header_page-index.css');
+@import url('_page-about/header_page-about.css');
+@import url('_page-details/header_page-details.css');
+@import url('../loft/loft.css');
+@import url('__loft/header__loft.css');
+
+@import url('__title/header__title.css');
+@import url('__subtitle/header__subtitle.css');
+@import url('__search-form/header__search-form.css');
+
+@import url('__mark-container/header__mark-container.css');
+@import url('__request-title/header__request-title.css');
+@import url('__week-data/header__week-data.css');
+
+@import url('__ab-title/header__ab-title.css');
+@import url('__ab-subtitle/header__ab-subtitle.css');
+
+.header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (max-width : 768px) {
+.header {
+    width: 100%;
+
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.header {
+    width: 100%;
+    min-width: 100%;
+  }
+}

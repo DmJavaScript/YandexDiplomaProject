@@ -1,0 +1,24 @@
+.commit-history__external-link {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 1.125em;
+  color: #1A1B22;
+  text-decoration: none;
+
+  line-height: 24px;
+  position: absolute;
+  top: 85px;
+  right: 7%;
+}
+
+@media screen and (max-width : 990px) {
+.commit-history__external-link {
+    top: 50px;
+  }
+}
+
+@media screen and (max-width : 435px) {
+.commit-history__external-link {
+    display: none;
+  }
+}

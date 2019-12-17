@@ -1,0 +1,44 @@
+@import url('../__about/developer__about.css');
+@import url('../__cv/developer__cv.css');
+
+.developer__article-container {
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin-bottom: auto;
+
+  width: 48.5%;
+  min-width: 600px;
+  max-width: 48.5%;
+  margin-right: 10%;
+}
+
+@media screen and (max-width : 1015px) {
+.developer__article-container {
+    min-width: 65%;
+  }
+}
+
+@media screen and (max-width : 875px) {
+.developer__article-container{
+    min-width: 55%;
+  }
+}
+
+@media screen and (max-width : 768px) {
+.developer__article-container {
+    min-width: 60%;
+    max-height: auto;
+    margin-top: 42px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width : 690px) {
+.developer__article-container {
+  width: 90%;
+  max-width: 90%;
+  min-width: 90%;
+  margin: 0 0 15px 0;
+  }
+}

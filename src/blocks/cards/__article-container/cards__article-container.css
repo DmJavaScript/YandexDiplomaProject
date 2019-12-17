@@ -1,0 +1,27 @@
+@import url('../__cell-heading/cards__cell-heading.css');
+@import url('../__cell-text/cards__cell-text.css');
+
+.cards__article-container {
+    width: 100%;
+    margin: 12px auto 54px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width : 768px) {
+.cards__article-container {
+    margin: 12px auto 48px;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.cards__article-container {
+    height: 150px;
+    margin: 15px auto 0;
+  }
+}

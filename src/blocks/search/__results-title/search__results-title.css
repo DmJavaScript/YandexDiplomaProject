@@ -1,0 +1,30 @@
+.search__results-title {
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 2.5em;
+  color: #1A1B22;
+
+  width: 88%;
+  margin: 0;
+}
+
+@media screen and (max-width : 768px) {
+.search__results-title {
+    font-size: 	1.875em;
+  }
+}
+
+@media screen and (max-width : 595px) {
+.search__results-title {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width : 320px) {
+/* стили для малого смартфона */
+.search__results-title {
+    width: 89%;
+    line-height: 34px;
+    margin: 32px auto 0;
+  }
+}

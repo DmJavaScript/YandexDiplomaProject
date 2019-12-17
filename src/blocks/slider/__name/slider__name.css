@@ -1,0 +1,15 @@
+.slider__name {
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 1.625em;
+  color:  #1A1B22;
+  line-height: 34px;
+  margin: 0;
+}
+
+@media screen and (max-width : 990px) {
+.slider__name {
+    font-size: 1.250em;
+    line-height: 30px;
+  }
+}

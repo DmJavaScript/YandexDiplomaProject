@@ -1,0 +1,31 @@
+@import url('_index-down/developer_index-down.css');
+@import url('_about-down/developer_about-down.css');
+@import url('__fake-header/developer__fake-header.css');
+@import url('./../visually-hidden/visually-hidden.css');
+@import url('__photo-container/developer__photo-container.css');
+@import url('__article-container/developer__article-container.css');
+
+.developer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  width: 86%;
+  height: 100%;
+}
+
+@media screen and (max-width : 768px) {
+.developer {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width : 690px) {
+.developer {
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-width: 100%;
+  }
+}

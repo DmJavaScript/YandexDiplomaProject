@@ -1,0 +1,18 @@
+@import url('../__icon-link/footer__icon-link.css');
+@import url('../__image-icon/footer__image-icon.css');
+
+.footer__social-links {
+  min-width: 70px;
+  height: 22px;
+  margin-left: 30px;
+}
+
+.footer__social-links ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-type: none; /* Убираем маркеры */
+
+  margin: 0 0;
+  padding-left: 0; /* Убираем отступ у списка в браузерах Firefox, Safari, Chrome */
+}

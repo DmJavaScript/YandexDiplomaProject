@@ -1,0 +1,29 @@
+.header__ab-subtitle {
+  width: 57%;
+  min-width: 688px;
+  margin: 24px 0 0 7%;
+
+  font-family:'Roboto';
+  font-weight: normal;
+  color: #1A1822;
+  font-size: 1.125em;
+  line-height: 24px;
+}
+
+@media screen and (max-width : 800px) {
+.header__ab-subtitle {
+    width: 86%;
+    min-width: 288px;
+    margin: 24px auto 0;
+  }
+}
+
+@media screen and (max-width : 768px) {
+.header__ab-subtitle {
+    width: 90%;
+  }
+
+.header__ab-subtitle:first-of-type {
+    margin: 16px auto 0;
+  }
+}

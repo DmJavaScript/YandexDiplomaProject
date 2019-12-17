@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='keywords' content='NewsAnalyzer, Яндекс Практикум, детали проекта Фроннтэнд-разработки на HTML CSS Java Script Webpack GitHub'>
+  <meta name='revisit-after' content='10 days'>
+  <meta name='description' content='Визитка проекта онлайн-сайта агрегатора новостей, истории коммитов (HTML5, CSS3, javaScript, GitHub, Webpack)'>
+  <meta name='author' content='Дмитрий Ковегин'>
+  <title>NewsAnalyzer дипломный проект</title>
+  <link rel='icon' href="<%=require('./images/head/favicon.svg')%>" sizes='any' type='image/svg+xml'>
+  <link rel='alternate icon' href="<%=require('./images/head/favicon.png')%>" sizes='any' type='image/png'>
+  <link rel='stylesheet' href='<%=htmlWebpackPlugin.files.chunks.about.css %>' type='text/css'>
+</head>
+
+<body>
+  <div class='page'>
+    <header class='header header_page-about' aria-label='Фотография смартфона в руке. На экране отображена диаграмма аналитики.'>
+      <nav class='loft header__loft'>
+        <a href='./index.html' class='loft__link loft__link_color-black'>NewsAnalyzer</a>
+        <ul class='loft__container'>
+          <li class='loft__page'>
+            <a href='./index.html' class='loft__page-link loft__page-link_hover-black'>Главная</a>
+          <li class='loft__page'>
+            <a href='./about.html' class='loft__page-chosen loft__page-chosen_color-black'>О проекте</a>
+        </ul>
+      </nav>
+      <h1 class='header__ab-title'>Клиентам</h1>
+      <p class='header__ab-subtitle'>Этот сайт — дипломный проект студента Яндекс.Практикума. Его&nbsp;цель&nbsp;—&nbsp;показать, чему научился студент и какими технологиями владеет.</p>
+      <p class='header__ab-subtitle'>Вёрстка сайта выполнена по методологии БЭМ. Это делает сайт гибким и масштабируемым. Кроме того, добавлять новые страницы и функциальность проще и быстрее, чем в проектах, выполненных по другим методологиям. Также сайт стало проще и дешевле поддерживать.</p>
+      <p class='header__ab-subtitle'>Карточки с новостями приходят с сервера и обрабатываются асихронно. То есть сайт продолжает работать, пока от сервера приходит ответ. Это повышает удобство использования сервиса.</p>
+      <p class='header__ab-subtitle'>При создании проекта была использована сборка технологией Webpack. Это современный подход к разработке сайтов. Код оптимизируется, а значит, сайт работает быстрее. Также настроеный сайт работает в старых браузерах. Даже если посетители — пользователи старых операционных систем у них не будет проблем с отображением. А значит потенциальная аудитория возрастает.</p>
+      <p class='header__ab-subtitle'>Проект был проверен экспертами Яндекс.Практикума. И если вашему бизесу нужен сайт, мы рекомендуем обратиться к этому студенту.</p>
+    </header>
+
+
+
+    <main class='content-about'>
+      <section class='used-technologies'>
+        <h2 class='used-technologies__title'>Используемые Технологии</h2>
+        <div class='used-technologies__container'>
+          <img class='used-technologies__image' src="<%=require('./images/used-technologies/tech_HTML.svg')%>" alt='логитип-HTML5'>
+          <img class='used-technologies__image' src="<%=require('./images/used-technologies/tech_CSS.svg')%>" alt='логитип-CSS3'>
+          <img class='used-technologies__image' src="<%=require('./images/used-technologies/tech_JavaScript.svg')%>" alt='логитип-JavaScript'>
+          <img class='used-technologies__image' src="<%=require('./images/used-technologies/tech_Webpack.svg')%>" alt='логитип-Webpack'>
+        </div>
+      </section>
+
+      <section class='developer developer_about-down'>
+        <h2 class='developer__fake-header visually-hidden' hidden>Секция о разработчике данного проекта</h2>
+        <picture class='developer__photo-container'>
+          <source media='(max-width : 320px)' srcset="<%=require('./images/developer/developer_photo_template-small.png')%>">
+          <img class='developer__photo' src="<%=require('./images/developer/developer_photo_template.png')%>" alt='фотография разработчика'>
+        </picture>
+        <article class='developer__article-container'>
+          <h3 class='developer__about'>Об авторе</h3>
+          <p class='developer__cv'>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+          <p class='developer__cv'>Также&nbsp;можно&nbsp;рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам. Если хотите, оставьте свои контакты: email и телефон. Так заказчики смогут с вами связаться.</p>
+        </article>
+      </section>
+
+      <section class='commit-history'>
+        <h2 class='commit-history__title'>История коммитов из&nbsp;GitHub</h2>
+        <a href='https://github.com/DmJavaScript/YandexDiplomaProject/commits/develop' class='commit-history__external-link' target='_blank'>Открыть в&nbsp;Github&nbsp;&nbsp;&#x276F;</a>
+        <div id='options-focus-at' class='slider glide commit-history__slider'>
+          <div class='slider__track glide__track' data-glide-el='track'>
+            <div class='slider__slides glide__slides'>
+              <article class='slider__card glide__slide'>
+                <p class='slider__date'>14 августа, 2019</p>
+                <div class='slider__commentator'>
+                  <img class='slider__photo' src="<%=require('./images/slider/comments_photo_template_03.png')%>" alt='фото профиля'>
+                  <h3 class='slider__name'>Инга Иванова</h3>
+                  <p class='slider__email'>ingaiva@yandex.ru</p>
+                </div>
+                <p class='slider__quote'>With Emmet, you can type CSS-like expressions that can be dynamically parsed, and produce output depending on what you type in the abb...</p>
+              </article>
+              <article class='slider__card glide__slide'>
+                <p class='slider__date'>14 августа, 2019</p>
+                <div class='slider__commentator'>
+                  <img class='slider__photo' src="<%=require('./images/slider/comments_photo_template_01.png')%>" alt='фото профиля'>
+                  <h3 class='slider__name'>Антон Долинин</h3>
+                  <p class='slider__email'>anton@yandex.ru</p>
+                </div>
+                <p class='slider__quote'>Emmet (formerly Zen Coding) is a web-developer’s toolkit that can greatly improve your HTML & CSS workflow.</p>
+              </article>
+              <article class='slider__card glide__slide'>
+                <p class='slider__date'>14 августа, 2019</p>
+                <div class='slider__commentator'>
+                  <img class='slider__photo' src="<%=require('./images/slider/comments_photo_template_02.png')%>" alt='фото профиля'>
+                  <h3 class='slider__name'>Мария Фёдорова</h3>
+                  <p class='slider__email'>mariiifed@yandex.ru</p>
+                </div>
+                <p class='slider__quote'>You can install this plugin directly from NetBeans Plugin Portal: in NetBeans, open   <span>Tools > Plugins > Available plugins</span>   and find and install Emmet plugin.</p>
+              </article>
+              <article class='slider__card glide__slide'>
+                <p class='slider__date'>14 августа, 2019</p>
+                <div class='slider__commentator'>
+                    <img class='slider__photo' src="<%=require('./images/slider/comments_photo_template_03.png')%>" alt='фото профиля'>
+                    <h3 class='slider__name'>Инга Иванова</h3>
+                    <p class='slider__email'>ingaiva@yandex.ru</p>
+                </div>
+                <p class='slider__quote'>With Emmet, you can type CSS-like expressions that can be dynamically parsed, and produce output depending on what you type in the abb...</p>
+              </article>
+              <article class='slider__card glide__slide'>
+                <p class='slider__date'>14 августа, 2019</p>
+                <div class='slider__commentator'>
+                  <img class='slider__photo' src="<%=require('./images/slider/comments_photo_template_01.png')%>" alt='фото профиля'>
+                  <h3 class='slider__name'>Антон Долинин</h3>
+                  <p class='slider__email'>anton@yandex.ru</p>
+                </div>
+                <p class='slider__quote'>Emmet (formerly Zen Coding) is a web-developer’s toolkit that can greatly improve your HTML & CSS workflow.</p>
+              </article>
+            </div>
+          </div>
+          <div class='slider__controls' data-glide-el='controls'>
+            <button class='slider__arrow slider__arrow--prev glide__arrow glide__arrow--prev' data-glide-dir='<'></button>
+            <button class='slider__arrow slider__arrow--next glide__arrow glide__arrow--next' data-glide-dir='>'></button>
+          </div>
+          <div class='slider__flapper'></div>
+          <div class='slider__flapper'></div>
+          <div class='slider__bullets glide__bullets' data-glide-el='controls[nav]'>
+            <button class='slider__bullet glide__bullet' data-glide-dir='=0'></button>
+            <button class='slider__bullet glide__bullet' data-glide-dir='=1'></button>
+            <button class='slider__bullet glide__bullet glide__bullet--active' data-glide-dir='=2'></button>
+            <button class='slider__bullet glide__bullet' data-glide-dir='=3'></button>
+            <button class='slider__bullet glide__bullet' data-glide-dir='=4'></button>
+          </div>
+        </div>
+
+        <form action='https://github.com/DmJavaScript/YandexDiplomaProject' target='_blank'>
+          <button id='button-github' type='submit' class='button commit-history__button'>Открыть в Github</button>
+        </form>
+      </section>
+    </main>
+
+
+    <footer class='footer'>
+      <p class='footer__copyright'>&copy; 2019&nbsp;Дмитрий Ковегин</p>
+      <nav class='footer__navigation'>
+        <ul>
+          <li class='footer__links'>
+            <a href='./index.html' class='footer__page-link'>Главная</a>
+          <li class='footer__links'>
+            <a href='./about.html' class='footer__page-link'>О проекте</a>
+          <li class='footer__links'>
+            <a href='https://praktikum.yandex.ru/' class='footer__page-link'>Яндекс.Практикум</a>
+        </ul>
+      </nav>
+      <nav class='footer__social-links'>
+        <ul>
+          <li>
+            <a href='https://github.com/DmJavaScript/YandexDiplomaProject' class='footer__icon-link' target='_blank'>
+            <img src="<%=require('./images/footer/github_icon_logo.svg')%>" alt='перейти в группу ВКонтакте' class='footer__image-icon'>
+            </a>
+          <li>
+            <a href='https://ru-ru.facebook.com/dmitry.kovegin/' class='footer__icon-link' target='_blank'>
+            <img src="<%=require('./images/footer/facebook_icon_logo.svg')%>" alt='перейти в профиль Facebook' class='footer__image-icon'>
+            </a>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+  <script src="<%=htmlWebpackPlugin.files.chunks.about.entry %>"></script>
+</body>
+</html>

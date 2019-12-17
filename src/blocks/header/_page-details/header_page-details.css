@@ -1,0 +1,17 @@
+.header_page-details {
+  padding-bottom: 80px;
+}
+
+
+@media screen and (max-width : 768px) {
+.header_page-details {
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (max-width : 480px) {
+/* стили для малого смартфона */
+.header_page-details {
+    padding-bottom: 24px;
+  }
+}

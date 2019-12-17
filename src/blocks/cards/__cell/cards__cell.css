@@ -1,0 +1,71 @@
+@import url('_dispay-none/cards__cell_dispay-none.css');
+@import url('../__cell-image/cards__cell-image.css');
+@import url('../__cell-data/cards__cell-data.css');
+@import url('../__cell-news-source/cards__cell-news-source.css');
+@import url('../__article-container/cards__article-container.css');
+
+.cards__cell {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 15px;
+  max-width: 32.5%;
+  min-width: 32.5%;
+  min-height: 576px;
+  margin-top: 16px;
+
+  background-color: white;
+}
+
+@media screen and (max-width : 1300px) {
+.cards__cell {
+    margin-top: 13px;
+  }
+}
+
+@media screen and (max-width : 950px) {
+.cards__cell {
+    min-height: auto;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width : 845px) {
+.cards__cell {
+   min-width: 32%;
+  }
+}
+
+@media screen and (max-width : 768px) {
+.cards__cell {
+    min-width: 224px;
+    width: 29%;
+    height: 420px;
+
+    padding: 0;
+
+    -moz-transform:  scale(1);
+    -ms-transform:  scale(1);
+    -webkit-transform:  scale(1);
+    -o-transform:  scale(1);
+    transform:  scale(1);
+  }
+}
+
+@media screen and (max-width : 765px) {
+.cards__cell {
+    min-width: 49%;
+    height: 474px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width : 515px) {
+.cards__cell {
+    min-width: 288px;
+    height: 446px;
+    margin-top: 8px;
+
+    padding: 0;
+  }
+}

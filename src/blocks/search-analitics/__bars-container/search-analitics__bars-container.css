@@ -1,0 +1,9 @@
+@import url('../__ruller/search-analitics__ruller.css');
+@import url('../__bar/search-analitics__bar.css');
+
+.search-analitics__bars-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 629px;
+}

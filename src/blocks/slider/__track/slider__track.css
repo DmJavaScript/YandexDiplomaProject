@@ -1,0 +1,5 @@
+@import url('../__slides/slider__slides.css');
+
+.slider__track {
+  overflow: hidden;
+}

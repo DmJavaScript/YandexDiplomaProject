@@ -1,6 +1,7 @@
 @import url('_dispay-none/cards__cell_dispay-none.css');
+@import url('../__cell-link/cards__cell-link.css');
 @import url('../__cell-image/cards__cell-image.css');
-@import url('../__cell-data/cards__cell-data.css');
+@import url('../__cell-date/cards__cell-date.css');
 @import url('../__cell-news-source/cards__cell-news-source.css');
 @import url('../__article-container/cards__article-container.css');
 
@@ -12,6 +13,7 @@
   max-width: 32.5%;
   min-width: 32.5%;
   min-height: 576px;
+  height: 576px;
   margin-top: 16px;
 
   background-color: white;

@@ -1,250 +1,43 @@
 import "./index.css";
 
-// Просьба проверять только HTML код, я не хочу терять попытку и у меня только наброски к нему!
-//______________________________________________________________________________________________
 
-// const searchButton = document.querySelector('#start-search');
-// const error = document.querySelector('#search-input-error');
 
 
 
-// searchButton.disabled = true; // надо отключить кнопку когда в форму поставлен курсор
 
+//----корректный расчёт даты и времени работающий ---------
+// const cd = new Date;
+// const gapSixDaysInMS = cd - Date.UTC(cd.getFullYear(), cd.getMonth(), cd.getDate()-6);
+// const dateWithoutUTC = new Date(Date.now() - gapSixDaysInMS); // вычитаем количество милисекунд за интересуемый промежуток времени
+// const gapLocaleUTC = - dateWithoutUTC.getTimezoneOffset() * 60000;
+// const date = new Date(dateWithoutUTC - gapLocaleUTC);
 
-/*
+// // console.log( cd, date, gapSixDaysInMS, dateWithoutUTC, gapLocaleUTC, '604800000 - количество милисекунд за 7 полных временных суток');
 
+// // Подготовка формата даты к fetch запросу
+// const fromDate = 'from=' + date.toJSON(); //.slice(0, 10);
+// const currentDate = 'to=' + cd.toJSON(); //.slice(0, 10);
 
-const inputForm = document.querySelector('#form-search');
-inputForm.addEventListener('input', validate(searchInput.value));
+// console.log(date, fromDate);
+// console.log(cd, currentDate);
+// // ---------------------------------------------------------
 
 
-
-function customValidation {
-  this.invalidities = [];
-
-}
-
-CustomValidation.prototype = {
-  addInvalidity: function(message) {
-    this.invalidities.push(message);
-  },
-  getInvalidities: function() {
-    return this.invalidities.join('. \n');
-  },
-  checkValidity: function (input) {
-
-
-    if (input.value.lenght < 3) {
-      this.addInvalidity('Длинна может быть от 3 до 30 символов');
-      let element =
-      element.classList.add('invalid');
-      element.classList.remove('valid');
-
-    } else {
-      let element = document.querySelector('label[for="username"] .input-requirements li:nth-child(1)')
-      element.classList.remove('invalid');
-      element.classList.add('valid');
-    }
-
-
-    if (input.value.match(/([a-яёА-ЯЁ0-9\-\S]*)?/gi) ) {
-      this.addInvalidity('Только буквы и цифры допустимы');
-      element.classList.add('invalid');
-      element.classList.remove('valid');
-
-    }  else {
-      let element = document.querySelector('label[for="username"] .input-requirements li:nth-child(1)')
-      element.classList.remove('invalid');
-      element.classList.add('valid');
-    }
-
-  }
-};
-
-
-const searchInput = document.querySelector('#search-input');
-
-searchInput.CustomValidation = new CustomValidation();
-searchInput.addEventListener('keyup', function() {
-  searchInput.CustomValidation.checkValidity(this)
-}
-
-
-const usernameValidityChecks = [
-  {
-		isInvalid: function(input) {
-			return input.value.length < 3;
-		},
-		invalidityMessage: 'Должно быть от 3 до 30 символов',
-		element: document.querySelector('label[for="username"] .input-requirements li:nth-child(1)')
-	},
-	{
-		isInvalid: function(input) {
-			var illegalCharacters = input.value.match(/[^a-zA-Z0-9]/g);
-			return illegalCharacters ? true : false;
-		},
-		invalidityMessage: 'Только буквы и цифры допустимы',
-		element: document.querySelector('label[for="username"] .input-requirements li:nth-child(2)')
-	}
-];
-
-*/
-/*
-
-function validate () {
-  if (!searchInput.checkValidity()) {
-    setupValidationMessages (searchInput);
-    error.classList.remove('header__error-message_hidden');
-    error.textContent = searchInput.validationMessage;
-    searchInput.parentNode.classList.add('input-container__invalid');
-    return false;
-  }
-  // searchButton.disabled = false; //включаю кнопку когда форма запроса заполнена правильно
-}
-
-
-
-function setupValidationMessages () {;
-  if (searchInput.validity.valueMissing) {
-    searchInput.setCustomValidity('Нужно ввести ключевое слово');
-  }
-  if (!searchInput.validity.valueMissing) {
-  searchInput.setCustomValidity('');
-  }
-  if (searchInput.validity.rangeUnderflow) {
-    searchInput.setCustomValidity('Должно быть от 3 до 30 символов');
-  }
-  if (searchInput.validity.typeMismatch) {
-    searchInput.setCustomValidity('Здесь должен быть введён текст!');
-  }
-  if (searchInput.validity.patternMismatch ) {
-    searchInput.setCustomValidity('Не более одного слова в запросе!');
-  }
-}
-
-*/
-
-// function readyButton () {
-//   .disabled = true;
-//   if (inputRequest.setupValidationMessages () === true) {
-//     document.querySelector('#start-search').disabled = false;
-//   }
-//   console.log('zzzzz');
-// }
-
-
-
-/*
-const inputRequest = document.querySelector('#search-input');
-
-class RequestValidation {
-  constructor(inputRequest) {
-    this.search = inputRequest;
-    this.error = document.querySelector('#search-input-error') ;
-    this.buttonElement
-      .querySelector('#start-search')
-      .addEventListener('submit', validate());
-  }
-
-  validate () {
-    this.buttonElement.disabled = true;
-    if (!this.search.checkValidity()) {
-      this.search.event.preventDefault();
-      setupValidationMessages (this.search);
-      this.error.textContent = this.search.validationMessage;
-      this.search.parentNode.classList.add('input-container__invalid');
-      this.error.classList.remove('header__error-message_hidden');
-      return false;
-    }
-    this.buttonElement.disabled = false;
-  }
-
-  setupValidationMessages () {
-    if (this.search.validity.valueMissing) {
-      this.search.setCustomValidity('Нужно ввести ключевое слово');
-    }
-    else if (this.search.validity.tooShort) {
-      this.search.setCustomValidity('Должно быть от 3 до 30 символов');
-    }
-    else if (this.search.validity.typeMismatch) {
-      this.search.setCustomValidity('Здесь должен быть введён текст!');
-    }
-    else if (this.earch.validity.patternMismatch ) {
-      this.search.setCustomValidity('Не более одного слова в запросе!');
-    }
-
-    console.log(this.request.validity);
-  }
-
-  removeValidation () {
-    event.target.parentNode.classList.remove('input-container__invalid');
-
-    return this.search;
-  }
-}
-
-
-const requestValidation = new RequestValidation (inputRequest);
-
-*/
-
-// searchButton.addEventListener('submit', finalFieldCheck);
-
-
-
-// .error-message {
-//   opacity: 0;
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Выше валидация
-
-/*
-
-
+// Универсальные переменные дающиею точку отсчёта для даты
 const gapDurationInMS = 604800000; // количество милисекунд за 7 дней от текущей даты
 const date = new Date(Date.now() - gapDurationInMS); // вычитаем количество милисекунд за интересуемый промежуток времени
 const cd = new Date();
 
-
-
-// const fromDate = 'from=' + date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-'+ ('0' + date.getDate()).slice(-2);
-// const currentDate = 'to=' + cd.getFullYear() + '-' + ('0' + (cd.getMonth() + 1)).slice(-2) + '-'+ ('0' + cd.getDate() - 7).slice(-2);
-
+// Подготовка формата даты к fetch запросу
 const fromDate = 'from=' + date.toJSON().slice(0, 10);
 const currentDate = 'to=' + cd.toJSON().slice(0, 10);
-
-
 
 console.log(date, fromDate);
 console.log(cd, currentDate);
 
-
-
-
-inputRequest = 'природа';
+let inputRequest = 'природа';
 
 class Api {
-  // constructor(options) {
-  //   this.options = options;
-  // }
-
   getNews () {
     return fetch('https://newsapi.org/v2/everything?q=' + `${inputRequest}` + '&pageSize=100&' + `${fromDate}` + '&' + `${currentDate}`+ '&apiKey=a77a12e2e4484b4fb5cc12d192f94b00', {
       method: 'GET'
@@ -255,9 +48,6 @@ class Api {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    // .then((data) => {
-    //   console.log(data, data.articles[3].urlToImage, data.articles[3].publishedAt, data.articles[3].title, data.articles[3].description, data.articles[3].source.name);
-    // })
     .catch((err) => {
         console.log('Ошибка. Запрос не выполнен: ', err);
     })
@@ -265,80 +55,262 @@ class Api {
 }
 
 const api = new Api();
-api.getNews().then((data) => console.log(data, data.articles[3].urlToImage, data.articles[3].publishedAt, data.articles[3].title, data.articles[3].description, data.articles[3].source.name));
+api.getNews().then((data) => browserStorage (data)); // в индекс HTML результат передается напрямую в класс без сохранения в локальное хранилище
 
 
-// const rawDate = new Date(data.articles[3].publishedAt);
-
-const cardYear = {year: 'numeric'};
-const cardDayMonth = {day: 'numeric', month: 'long'};
-const cardsDate = cd.toLocaleDateString('ru-RU', cardDayMonth) + ', ' + cd.toLocaleDateString('ru-RU', cardYear);
-console.log(cardsDate);
-
-// const now = new Date();
-// const articlePublishedAt = now.format(dd mm, yyyy);
-// console.log(articlePublishedAt);
 
 
-//_______________________________________
 
-const cards = document.querySelector('.cards');
+// Сохраняю полученный ответ в локальное хранилище
 
-class Card constructor (container, urlToImage, publishedAt, title, description, name) {
-  this.container = container;
-  this.urlToImage = urlToImage;
-  this.publishedAt = publishedAt;
-  this.title = title;
-  this.description = description;
-  this.name = name;
-  this.cardElement = this.createCard();
-  this.renderCards();
+function browserStorage (serverData) {
+  const serialObj = JSON.stringify(serverData.articles);
+  localStorage.setItem("NewsApiLocalStorage", serialObj);
 }
 
-createCard() {
-  const slideInfoContainer =  document.createElement('article');
-  const slideInfoDateElement = document.createElement('p');
-  const slideInfoProfileContainer =  document.createElement('div');
-  const slideInfoPhotoElement = document.createElement('img');
-  const slideInfoNameElement = document.createElement('h3');
-  const slideInfoEmailElement = document.createElement('p');
-  const slideInfoMessageElement = document.createElement('p');
+const localData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
+console.log('localData', localData);
 
-  slideInfoContainer.classList.add('slider__card');
-  slideInfoDateElement.classList.add('slider__date');
-  slideInfoProfileContainer.classList.add('slider__commentator');
-  slideInfoPhotoElement.classList.add('slider__photo');
-  slideInfoNameElement.classList.add('slider__name');
-  slideInfoEmailElement.classList.add('slider__email');
-  slideInfoMessageElement.classList.add('slider__quote');
-
-  slideInfoDateElement.textContent = this.date;
-  slideInfoPhotoElement.setAttribute('src', this.avatar);
-  slideInfoNameElement.textContent = this.name;
-  slideInfoEmailElement.textContent = this.email;
-  slideInfoMessageElement.textContent = this.message;
-
-  //родительство и рендер
-  slideInfoContainer.appendChild(slideInfoDateElement);
-  slideInfoContainer.appendChild(slideInfoProfileContainer);
-  slideInfoProfileContainer.appendChild(slideInfoPhotoElement);
-  slideInfoProfileContainer.appendChild(slideInfoNameElement);
-  slideInfoProfileContainer.appendChild(slideInfoEmailElement);
-  slideInfoContainer.appendChild(slideInfoMessageElement);
-
-  return (slideInfoContainer);
+function formatDate(data){
+  const cd = new Date(data);
+  return cd.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'}) + ', ' + cd.toLocaleDateString('ru-RU', {year: 'numeric'});
 }
 
-addCard(date, avatar, name, email, message) { //метод для добавления карточки в список
-  const{cardElement} = new CreateSlide(date, avatar, name, email, message);
-  this.container.appendChild(cardElement);
+
+
+
+const textTemplate = 'https://www.youtube.com/watch?v=7J4vz0SR8ak&amp;feature=youtu.be Все началось с безумной песчаной бури вокруг Воинского автобуса майя, так что, когда я начинал, за нами следовало не так много велосипедистов. Но с каждой секундой этого дикого заката в пустыне все …';
+
+const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)? /i); // регулярное выражение отсеивающее ссылку в начале текста
+
+// const filteredURL = textTemplate.match(regExpHTTPLinkFirst)[0];
+
+// console.log(filteredURL.length);
+// console.log(textTemplate.slice(filteredURL.length));
+// console.log(textTemplate.text().replace(filteredURL, ''));
+
+
+// перевожу объект, получанный в результате fetch-запроса от сервера, в массив и далее отсортировываю значения по ключу dateTime(исходный storageArray.publishedAt)
+
+const storageArray =  Array.from(localData).map(function (storageArray) {
+  const descriptionTextPreview = storageArray.description.replace(regExpHTTPLinkFirst, '');
+  const cardDate = formatDate(storageArray.publishedAt);
+  const dateTime = storageArray.publishedAt;
+  return [dateTime, storageArray.url, storageArray.urlToImage, cardDate, storageArray.title, descriptionTextPreview, storageArray.source.name];
+}).sort().reverse();
+
+console.log(JSON.stringify(storageArray)); // убрать перед отправкой
+console.log('storageArray', storageArray);
+
+//___________ЗАВЕРШЕНИЕ КОДА ДЛЯ ГЛАВНОЙ СТРАНИЦЫ______________
+
+
+
+// employees.sort(function(a, b){
+//   var dateA=new Date(a.retiredate), dateB=new Date(b.retiredate)
+//   return dateA-dateB //сортировка по возрастающей дате
+//   })
+
+// const newData = Array.from(localData);
+
+// console.log(newData.sort(function (a, b) {
+//   const dateA = new Date(a.publishedAt), dateB = new Date(a.publishedAt);
+//   return dateB - dateA;
+// }));
+
+
+
+// Массив и функция для выдачи случайного изображения
+
+const lostedPicturesReplacement = [
+  'https://i.ibb.co/S0JyQr0/1.png',
+  'https://i.ibb.co/2gf1WYW/2.png',
+  'https://i.ibb.co/HpC0xT0/3.png',
+  'https://i.ibb.co/sHTH044/6.png',
+  'https://i.ibb.co/BHkDpRW/7.png',
+  'https://i.ibb.co/X7H7Jf3/8.png',
+  'https://i.ibb.co/6Y4ZH24/9.png',
+  'https://i.ibb.co/f10s1tV/12.png',
+  'https://i.ibb.co/YdS9275/13.png',
+  'https://i.ibb.co/NYyGhPg/14.png',
+  'https://i.ibb.co/nzVbZT9/15.png',
+  'https://i.ibb.co/qrPtCM5/17.png',
+  'https://i.ibb.co/Zm4WSyp/18.png',
+  'https://i.ibb.co/fqqrpVg/19.png',
+  'https://i.ibb.co/gmB5ctQ/20.png',
+  'https://i.ibb.co/NxT6zDb/21.png',
+  'https://i.ibb.co/tMWwTG5/22.png',
+  'https://i.ibb.co/L09dNLq/25.png',
+  'https://i.ibb.co/DwnfsNs/26.png',
+  'https://i.ibb.co/HGrKJfq/28.png',
+  'https://i.ibb.co/dKTCJsJ/30.png'
+];
+
+function shuffle(arr){
+	let j, temp;
+	for(let i = arr.length - 1; i > 0; i--) {
+		j = Math.floor(Math.random()*(i + 1));
+		temp = arr[j];
+		arr[j] = arr[i];
+		arr[i] = temp;
+	}
+	return arr;
 }
 
-renderCards() { //метод для автоматической отрисовки карточек из списка addCard
-  this.data.forEach(({date, avatar, name, email, message}) => this.addCard(date, avatar, name, email, message))
-}
+shuffle(lostedPicturesReplacement);
+
+// Функция для выдачи случайного целого числа от 0 (верхний предел max не включается в выдачу)
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
-*/
+console.log(lostedPicturesReplacement.length); // удалить перед отправкой
+console.log(lostedPicturesReplacement[getRandomInt(21)]); // удалить перед отправкой
 
-// pattern='([А-яё0-9\-\S]*)?' - из HTML
+
+
+
+
+
+class Card {
+    constructor (date, link, urlToImage, publishedAt, title, description, name) {
+    this.date = date;
+    this.link = link;
+    this.imageReplacement = lostedPicturesReplacement[getRandomInt(lostedPicturesReplacement.length)];
+    this.image = urlToImage;
+    this.publishedAt = publishedAt;
+    this.title = title;
+    this.description = description;
+    this.name = name;
+    this.cardElement = this.createCard();
+  }
+
+  createCard() {
+    const cardContainer =  document.createElement('article');
+    const linkElement = document.createElement('a');
+    const imageElement = document.createElement('img');
+    const dateElement = document.createElement('p');
+    const timeElement = document.createElement('time');
+    const articleContainer =  document.createElement('div');
+    const headingElement = document.createElement('h4');
+    const descriptionElement = document.createElement('p');
+    const nameSourceElement = document.createElement('p');
+
+    cardContainer.classList.add('cards__cell');
+    cardContainer.classList.add('cards__cell_dispay-none');
+    linkElement.classList.add('cards__cell-link');
+    imageElement.classList.add('cards__cell-image');
+    dateElement.classList.add('cards__cell-date');
+    articleContainer.classList.add('cards__article-container');
+    headingElement.classList.add('cards__cell-heading');
+    descriptionElement.classList.add('cards__cell-text');
+    nameSourceElement.classList.add('cards__cell-news-source');
+
+    linkElement.setAttribute('href', this.link);
+    linkElement.setAttribute('target', '_blank');
+    imageElement.setAttribute('src', this.image ? this.image: this.imageReplacement);
+    imageElement.setAttribute('alt', 'картинка к новости');
+    dateElement.setAttribute('itemscope', '');
+    timeElement.setAttribute('itemprop', 'pubdate');
+    timeElement.setAttribute('datetime', this.date.slice(0, 10));
+    timeElement.textContent = this.publishedAt;
+    headingElement.textContent = this.title;
+    descriptionElement.textContent = this.description;
+    nameSourceElement.textContent = this.name;
+
+    //родительство и рендер
+    cardContainer.appendChild(linkElement);
+    cardContainer.appendChild(imageElement);
+    cardContainer.appendChild(dateElement);
+    dateElement.appendChild(timeElement);
+    cardContainer.appendChild(articleContainer);
+    articleContainer.appendChild(headingElement);
+    articleContainer.appendChild(descriptionElement);
+    cardContainer.appendChild(nameSourceElement);
+
+    return cardContainer;
+  }
+}
+
+// console.log(localData[1].url, localData[1].urlToImage, formatDate(localData[1].publishedAt), localData[1].title, localData[1].description, localData[1].source.name);
+// console.log(storageArray[1][0], storageArray[1][1], storageArray[1][2], storageArray[1][3], storageArray[1][4], storageArray[1][5]);
+
+
+class CardList {
+  constructor(storageArray) {
+    this.cardsContainer = document.querySelector('.cards');
+    this.slidesContainer = document.querySelector('.slider__slides');
+    this.bulletsContainer = document.querySelector('.slider__bullets');
+    this.render();
+  }
+
+  addCard(date, link, urlToImage, publishedAt, title, description, name) { //метод для добавления карточки в список карточек
+    // console.log(date, link, urlToImage, publishedAt, title, description, name);
+    const card = new Card(date, link, urlToImage, publishedAt, title, description, name);
+    this.cardsContainer.appendChild(card.cardElement);
+  }
+
+  render() { //метод для автоматической отрисовки карточек из списка addCard
+    for (let i=0; i < storageArray.length; i++) {
+      this.addCard(storageArray[i][0], storageArray[i][1], storageArray[i][2], storageArray[i][3], storageArray[i][4], storageArray[i][5], storageArray[i][6]);
+    }
+  }
+}
+
+const cardList = new CardList(storageArray);
+
+
+
+
+// Функция открытия по клику 3-х карточек из скрытой предварительно разметки всего набора карточек.
+
+const buttonOpenMore = document.querySelector('.search__button-open-more');
+const cards = document.getElementsByClassName('cards__cell_dispay-none');
+
+buttonOpenMore.addEventListener('click', function () {
+  const childClassList = Array.from(cards);
+  for (let j = 0; j < 3; j++) {
+    if (j === childClassList.length - 1) {
+      buttonOpenMore.remove();
+    } else {
+      childClassList[j].classList.remove('cards__cell_dispay-none');
+    }
+  }
+});
+
+// Функция автоматически-предварительного открытия 3-х карточек при первичном автооткрытии секции результатов.
+
+let event = new Event("click");
+buttonOpenMore.dispatchEvent(event);
+
+
+
+
+
+
+
+
+
+//архив
+//__________________________________________________
+// if (!this.classList.contains('cards__cell_dispay-none')) {
+  //   document.querySelector('.search__button-open-more').remove();
+  // }
+  // if (cards.length == null) {
+  //   document.querySelector('.search__button-open-more').remove();
+  // }
+  // const cards = document.querySelectorAll('.cards__cell_dispay-none');
+  // console.log(cards.length);
+
+
+   // buttonOpenMore.addEventListener('click', function () {
+  //   const childClassList = Array.from(cards);
+  //   for (let j = 0; j < 3; j++) {
+  //     if (document.querySelector('.cards__cell_dispay-none') == null) {
+  //       buttonOpenMore.remove();
+  //     } else {
+  //       childClassList[j].classList.remove('cards__cell_dispay-none');
+  //     }
+  //   }
+  // });

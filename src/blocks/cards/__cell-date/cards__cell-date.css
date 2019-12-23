@@ -1,4 +1,4 @@
-.cards__cell-data {
+.cards__cell-date {
   font-family: 'Source Sans Pro';
   font-weight: normal;
   font-size: 1.125em;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width : 768px) {
-.cards__cell-data {
+.cards__cell-date {
     width: 86%;
     margin: 16px auto 0;
 
@@ -18,14 +18,14 @@
 }
 
 @media screen and (max-width : 760px) {
-.cards__cell-data {
+.cards__cell-date {
   margin: 12px auto 0;
   }
 }
 
 @media screen and (max-width : 320px) {
 /* стили для малого смартфона */
-.cards__cell-data {
+.cards__cell-date {
     width: 89%;
   }
 }

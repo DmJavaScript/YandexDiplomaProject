@@ -81,14 +81,13 @@ glide.mount();
 
 
 
-/*
 class GithubApi {
   constructor(options) {
     this.options = options;
   }
 
-  getSlideData () {
-    return fetch(`${this.options.baseUrl}develop`, {
+  getSlidesData () {
+    return fetch(`${this.options.baseUrl}`, {
       headers: this.options.headers,
       method: 'GET'
     })
@@ -104,76 +103,149 @@ class GithubApi {
   }
 }
 
-const api = new GithubApi({
-    baseUrl: 'https://api.github.com/repos/DmJavaScript/YandexDiplomaProject/commits/',
+const githubApi = new GithubApi({
+    baseUrl: 'https://api.github.com/repos/DmJavaScript/YandexDiplomaProject/commits',
     headers: {
       authorization: 'ca68fe15b70347d75428771071b8dfe19e1a8ba5',
       'Content-Type': 'application/json'
     }
 });
 
-const slider = document.querySelector('.slider');
+
+
+// Сохраняю полученный ответ в локальное хранилище
+let localStorageName = "githubApiAnswerLocalStorage";
+
+function browserStorage (serverData) {
+  const serialObj = JSON.stringify(serverData);
+  localStorage.setItem(localStorageName, serialObj);
+}
+
+const localData = JSON.parse(localStorage.getItem(localStorageName));
+
+//___________________________________________________________________________
+
+
+githubApi.getSlidesData()
+  .then(data => browserStorage(data))
+  .catch((err) => console.log('Ошибка. Запрос не выполнен: ', err));
+
 
 class Slide {
-  constructor(container, date, avatar, name, email, message) {
-    this.container = container;
+  constructor(date, avatar, name, email, message) {
     this.date = date;
     this.avatar = avatar;
     this.name = name;
     this.email = email;
     this.message = message;
-    this.cardElement = this.createSlide();
-    this.renderSlides();
+    this.cardElement = this.createSlide()
+    this.bulletElement = this.createSlideBullet();
+
   }
 
   createSlide() {
-    const slideInfoContainer =  document.createElement('article');
-    const slideInfoDateElement = document.createElement('p');
-    const slideInfoProfileContainer =  document.createElement('div');
-    const slideInfoPhotoElement = document.createElement('img');
-    const slideInfoNameElement = document.createElement('h3');
-    const slideInfoEmailElement = document.createElement('p');
-    const slideInfoMessageElement = document.createElement('p');
+    const slideContainer = document.createElement('article');
+    const dateElement = document.createElement('p');
+    const profileContainer =  document.createElement('div');
+    const photoElement = document.createElement('img');
+    const nameElement = document.createElement('h3');
+    const emailElement = document.createElement('p');
+    const messageElement = document.createElement('p');
 
-    slideInfoContainer.classList.add('slider__card');
-    slideInfoDateElement.classList.add('slider__date');
-    slideInfoProfileContainer.classList.add('slider__commentator');
-    slideInfoPhotoElement.classList.add('slider__photo');
-    slideInfoNameElement.classList.add('slider__name');
-    slideInfoEmailElement.classList.add('slider__email');
-    slideInfoMessageElement.classList.add('slider__quote');
+    slideContainer.classList.add('slider__card');
+    slideContainer.classList.add('glide__slide');
+    dateElement.classList.add('slider__date');
+    profileContainer.classList.add('slider__commentator');
+    photoElement.classList.add('slider__photo');
+    nameElement.classList.add('slider__name');
+    emailElement.classList.add('slider__email');
+    messageElement.classList.add('slider__quote');
 
-    slideInfoDateElement.textContent = this.date;
-    slideInfoPhotoElement.setAttribute('src', this.avatar);
-    slideInfoNameElement.textContent = this.name;
-    slideInfoEmailElement.textContent = this.email;
-    slideInfoMessageElement.textContent = this.message;
+    dateElement.textContent = this.date;
+    photoElement.setAttribute('src', this.avatar);
+    nameElement.textContent = this.name;
+    emailElement.textContent = this.email;
+    messageElement.textContent = this.message;
 
     //родительство и рендер
-    slideInfoContainer.appendChild(slideInfoDateElement);
-    slideInfoContainer.appendChild(slideInfoProfileContainer);
-    slideInfoProfileContainer.appendChild(slideInfoPhotoElement);
-    slideInfoProfileContainer.appendChild(slideInfoNameElement);
-    slideInfoProfileContainer.appendChild(slideInfoEmailElement);
-    slideInfoContainer.appendChild(slideInfoMessageElement);
+    slideContainer.appendChild(dateElement);
+    slideContainer.appendChild(profileContainer);
+    profileContainer.appendChild(photoElement);
+    profileContainer.appendChild(nameElement);
+    profileContainer.appendChild(emailElement);
+    slideContainer.appendChild(messageElement);
 
-    return (slideInfoContainer);
+    return slideContainer;
   }
 
-  addCard(date, avatar, name, email, message) { //метод для добавления карточки в список
-    const{cardElement} = new CreateSlide(date, avatar, name, email, message);
-    this.container.appendChild(cardElement);
-  }
+  createSlideBullet() {
+    const bulletElement = document.createElement('button');
 
-  renderSlides() { //метод для автоматической отрисовки карточек из списка addCard
-    this.data.forEach(({date, avatar, name, email, message}) => this.addCard(date, avatar, name, email, message))
+    bulletElement.classList.add('slider__bullet');
+    bulletElement.classList.add('glide__bullet');
+
+    bulletElement.setAttribute('data-glide-dir', '=`${data.lenght}`');
+
+    //рендер
+    return bulletElement;
   }
 }
 
 
-api.getSlideData().then(data => new Slide(slider, data.commit.committer.date, data.author.avatar_url, data.commit.committer.name, data.commit.committer.email, data.commit.message));
+function formatDate(data){
+  const cd = new Date(data);
+  return cd.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'}) + ', ' + cd.toLocaleDateString('ru-RU', {year: 'numeric'});
+}
 
-function formatDate(data.commit.committer.date){
+class CardList {
+  constructor(localData) {
+    this.slidesContainer = document.querySelector('.slider__slides');
+    this.bulletsContainer = document.querySelector('.slider__bullets');
+    this.render();
+  }
+
+  addCard(date, avatar, name, email, message) { //метод для добавления карточки в список карточек
+    const slide = new Slide(date, avatar, name, email, message);
+    // console.log(formatDate(localData[0].commit.author.date), localData[0].author.avatar_url, localData[0].commit.author.name, localData[0].commit.author.email, localData[0].commit.message);
+    // console.log(date, avatar, name, email, message);
+    // console.log(slide);
+    this.slidesContainer.appendChild(slide.cardElement);
+    this.bulletsContainer.appendChild(slide.bulletElement);
+  }
+
+  render() { //метод для автоматической отрисовки карточек из списка addCard
+    for (let i=0; i < localData.length; i++) {
+      this.addCard(formatDate(localData[i].commit.author.date), localData[i].author.avatar_url, localData[i].commit.author.name, localData[i].commit.author.email, localData[i].commit.message);
+    }
+  }
+}
+
+const cardList = new CardList(localData);
+
+
+
+
+
+
+  // render() { //метод для автоматической отрисовки карточек из списка addCard
+  //   const {formatDate(localData.commit.author.date), localData.author.avatar_url, localData.commit.author.name, localData.commit.author.email, localData.commit.message} = data;
+  //   for (const data of `${this.localData}`) {
+  //     this.addCard(data);
+  //   }
+  //   // this.localData.forEach(({localData.commit.author.date, localData.author.avatar_url, localData.commit.author.name, localData.commit.author.email, localData.commit.message}) =>
+
+
+
+
+
+// console.log(localData[0].commit.author.date, localData[0].author.avatar_url, localData[0].commit.author.name, localData[0].commit.author.email, localData[0].commit.message);
+
+
+
+
+/*
+
+function formatDate(data.commit.author.date){
   return date.toLocaleString("ru", {
       year: "2-digit",
       month: "2-digit",
@@ -183,6 +255,18 @@ function formatDate(data.commit.committer.date){
 var date = new Date(2014, 0, 30); //30.01.14
 console.log(formatDate(date));
 
-api.getSlideData().then(data => formatDate(data.commit.committer.date));
+api.getSlidesData().then(data => formatDate(data.commit.author.date));
+
+*/
+
+/*
+
+githubApi.getSlidesData()
+  .then(data => {
+    const cd = new Date(data[5].commit.author.date);
+    const cardDate = cd.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'}) + ', ' + cd.toLocaleDateString('ru-RU', {year: 'numeric'});
+    console.log(cardDate);
+  })
+  .catch((err) => console.log('Ошибка. Запрос не выполнен: ', err));
 
 */

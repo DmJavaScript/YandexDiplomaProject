@@ -1,12 +1,4 @@
 @import url('../__value/search-analitics__value.css');
-@import url('../__mon/search-analitics__mon.css');
-@import url('../__tue/search-analitics__tue.css');
-@import url('../__wed/search-analitics__wed.css');
-@import url('../__thu/search-analitics__thu.css');
-@import url('../__fri/search-analitics__fri.css');
-@import url('../__sat/search-analitics__sat.css');
-@import url('../__sun/search-analitics__sun.css');
-
 
 .search-analitics__data {
   width: 100%;

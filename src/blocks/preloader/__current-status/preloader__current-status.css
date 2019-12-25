@@ -1,8 +1,24 @@
+@import url('_display-none/preloader__current-status_display-none.css');
+
 .preloader__current-status {
-  margin: 24px auto 0;
+  margin: 0 auto ;
+  max-width: 572px;
+  text-align: center;
+  line-height: 24px;
 
   font-family: 'Roboto';
   font-weight: normal;
   font-size: 1.125em;
   color: #B6BCBF;
+
+}
+
+.preloader__current-status span {
+  display: block;
+}
+
+@media screen and (max-width : 570px) {
+  .preloader__current-status {
+    width: 90%;
+  }
 }

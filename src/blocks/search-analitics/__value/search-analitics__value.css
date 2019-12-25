@@ -1,9 +1,10 @@
 .search-analitics__value {
   background: #2F71E5;
   padding-left: 5px;
+  width: 10%;
 }
 
-.search-analitics__bar:nth-child(2) td .search-analitics__value {
+/* .search-analitics__bar:nth-child(2) td .search-analitics__value {
   width: 15%;
 }
 
@@ -29,4 +30,4 @@
 
 .search-analitics__bar:nth-child(8) td .search-analitics__value  {
   width: 34%;
-}
+} */

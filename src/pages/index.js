@@ -1,44 +1,25 @@
 import "./index.css";
 
-
-
-
-
-
-//----корректный расчёт даты и времени работающий ---------
-// const cd = new Date;
-// const gapSixDaysInMS = cd - Date.UTC(cd.getFullYear(), cd.getMonth(), cd.getDate()-6);
-// const dateWithoutUTC = new Date(Date.now() - gapSixDaysInMS); // вычитаем количество милисекунд за интересуемый промежуток времени
-// const gapLocaleUTC = - dateWithoutUTC.getTimezoneOffset() * 60000;
-// const date = new Date(dateWithoutUTC - gapLocaleUTC);
-
-// // console.log( cd, date, gapSixDaysInMS, dateWithoutUTC, gapLocaleUTC, '604800000 - количество милисекунд за 7 полных временных суток');
-
-// // Подготовка формата даты к fetch запросу
-// const fromDate = 'from=' + date.toJSON(); //.slice(0, 10);
-// const currentDate = 'to=' + cd.toJSON(); //.slice(0, 10);
-
-// console.log(date, fromDate);
-// console.log(cd, currentDate);
-// // ---------------------------------------------------------
-
-
 // Универсальные переменные дающиею точку отсчёта для даты
-const gapDurationInMS = 604800000; // количество милисекунд за 7 дней от текущей даты
-const date = new Date(Date.now() - gapDurationInMS); // вычитаем количество милисекунд за интересуемый промежуток времени
-const cd = new Date();
+
+const cd = (new Date);
+const gapSixDaysInMS = cd - Date.UTC(cd.getFullYear(), cd.getMonth(), cd.getDate()-6);
+const dateWithoutUTC = new Date(Date.now() - gapSixDaysInMS); // вычитаем количество милисекунд за интересуемый промежуток времени
+const date = new Date(dateWithoutUTC);
+
+// console.log( cd, date, gapSixDaysInMS, dateWithoutUTC, gapLocaleUTC, '604800000 - количество милисекунд за 7 полных временных суток');
 
 // Подготовка формата даты к fetch запросу
-const fromDate = 'from=' + date.toJSON().slice(0, 10);
-const currentDate = 'to=' + cd.toJSON().slice(0, 10);
+const fromDate = 'from=' + date.toJSON(); //.slice(0, 10);
+const currentDate = 'to=' + cd.toJSON(); //.slice(0, 10);
 
 console.log(date, fromDate);
 console.log(cd, currentDate);
 
-let inputRequest = 'природа';
+
 
 class Api {
-  getNews () {
+  getNews (inputRequest) {
     return fetch('https://newsapi.org/v2/everything?q=' + `${inputRequest}` + '&pageSize=100&' + `${fromDate}` + '&' + `${currentDate}`+ '&apiKey=a77a12e2e4484b4fb5cc12d192f94b00', {
       method: 'GET'
     })
@@ -54,70 +35,127 @@ class Api {
   }
 }
 
+// Функция получения поискового запроса с нажатой кнопки
+const formSearch = document.forms.search;
+const buttonSearch = document.querySelector('.header__search-button');
 const api = new Api();
-api.getNews().then((data) => browserStorage (data)); // в индекс HTML результат передается напрямую в класс без сохранения в локальное хранилище
+
+buttonSearch.addEventListener('click', function receiveInput (event) {
+  event.preventDefault();
+  let inputRequest = formSearch.elements.request.value;
+  api.getNews(inputRequest)
+                          .then((data) => browserStorage (data.articles))
+                          .catch(function (err) {
+                            console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.', err);
+                            lostConnection();
+                          });
+
+  return console.log('сам кликнул по кнопке поиска');
+});
 
 
+// в индекс HTML результат передается напрямую в класс без сохранения в локальное хранилище
+
+// api.getNews()
+// .then((data) => browserStorage (data.articles))
+// .catch(function (err) {
+//   console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.', err);
+//   lostConnection();
+// }); // в индекс HTML результат передается напрямую в класс без сохранения в локальное хранилище
 
 
+// Функция после верификации
+// const buttonStartSearch = document.querySelector('.header__search-button');
 
-// Сохраняю полученный ответ в локальное хранилище
+// buttonStartSearch.addEventListener('click', function () {
+//   preloader.classList.remove('preloader_display-none');
 
-function browserStorage (serverData) {
-  const serialObj = JSON.stringify(serverData.articles);
-  localStorage.setItem("NewsApiLocalStorage", serialObj);
+// });
+
+const preloader = document.querySelector('.preloader');
+
+function lostConnection() {
+  preloader.classList.remove('preloader_display-none');
+  document.querySelector('.preloader__circle').classList.add('preloader__circle_display-none');
+  document.querySelector('.preloader__current-status').classList.add('preloader__current-status_display-none');
+  document.querySelectorAll('.preloader__current-status')[1].classList.remove('preloader__current-status_display-none');
 }
 
-const localData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
-console.log('localData', localData);
+
+
+
+
+function browserStorage (serverData) {
+  // localStorage.clear()
+
+  // КОГДА НИЧЕГО НЕ НАЙДЕНО
+  if (serverData.length === 0) {
+    document.querySelector('.search-status').classList.remove('search-status_display-none'); // показываю секцию ненайденных результатов
+    if (!document.querySelector('.search').classList.contains('search_display-none')) {
+    document.querySelector('.search').classList.add('search_display-none');  // скрываю секцию с результатами поиска
+    }
+  }
+  // КОГДА НАЙДЕНЫ РЕЗУЛЬТАТЫ
+  if (serverData.length !== 0) {
+    // Сохраняю полученный ответ в локальное хранилище
+    const serialObj = JSON.stringify(serverData);
+    console.log(serialObj, 'это ответ сервера');
+    localStorage.setItem("NewsApiLocalStorage", serialObj);
+
+    document.querySelector('.search').classList.remove('search_display-none');
+    if (!document.querySelector('.search-status').classList.contains('search-status_display-none')) {
+      document.querySelector('.search-status').classList.add('search-status_display-none');  // скрываю секцию с ненайденными результатами
+      }
+      // Функция автоматически-предварительного автооткрытия 3-х результатов.
+      let manualEvent = new Event("click");
+      buttonOpenMore.dispatchEvent(manualEvent );
+  }
+}
+
 
 function formatDate(data){
   const cd = new Date(data);
   return cd.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'}) + ', ' + cd.toLocaleDateString('ru-RU', {year: 'numeric'});
 }
 
-
-
-
-const textTemplate = 'https://www.youtube.com/watch?v=7J4vz0SR8ak&amp;feature=youtu.be Все началось с безумной песчаной бури вокруг Воинского автобуса майя, так что, когда я начинал, за нами следовало не так много велосипедистов. Но с каждой секундой этого дикого заката в пустыне все …';
-
 const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)? /i); // регулярное выражение отсеивающее ссылку в начале текста
 
-// const filteredURL = textTemplate.match(regExpHTTPLinkFirst)[0];
 
-// console.log(filteredURL.length);
-// console.log(textTemplate.slice(filteredURL.length));
-// console.log(textTemplate.text().replace(filteredURL, ''));
-
+// Запрос данных из локального хранилища //ПОЛНЫЙ несортированный массив
+const localData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
 
 // перевожу объект, получанный в результате fetch-запроса от сервера, в массив и далее отсортировываю значения по ключу dateTime(исходный storageArray.publishedAt)
 
+//ВЫБОРОЧНО РАНЖИРОВАННЫЙ массив
 const storageArray =  Array.from(localData).map(function (storageArray) {
   const descriptionTextPreview = storageArray.description.replace(regExpHTTPLinkFirst, '');
   const cardDate = formatDate(storageArray.publishedAt);
   const dateTime = storageArray.publishedAt;
   return [dateTime, storageArray.url, storageArray.urlToImage, cardDate, storageArray.title, descriptionTextPreview, storageArray.source.name];
 }).sort().reverse();
-
-console.log(JSON.stringify(storageArray)); // убрать перед отправкой
-console.log('storageArray', storageArray);
-
-//___________ЗАВЕРШЕНИЕ КОДА ДЛЯ ГЛАВНОЙ СТРАНИЦЫ______________
+console.log('storageArray ВЫБОРОЧНО РАНЖИРОВАННЫЙ по дате публикации', storageArray);
 
 
 
-// employees.sort(function(a, b){
-//   var dateA=new Date(a.retiredate), dateB=new Date(b.retiredate)
-//   return dateA-dateB //сортировка по возрастающей дате
-//   })
+// Функция открытия по клику 3-х карточек из скрытой предварительно разметки всего набора карточек.
+const buttonOpenMore = document.querySelector('.search__button-open-more');
+const cards = document.getElementsByClassName('cards__cell_dispay-none');
 
-// const newData = Array.from(localData);
+buttonOpenMore.addEventListener('click', function threeOpenCards(event) {
+  const childClassList = Array.from(cards);
+  for (let j = 0; j < 3; j++) {
+    if (j === childClassList.length - 1) {
+      event.target.remove();
+    } else {
+      childClassList[j].classList.remove('cards__cell_dispay-none');
+    }
+  }
+  return console.log('кликнул по кнопке открыть ещё');
+});
 
-// console.log(newData.sort(function (a, b) {
-//   const dateA = new Date(a.publishedAt), dateB = new Date(a.publishedAt);
-//   return dateB - dateA;
-// }));
-
+// Функция автоматически-предварительного автооткрытия 3-х результатов.
+let manualEvent = new Event("click");
+buttonOpenMore.dispatchEvent(manualEvent);
 
 
 // Массив и функция для выдачи случайного изображения
@@ -146,18 +184,18 @@ const lostedPicturesReplacement = [
   'https://i.ibb.co/dKTCJsJ/30.png'
 ];
 
-function shuffle(arr){
-	let j, temp;
-	for(let i = arr.length - 1; i > 0; i--) {
-		j = Math.floor(Math.random()*(i + 1));
-		temp = arr[j];
-		arr[j] = arr[i];
-		arr[i] = temp;
-	}
-	return arr;
-}
+// function shuffle(arr){
+// 	let j, temp;
+// 	for(let i = arr.length - 1; i > 0; i--) {
+// 		j = Math.floor(Math.random()*(i + 1));
+// 		temp = arr[j];
+// 		arr[j] = arr[i];
+// 		arr[i] = temp;
+// 	}
+// 	return arr;
+// }
 
-shuffle(lostedPicturesReplacement);
+// shuffle(lostedPicturesReplacement);
 
 // Функция для выдачи случайного целого числа от 0 (верхний предел max не включается в выдачу)
 
@@ -165,13 +203,13 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-console.log(lostedPicturesReplacement.length); // удалить перед отправкой
-console.log(lostedPicturesReplacement[getRandomInt(21)]); // удалить перед отправкой
+// console.log(lostedPicturesReplacement.length); // удалить перед отправкой
+// console.log(lostedPicturesReplacement[getRandomInt(21)]); // удалить перед отправкой
 
 
 
 
-
+preloader.classList.add('preloader_display-none');
 
 class Card {
     constructor (date, link, urlToImage, publishedAt, title, description, name) {
@@ -260,30 +298,29 @@ class CardList {
 
 const cardList = new CardList(storageArray);
 
+document.querySelector('.search').classList.remove('search_display-none'); // открывать секцию с результатами поиска
 
 
 
-// Функция открытия по клику 3-х карточек из скрытой предварительно разметки всего набора карточек.
 
-const buttonOpenMore = document.querySelector('.search__button-open-more');
-const cards = document.getElementsByClassName('cards__cell_dispay-none');
 
-buttonOpenMore.addEventListener('click', function () {
-  const childClassList = Array.from(cards);
-  for (let j = 0; j < 3; j++) {
-    if (j === childClassList.length - 1) {
-      buttonOpenMore.remove();
-    } else {
-      childClassList[j].classList.remove('cards__cell_dispay-none');
-    }
-  }
-});
 
-// Функция автоматически-предварительного открытия 3-х карточек при первичном автооткрытии секции результатов.
 
-let event = new Event("click");
-buttonOpenMore.dispatchEvent(event);
 
+
+
+
+
+
+// образец
+// document.forms.profile.addEventListener('submit', function saveChanges (event) {
+//   event.preventDefault();
+//   api.editProfile(document.querySelector('#name').value, document.querySelector('#profession').value).then(data => {
+//     document.querySelector('.user-info__name').textContent = data.name;
+//     document.querySelector('.user-info__job').textContent = data.about;
+//   })
+//   document.querySelector('.popup__edit-profile').classList.remove('popup_is-opened');
+// });
 
 
 

@@ -40,70 +40,13 @@
     </header>
 
     <main class='content-index'>
-      <section class='search'>
+      <section class='search search_display-none'>
         <div class='search__header-container'>
           <h2 class='search__results-title'>Результаты поиска</h2>
           <a href='./details.html' class='search__analitics-link' target='_blank'>Посмотреть&nbsp;аналитику&nbsp;&nbsp;&#x276F;</a>
         </div>
         <section class='cards'>
           <h3 class='visually-hidden' hidden>Секция новостных карточек, полученных со стороннего сервера</h3>
-          <!-- <article class='cards__cell'>
-            <a href="" class="cards__cell-link" target="_blank"></a>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/8.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-date' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>Национальное достояние – парки</h4>
-              <p class='cards__cell-text'>В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-            </div>
-            <p class='cards__cell-news-source'>Лента.ру</p>
-          </article>
-          <article class='cards__cell'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/9.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-date' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>Лесные огоньки: история одной фотографии</h4>
-              <p class='cards__cell-text'>Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                из местных чудес природы.</p>
-            </div>
-            <p class='cards__cell-news-source'>Медуза</p>
-          </article>
-          <article class='cards__cell'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/14.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-date' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-              <p class='cards__cell-text'>Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-            </div>
-            <p class='cards__cell-news-source'>Риа</p>
-          </article>
-          <article class='cards__cell cards__cell_dispay-none'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/18.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-date' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>Национальное достояние – парки</h4>
-              <p class='cards__cell-text'>В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-            </div>
-            <p class='cards__cell-news-source'>Лента.ру</p>
-          </article>
-          <article class='cards__cell cards__cell_dispay-none'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/12.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-date' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>Лесные огоньки: история одной фотографии</h4>
-              <p class='cards__cell-text'>Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                из местных чудес природы.</p>
-            </div>
-            <p class='cards__cell-news-source '>Медуза</p>
-          </article>
-          <article class='cards__cell cards__cell_dispay-none'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/13.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-date' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-              <p class='cards__cell-text'>Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-            </div>
-            <p class='cards__cell-news-source'>Риа</p>
-          </article> -->
         </section>
         <button id='button-search' type='submit' class='button search__button-open-more'>Показать еще</button>
       </section>
@@ -112,6 +55,7 @@
         <h3 class='preloader__fake-header visually-hidden' hidden>Секция прелоудера для ожидания загрузки данных</h3>
         <i class='preloader__circle'></i>
         <p class='preloader__current-status'>Идет поиск новостей…</p>
+        <p class='preloader__current-status preloader__current-status_display-none'>Во время запроса произошла&nbsp;ошибка.<span>Возможно&nbsp;проблема с&nbsp;соединением или сервер недоступен. Подождите немного и&nbsp;попробуйте ещё раз.</span></p>
       </section>
 
       <section class='search-status search-status_display-none'>

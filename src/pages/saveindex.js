@@ -21,8 +21,13 @@
 
 
 
-
-
+// function setupValidationMessages () {
+//   input.validity.valueMissing = function(event) {
+//     event.target.setCustomValidity('Нужно ввести ключевое слово');
+//     }
+// });
+const input = document.getElementById('search-input');
+inputRequest = formSearch.elements.request.value;
 
 
 // const searchButton = document.querySelector('#start-search');
@@ -719,4 +724,27 @@ console.log(dateMark);
 //   const publishDate = new Date(storageTable.publishedAt).toJSON().slice(0, 10); // форматирование даты для атрибута datetime HTML-разметки таблицы
 //   const tableDate = dT.toLocaleDateString('ru-RU', {day: 'numeric'}) + ',' + dT.toLocaleDateString('ru-RU', {weekday: 'short'}); // форматирование даты заголовка строчки таблицы
 //   return [publishDate, tableDate];
+// });
+
+
+
+
+
+
+// в индекс HTML результат передается напрямую в класс без сохранения в локальное хранилище
+
+// api.getNews()
+// .then((data) => browserStorage (data.articles))
+// .catch(function (err) {
+//   console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.', err);
+//   lostConnection();
+// }); // в индекс HTML результат передается напрямую в класс без сохранения в локальное хранилище
+
+
+// Функция после верификации
+// const buttonStartSearch = document.querySelector('.header__search-button');
+
+// buttonStartSearch.addEventListener('click', function () {
+//   preloader.classList.remove('preloader_display-none');
+
 // });

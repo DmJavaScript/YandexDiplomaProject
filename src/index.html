@@ -31,6 +31,7 @@
         <div class='header__input-container'>
           <input id='search-input' required type='text' name='request' class='header__search-input' minlength='3' maxlength='30' placeholder='Введите тему'>
           <ul class='header__input-requirements header__input-requirements_display-none'>
+            <li>Нужно ввести ключевое слово</li>
             <li>Длинна может быть от 3 до 30 символов</li>
             <li>Только буквы и цифры допустимы</li>
           </ul>
@@ -48,7 +49,7 @@
         <section class='cards'>
           <h3 class='visually-hidden' hidden>Секция новостных карточек, полученных со стороннего сервера</h3>
         </section>
-        <button id='button-search' type='submit' class='button search__button-open-more'>Показать еще</button>
+        <button id='button-search' type='submit' class='button search__button-open-more search__button-open-more_display-none'>Показать еще</button>
       </section>
 
       <section class='preloader preloader_display-none'>

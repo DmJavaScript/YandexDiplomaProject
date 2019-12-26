@@ -24,6 +24,10 @@ if (fromMonth !== currentMonth) {
 const localData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
 console.log('localData ПОЛНЫЙ несортированный', localData);
 
+// Тема запроса, сохранённого в локальном хранилище
+const localDataRequest = localStorage.getItem("NewsApiRequest");
+console.log('localDataRequest ЗАПРОС', localDataRequest);
+
 //ВЫБОРОЧНО РАНЖИРОВАННЫЙ массив
 const storageArray =  Array.from(localData).map(function (storageArray) {
   const text = storageArray.title + ' ' + storageArray.description;
@@ -32,9 +36,8 @@ const storageArray =  Array.from(localData).map(function (storageArray) {
 console.log('storageArray ВЫБОРОЧНО РАНЖИРОВАННЫЙ по дате публикации', storageArray);
 
 // Ниже код будет переработан
-let inputRequest = 'природа';
-document.querySelector('.header__request-input').textContent = inputRequest;
-const regExpinputRequest = new RegExp('(^|[^а-яё])('+inputRequest+')([^а-яё]|$)', 'gi'); // регулярное выражение игнорируещее регистр словосочетаний
+document.querySelector('.header__request-input').textContent = localDataRequest.charAt(0).toUpperCase() + localDataRequest.slice(1);;
+const regExpRequest = new RegExp('(^|[^а-яё])('+localDataRequest+')([^а-яё]|$)', 'gi'); // регулярное выражение игнорируещее регистр словосочетаний
 
 
 //счётчик количества упоминаний
@@ -42,7 +45,7 @@ const storageString = storageArray.reduce((accum, current) => accum.concat(curre
 //поскольку массив получаемый с сервера многомерный, объединяю содержимое и превращаю в простой массив методом concat, после передаю пустую строку в reduce чтобы создать строку из массива!
 const statistics = document.querySelectorAll('.header__week-number');
 statistics[0].textContent = localData.length;
-statistics[1].textContent = storageString.match(regExpinputRequest).length;
+statistics[1].textContent = storageString.match(regExpRequest).length;
 
 
 //Сужение до массива из дат публикаций

@@ -35,14 +35,18 @@ class Api {
   }
 }
 
-// Функция получения поискового запроса с нажатой кнопки
+
 const formSearch = document.forms.search;
+let inputRequest = '';
 const buttonSearch = document.querySelector('.header__search-button');
 const api = new Api();
 
-buttonSearch.addEventListener('click', function receiveInput (event) {
+buttonSearch.addEventListener('click', (event) => receiveInput(event));
+// Функция получения поискового запроса после нажатия кнопки
+function receiveInput (event) {
   event.preventDefault();
-  let inputRequest = formSearch.elements.request.value;
+  inputRequest = formSearch.elements.request.value;
+  console.log(inputRequest);
   api.getNews(inputRequest)
                           .then((data) => browserStorage (data.articles))
                           .catch(function (err) {
@@ -50,27 +54,15 @@ buttonSearch.addEventListener('click', function receiveInput (event) {
                             lostConnection();
                           });
 
+  //удаление старых карточек на странице
+  while (cards.length > 0) {
+    cards[0].parentNode.removeChild(cards[0]);
+  }
   return console.log('сам кликнул по кнопке поиска');
-});
+}
 
 
-// в индекс HTML результат передается напрямую в класс без сохранения в локальное хранилище
 
-// api.getNews()
-// .then((data) => browserStorage (data.articles))
-// .catch(function (err) {
-//   console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.', err);
-//   lostConnection();
-// }); // в индекс HTML результат передается напрямую в класс без сохранения в локальное хранилище
-
-
-// Функция после верификации
-// const buttonStartSearch = document.querySelector('.header__search-button');
-
-// buttonStartSearch.addEventListener('click', function () {
-//   preloader.classList.remove('preloader_display-none');
-
-// });
 
 const preloader = document.querySelector('.preloader');
 
@@ -83,16 +75,21 @@ function lostConnection() {
 
 
 
+let storageArray = [];
+
+const cards = document.getElementsByClassName('cards__cell');
+const searchSection = document.querySelector('.search');
 
 
 function browserStorage (serverData) {
-  // localStorage.clear()
+  localStorage.clear()
+  localStorage.setItem("NewsApiRequest", inputRequest);
 
   // КОГДА НИЧЕГО НЕ НАЙДЕНО
   if (serverData.length === 0) {
     document.querySelector('.search-status').classList.remove('search-status_display-none'); // показываю секцию ненайденных результатов
-    if (!document.querySelector('.search').classList.contains('search_display-none')) {
-    document.querySelector('.search').classList.add('search_display-none');  // скрываю секцию с результатами поиска
+    if (!searchSection.classList.contains('search_display-none')) {
+     searchSection.classList.add('search_display-none');  // скрываю секцию с результатами поиска
     }
   }
   // КОГДА НАЙДЕНЫ РЕЗУЛЬТАТЫ
@@ -101,62 +98,69 @@ function browserStorage (serverData) {
     const serialObj = JSON.stringify(serverData);
     console.log(serialObj, 'это ответ сервера');
     localStorage.setItem("NewsApiLocalStorage", serialObj);
+    // Запрос данных из локального хранилища //ПОЛНЫЙ несортированный массив
+    const localData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
+    //ВЫБОРОЧНО РАНЖИРОВАННЫЙ массив, сортировываю значения по первому ключу dateTime (исходный storageArray.publishedAt)
+    storageArray =  Array.from(localData).map(mainPackage).sort().reverse();
+    console.log('storageArray ВЫБОРОЧНО РАНЖИРОВАННЫЙ по дате публикации', storageArray);
 
-    document.querySelector('.search').classList.remove('search_display-none');
+
+    const cardList = new CardList(storageArray);
+     searchSection.classList.remove('search_display-none'); // открывать секцию с результатами поиска
     if (!document.querySelector('.search-status').classList.contains('search-status_display-none')) {
       document.querySelector('.search-status').classList.add('search-status_display-none');  // скрываю секцию с ненайденными результатами
-      }
-      // Функция автоматически-предварительного автооткрытия 3-х результатов.
-      let manualEvent = new Event("click");
-      buttonOpenMore.dispatchEvent(manualEvent );
+    }
+
+    // Функция автоматически-предварительного автооткрытия 3-х результатов
+    let manualEvent = new Event("click");
+    buttonOpenMore.dispatchEvent(manualEvent);
+
+    return storageArray;
   }
 }
 
+
+
+const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)? /i); // регулярное выражение отсеивающее ссылку в начале текста
+
+//перевожу объект, получанный в результате fetch-запроса от сервера, в искомый массив
+function mainPackage (storageArray) {
+  const descriptionTextPreview = storageArray.description.replace(regExpHTTPLinkFirst, '');
+  const cardDate = formatDate(storageArray.publishedAt);
+  const dateTime = storageArray.publishedAt;
+  return [dateTime, storageArray.url, storageArray.urlToImage, cardDate, storageArray.title, descriptionTextPreview, storageArray.source.name];
+}
 
 function formatDate(data){
   const cd = new Date(data);
   return cd.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'}) + ', ' + cd.toLocaleDateString('ru-RU', {year: 'numeric'});
 }
 
-const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)? /i); // регулярное выражение отсеивающее ссылку в начале текста
-
-
-// Запрос данных из локального хранилища //ПОЛНЫЙ несортированный массив
-const localData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
-
-// перевожу объект, получанный в результате fetch-запроса от сервера, в массив и далее отсортировываю значения по ключу dateTime(исходный storageArray.publishedAt)
-
-//ВЫБОРОЧНО РАНЖИРОВАННЫЙ массив
-const storageArray =  Array.from(localData).map(function (storageArray) {
-  const descriptionTextPreview = storageArray.description.replace(regExpHTTPLinkFirst, '');
-  const cardDate = formatDate(storageArray.publishedAt);
-  const dateTime = storageArray.publishedAt;
-  return [dateTime, storageArray.url, storageArray.urlToImage, cardDate, storageArray.title, descriptionTextPreview, storageArray.source.name];
-}).sort().reverse();
-console.log('storageArray ВЫБОРОЧНО РАНЖИРОВАННЫЙ по дате публикации', storageArray);
 
 
 
+
+
+const buttonOpenMore = document.getElementById('button-search');
+const cardsNotDisplayed = document.getElementsByClassName('cards__cell_dispay-none');
 // Функция открытия по клику 3-х карточек из скрытой предварительно разметки всего набора карточек.
-const buttonOpenMore = document.querySelector('.search__button-open-more');
-const cards = document.getElementsByClassName('cards__cell_dispay-none');
 
-buttonOpenMore.addEventListener('click', function threeOpenCards(event) {
-  const childClassList = Array.from(cards);
+function threeOpenCards(event) {
+  buttonOpenMore.classList.remove('search__button-open-more_display-none');
+  const childClassList = Array.from(cardsNotDisplayed);
   for (let j = 0; j < 3; j++) {
     if (j === childClassList.length - 1) {
-      event.target.remove();
-    } else {
+      childClassList[j].classList.remove('cards__cell_dispay-none');
+      buttonOpenMore.classList.add('search__button-open-more_display-none');
+    }
+    else {
       childClassList[j].classList.remove('cards__cell_dispay-none');
     }
   }
-  return console.log('кликнул по кнопке открыть ещё');
-});
+}
 
-// Функция автоматически-предварительного автооткрытия 3-х результатов.
-let manualEvent = new Event("click");
-buttonOpenMore.dispatchEvent(manualEvent);
 
+buttonOpenMore.addEventListener('click', (event) => threeOpenCards(event));
 
 // Массив и функция для выдачи случайного изображения
 
@@ -276,7 +280,7 @@ class Card {
 
 
 class CardList {
-  constructor(storageArray) {
+  constructor() {
     this.cardsContainer = document.querySelector('.cards');
     this.slidesContainer = document.querySelector('.slider__slides');
     this.bulletsContainer = document.querySelector('.slider__bullets');
@@ -284,7 +288,6 @@ class CardList {
   }
 
   addCard(date, link, urlToImage, publishedAt, title, description, name) { //метод для добавления карточки в список карточек
-    // console.log(date, link, urlToImage, publishedAt, title, description, name);
     const card = new Card(date, link, urlToImage, publishedAt, title, description, name);
     this.cardsContainer.appendChild(card.cardElement);
   }
@@ -296,9 +299,7 @@ class CardList {
   }
 }
 
-const cardList = new CardList(storageArray);
 
-document.querySelector('.search').classList.remove('search_display-none'); // открывать секцию с результатами поиска
 
 
 

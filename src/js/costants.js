@@ -1,66 +1,55 @@
-import "./details.css";
+//страница details.html
 
+export const localDataRequest = localStorage.getItem("NewsApiRequest");
 
 //Достаю сохранёный ранее ответ сервера из локального хранилища
-const recivedData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
-//Тема запроса, сохранённого в локальном хранилище
-const recivedDataRequest = localStorage.getItem("NewsApiRequest");
-const regExpRequest = new RegExp('\\s' + recivedDataRequest +'\\s', 'gi');
+const localData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
+const regExpRequest = new RegExp('(^|[^а-яё])('+localDataRequest+')([^а-яё]|$)', 'i');
 // регулярное выражение игнорируещее регистр словосочетаний
 
-
-
-//Рендер темы запроса
-document.querySelector('.header__request-input').textContent = recivedDataRequest.charAt(0).toUpperCase() + recivedDataRequest.slice(1);;
-const statistics = document.querySelectorAll('.header__week-number');
-statistics[0].textContent = recivedData.length; // Новостей за неделю
-
-
-//Сужение всех заголовков до строки и подсчёт количества совпадений
-function titleRepitsNumber () {
-  const titlesArray = recivedData.map(storageString => [storageString.title]);
-  return JSON.stringify(titlesArray).match(regExpRequest).length;
-}
-
-statistics[1].textContent = titleRepitsNumber(); // Упоминаний в заголовках
-
-
-
-
 //ВЫБОР ДАТЫ и ПОВТОРЕНИЙ для таблицы
-const detailsPageData = recivedData.map(function (detailsPageData) {
-  const dateTime = detailsPageData.publishedAt.slice(0, 10);
-  const text = detailsPageData.title + ' ' + detailsPageData.description;
+const storageArray = localData.map(function (storageArray) {
+  const dateTime = storageArray.publishedAt.slice(0, 10);
+  const text = storageArray.title + ' ' + storageArray.description;
   return [dateTime, [text]];
 }).sort();
 
-
 /* Цикл подсчёта ПОВТОРЕНИЙ КЛЮЧЕВОГО СЛОВА в общем тексте заголовков и превью,
 простановка нулей там где результатов нет и перезапись обновленных данных в исходный массив */
-for (let l=0; l<detailsPageData.length; l++) {
-  const matchedMentiones = (detailsPageData[l][1]).toString().match(regExpRequest);
+for (let l=0; l<storageArray.length; l++) {
+  let matchedMentiones = (storageArray[l][1]).toString().match(regExpRequest);
   if (matchedMentiones !== null) {
-    detailsPageData[l][1] = detailsPageData[l][1].splice(1, 1);
-    detailsPageData[l][1] = matchedMentiones.length;
+    storageArray[l][1] = storageArray[l][1].splice(1, 1);
+    storageArray[l][1] = matchedMentiones.length;
   } else {
-    detailsPageData[l][1] = detailsPageData[l][1].splice(1, 1);
-    detailsPageData[l][1] = 0;
+    storageArray[l][1] = storageArray[l][1].splice(1, 1);
+    storageArray[l][1] = 0;
   }
 }
 
 
 const createdDates = [];
 // цикл для получения массива ВЫБОРОЧНО РАНЖИРОВАННОГО по дате публикации
-for (let g=0; g < detailsPageData.length; g++) {
-  const pubdate = detailsPageData[g][0];
-  const m = detailsPageData[g][1];
+for (let g=0; g < storageArray.length; g++) {
+  const date = storageArray[g][0];
+  const m = storageArray[g][1];
   if (m === 1 || m === 0) {
-    createdDates.push(pubdate);
+    createdDates.push(date);
   } else {
     let times=(n,f)=>{while(n-->0)f();}
-    times(m,()=>createdDates.push(pubdate));
+    times(m,()=>createdDates.push(date));
   }
 }
+
+//Сужение всех заголовков до строки и подсчёт количества совпадений
+const titleRepitsNumber = localData
+                              .map(storageString => [storageString.title])
+                              .reduce((accum, current) => accum.concat(current + ' '), '')
+                              .match(regExpRequest).length;
+
+const statistics = document.querySelectorAll('.header__week-number');
+statistics[0].textContent = localData.length; // Новостей за неделю
+statistics[1].textContent = titleRepitsNumber; // Упоминаний в заголовках
 
 
 
@@ -71,32 +60,34 @@ const dateWithoutUTC = new Date(Date.now() - gapSixDaysInMS); // вычитае�
 const date = new Date(dateWithoutUTC);
 
 
+
+
+
+
+
 /*для полноты отображения нулевых дней в строках
 таблицы ввёл корректировочный массив чтобы они
 не были съедены методом reduce, эту разницу
 компенсирую до передачи в таблицу! */
 const zeroCalibrationArray = [];
 const startDate = date.toJSON().slice(0,10);
-const todayCD = cd.toJSON().slice(0,10);
+const todayCd = cd.toJSON().slice(0,10);
 const dateMove = new Date(startDate);
 let oldDate = startDate;
 
-while (oldDate < todayCD){
+while (oldDate < todayCd + 1){
   oldDate = dateMove.toISOString().slice(0,10);
   zeroCalibrationArray.push(oldDate);
   dateMove.setDate(dateMove.getDate()+1);
 };
 
-
-const plusExtaDay = createdDates.concat(zeroCalibrationArray);
+const storagePlusSevenExtaDay = createdDates.concat(zeroCalibrationArray);
 
 // сортирую Объект для столбиков с одной лишней публикацией за каждый день
-const counter = plusExtaDay.sort().reduce((accum, item) => {
+const counter = storagePlusSevenExtaDay.sort().reduce((accum, item) => {
   accum[item] = (accum[item] || 0) + 1 ;
   return accum;
 }, {})
-
-
 
 // количество превышающее реальность на одну публикацию в день
 const daily = Object.values(counter);

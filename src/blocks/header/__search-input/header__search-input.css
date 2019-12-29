@@ -1,4 +1,5 @@
 .header__search-input {
+  z-index: 1;
   font-family:'Roboto';
   font-weight: normal;
   color: #B6BCBF;
@@ -18,19 +19,11 @@
 
   border:#35a5e5 1px solid;
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
 
-/* .header__search-input:invalid {
-  border-color:red;
+.header__search-input:focus + .header__input-requirements {
+  z-index: 3;
 }
-
-.header__search-input:required:valid {
-  border-color:greenyellow 2px solid;;
-}
-
-*/
 
 @media screen and (max-width : 768px) {
 .header__search-input {

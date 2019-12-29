@@ -1,5 +1,21 @@
 @import url('_display-none/header__input-requirements_display-none.css');
 
 .header__input-requirements {
+  z-index: 1;
+  display: inline;
+  position: absolute;
+  top: 65px;
+  margin: 1px 25px 0 25px;
+  padding: 0 13px 2px;
+
+  background-color: rgb(36, 107, 2);
   color: #ffffff;
+
+  border-radius: 0 0 7px 7px;
+}
+
+@media screen and (max-width : 768px) {
+  .header__input-requirements {
+    top: 57px;
+  }
 }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='keywords' content='NewsAnalyzer, Яндекс Практикум, дипломная работа курса Фронтенд-разработки, поиск по новостям средствами HTML CSS Java Script'>
+  <meta name='revisit-after' content='10 days'>
+  <meta name='description' content='Поиск последних новостей за неделю средствами (HTML5,CSS3,javaScript) Визитка разработчика проекта'>
+  <meta name='author' content='Дмитрий Ковегин'>
+  <title>NewsAnalyzer дипломный проект</title>
+  <link rel='icon' href="./images/favicon.svg" sizes='any' type='image/svg+xml'>
+  <link rel='alternate icon' href="./images/favicon.png" sizes='any' type='image/png'>
+  <link rel='stylesheet' href='./styles/main.921bdb0daa9d9355ac1f.css?fae09c8cfd2c42bb9c60' type='text/css'>
+</head>
+
+<body>
+  <div class='page'>
+    <header class='header header_page-index' aria-label='Фотография смартфона в руке. На экране отображена диаграмма аналитики.'>
+      <nav class='loft header__loft'>
+        <a href='./index.html' class='loft__link loft__link_color-white'>NewsAnalyzer</a>
+        <ul class='loft__container'>
+          <li class='loft__page'>
+            <a href='./index.html' class='loft__page-chosen loft__page-chosen_color-white'>Главная</a>
+          <li class='loft__page'>
+            <a href='./about.html' class='loft__page-link loft__page-link_hover-white'>О проекте</a>
+        </ul>
+      </nav>
+      <h1 class='header__title'>Что в мире <span class='header__title-break'>творится?</span></h1>
+      <p class='header__subtitle'>Введите в поиске любую тему и узнайте, насколько популярной она&nbsp;была в новостях за прошедшую неделю.</p>
+      <form id='form-search' class='header__search-form' name='search'>
+        <div class='header__input-container'>
+          <input id='search-input' required type='text' name='request' class='header__search-input' minlength='3' maxlength='30' placeholder='Введите тему'>
+          <p class='header__input-requirements'></p>
+        </div>
+        <button id='start-search' type='submit' class='button header__search-button'>Искать</button>
+      </form>
+    </header>
+
+    <main class='content-index'>
+      <section class='search search_display-none'>
+        <div class='search__header-container'>
+          <h2 class='search__results-title'>Результаты поиска</h2>
+          <a href='./details.html' class='search__analitics-link' target='_blank'>Посмотреть&nbsp;аналитику&nbsp;&nbsp;&#x276F;</a>
+        </div>
+        <section class='cards'>
+          <h3 class='visually-hidden' hidden>Секция новостных карточек, полученных со стороннего сервера</h3>
+        </section>
+        <button id='button-search' type='submit' class='button search__button-open-more search__button-open-more_display-none'>Показать еще</button>
+      </section>
+
+      <section class='preloader preloader_display-none'>
+        <h3 class='preloader__fake-header visually-hidden' hidden>Секция прелоудера для ожидания загрузки данных</h3>
+        <i class='preloader__circle'></i>
+        <p class='preloader__current-status'>Идет поиск новостей…</p>
+        <p class='preloader__current-status preloader__current-status_display-none'>Во время запроса произошла&nbsp;ошибка.<span>Возможно&nbsp;проблема с&nbsp;соединением или сервер недоступен. Подождите немного и&nbsp;попробуйте ещё раз.</span></p>
+      </section>
+
+      <section class='search-status search-status_display-none'>
+        <img class='search-status__img-done' src="./images/no-results.svg" alt='поиск новостей завершён'>
+        <h4 class='search-status__not-found'>Ничего не найдено</h4>
+        <p class='search-status__completed'>К сожалению по вашему запросу ничего не найдено.</p>
+      </section>
+
+      <section class='developer developer_index-down'>
+        <h2 class='developer__fake-header visually-hidden' hidden>Секция о разработчике данного проекта</h2>
+        <picture class='developer__photo-container'>
+          <source media='(max-width : 320px)' srcset="./images/developer_photo_template-small.png">
+          <img class='developer__photo' src="./images/developer_photo_template.png" alt='фотография разработчика'>
+        </picture>
+        <article class='developer__article-container'>
+          <h3 class='developer__about'>Об авторе</h3>
+          <p class='developer__cv'>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+          <p class='developer__cv'>Также&nbsp;можно&nbsp;рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам. Если хотите, оставьте свои контакты: email и телефон. Так заказчики смогут с вами связаться.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class='footer footer_lifting-up'>
+      <p class='footer__copyright'>&copy; 2019&nbsp;Дмитрий Ковегин</p>
+      <nav class='footer__navigation'>
+        <ul>
+          <li class='footer__links'>
+            <a href='./index.html' class='footer__page-link'>Главная</a>
+          <li class='footer__links'>
+            <a href='./about.html' class='footer__page-link'>О проекте</a>
+          <li class='footer__links'>
+            <a href='https://praktikum.yandex.ru/' class='footer__page-link'>Яндекс.Практикум</a>
+        </ul>
+      </nav>
+      <nav class='footer__social-links'>
+        <ul>
+          <li>
+            <a href='https://github.com/DmJavaScript/YandexDiplomaProject' class='footer__icon-link' target='_blank'>
+            <img src="./images/github_icon_logo.svg" alt='перейти в группу ВКонтакте' class='footer__image-icon'>
+            </a>
+          <li>
+            <a href='https://ru-ru.facebook.com/dmitry.kovegin/' class='footer__icon-link' target='_blank'>
+            <img src="./images/facebook_icon_logo.svg" alt='перейти в профиль Facebook' class='footer__image-icon'>
+            </a>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+<script src="./pages/main.736d0c20a3320c222aff.js?fae09c8cfd2c42bb9c60"></script>
+</body>
+</html>

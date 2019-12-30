@@ -134,9 +134,6 @@ class CardList {
 
   addCard(date, avatar, name, email, message) { //метод для добавления карточки в список карточек
     const slide = new Slide(date, avatar, name, email, message);
-    // console.log(formatDate(localData[0].commit.author.date), localData[0].author.avatar_url, localData[0].commit.author.name, localData[0].commit.author.email, localData[0].commit.message);
-    // console.log(date, avatar, name, email, message);
-    // console.log(slide);
     this.slidesContainer.appendChild(slide.cardElement);
     this.bulletsContainer.appendChild(slide.bulletElement);
   }
@@ -227,52 +224,3 @@ const glide = new Glide('#options-focus-at', {
 });
 
 glide.mount();
-
-
-
-
-
-
-  // render() { //метод для автоматической отрисовки карточек из списка addCard
-  //   const {formatDate(localData.commit.author.date), localData.author.avatar_url, localData.commit.author.name, localData.commit.author.email, localData.commit.message} = data;
-  //   for (const data of `${this.localData}`) {
-  //     this.addCard(data);
-  //   }
-  //   // this.localData.forEach(({localData.commit.author.date, localData.author.avatar_url, localData.commit.author.name, localData.commit.author.email, localData.commit.message}) =>
-
-
-
-
-
-// console.log(localData[0].commit.author.date, localData[0].author.avatar_url, localData[0].commit.author.name, localData[0].commit.author.email, localData[0].commit.message);
-
-
-
-
-/*
-
-function formatDate(data.commit.author.date){
-  return date.toLocaleString("ru", {
-      year: "2-digit",
-      month: "2-digit",
-      day: "2-digit"
-  });
-}
-var date = new Date(2014, 0, 30); //30.01.14
-console.log(formatDate(date));
-
-api.getSlidesData().then(data => formatDate(data.commit.author.date));
-
-*/
-
-/*
-
-githubApi.getSlidesData()
-  .then(data => {
-    const cd = new Date(data[5].commit.author.date);
-    const cardDate = cd.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'}) + ', ' + cd.toLocaleDateString('ru-RU', {year: 'numeric'});
-    console.log(cardDate);
-  })
-  .catch((err) => console.log('Ошибка. Запрос не выполнен: ', err));
-
-*/

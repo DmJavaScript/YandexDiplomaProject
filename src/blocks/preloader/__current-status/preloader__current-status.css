@@ -10,15 +10,4 @@
   font-weight: normal;
   font-size: 1.125em;
   color: #B6BCBF;
-
-}
-
-.preloader__current-status span {
-  display: block;
-}
-
-@media screen and (max-width : 570px) {
-  .preloader__current-status {
-    width: 90%;
-  }
 }

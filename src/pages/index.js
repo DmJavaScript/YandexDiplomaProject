@@ -1,72 +1,24 @@
 import "./index.css";
-
-// Универсальные переменные дающие точку отсчёта для даты
-
-const cd = (new Date);
-const gapSixDaysInMS = cd - Date.UTC(cd.getFullYear(), cd.getMonth(), cd.getDate()-6);
-const dateWithoutUTC = new Date(Date.now() - gapSixDaysInMS); // вычитаем количество милисекунд за интересуемый промежуток времени
-const date = new Date(dateWithoutUTC);
-
-// Подготовка формата даты к fetch запросу
-const fromDate = 'from=' + date.toJSON(); //.slice(0, 10);
-const currentDate = 'to=' + cd.toJSON(); //.slice(0, 10);
-
-
-class Api {
-  getNews (inputRequest) {
-    return fetch('https://newsapi.org/v2/everything?q=' + `${inputRequest}` + '&pageSize=100&language=ru&' + `${fromDate}` + '&' + `${currentDate}`+ '&apiKey=a77a12e2e4484b4fb5cc12d192f94b00', {
-      method: 'GET'
-    })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    })
-    .catch((err) => {
-        console.log('Ошибка. Запрос не выполнен: ', err);
-    })
-  }
-}
-
-const api = new Api();
+import {Validation} from '../js/validation.js';
+import {NewsApi} from '../js/news_api.js';
+// import {CardsList} from '../js/cards_list.js';
+import {Card} from '../js/card.js';
 
 
 
-//Валидация
-const input = document.getElementById('search-input');
-input.addEventListener('input', finalFieldCheck);
+// import {formatDate, getRandomInt} from '../js/utils.js';
+import {input, buttonSearch, lostedPicturesReplacement, cardArguments} from '../js/constants.js';
+// import {Card} from '../js/card.js';
+const newsApi = new NewsApi();
 
-function finalFieldCheck (event){
-  buttonSearch.classList.remove('header__search-button_invalid');
-  validate ();
-}
+new Validation();
 
-function validate() {
-  if (!input.checkValidity()) {
-    customValidationMessages();
-    document.querySelector('.header__input-requirements').textContent = input.validationMessage;
-    buttonSearch.classList.add('header__search-button_invalid');
-    buttonSearch.disabled = true;
-  } else {
-    buttonSearch.disabled = false;
-    document.querySelector('.header__input-requirements').textContent = '';
-  }
-}
-
-function customValidationMessages() {
-  if (input.validity.valueMissing) {
-    input.setCustomValidity("Нужно ввести ключевое слово");
-  }
-  if (input.value.length > 1 ) {
-    input.setCustomValidity('');
-  }
-}
-
-//Кнопка поиска
-const formSearch = document.forms.search;
 let inputRequest = '';
-const buttonSearch = document.querySelector('.header__search-button');
+
+
+
+
+
 
 buttonSearch.addEventListener('click', receiveInput);
 // Функция отправки поискового запроса после нажатия кнопки
@@ -74,50 +26,77 @@ function receiveInput (event) {
   event.preventDefault();
   preloaderOn();
   closeSearchStatus();
-  inputRequest = formSearch.elements.request.value;
-  api.getNews(inputRequest)
-                          .then((data) => browserStorage (data.articles))
+  inputRequest = input.value;
+  newsApi.getNews(inputRequest)
+                          .then((data) => cardsFromServer (data.articles))
                           .catch(function (err) {
                             console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.', err);
                             lostConnection();
+                            return Promise.reject(`Ошибка: ${err}`); //дополнительно прочитать правильно ли я сделал
                           });
-
-  //удаление старых карточек на странице
-  while (cards.length > 0) {
-    cards[0].parentNode.removeChild(cards[0]);
-  }
 }
 
 const preloader = document.querySelector('.preloader');
+const preloaderCircle = document.querySelector('.preloader__circle');
+const preloaderCurrentStatus = document.querySelector('.preloader__current-status');
+const preloaderCurrentError = document.querySelector('.preloader__current-error');
 
 function lostConnection() {
   preloader.classList.remove('preloader_display-none');
-  document.querySelector('.preloader__circle').classList.add('preloader__circle_display-none');
-  document.querySelector('.preloader__current-status').classList.add('preloader__current-status_display-none');
-  document.querySelectorAll('.preloader__current-status')[1].classList.remove('preloader__current-status_display-none');
+  preloaderCircle.classList.add('preloader__circle_display-none');
+  preloaderCurrentStatus.classList.add('preloader__current-status_display-none');
+  preloaderCurrentError.classList.remove('preloader__current-error_display-none');
 }
 
 function preloaderOn() {
   preloader.classList.remove('preloader_display-none');
-  document.querySelector('.preloader__circle').classList.remove('preloader__circle_display-none');
-  document.querySelector('.preloader__current-status').classList.remove('preloader__current-status_display-none');
-  document.querySelectorAll('.preloader__current-status')[1].classList.add('preloader__current-status_display-none');
+  preloaderCircle.classList.remove('preloader__circle_display-none');
+  preloaderCurrentStatus.classList.remove('preloader__current-status_display-none');
+  preloaderCurrentError.classList.add('preloader__current-error_display-none');
+}
+
+let resultsArray = [];
+const searchSection = document.querySelector('.search');
+
+// Функция получения массива новостей с локального хранилища
+// chekingStorage ();
+// function chekingStorage () {
+//   const inputRequest = localStorage.getItem("NewsApiRequest");
+//   const results = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
+//   if( inputRequest !== undefined && results !== undefined) {
+//     input.value = inputRequest;
+//     searchSection.classList.remove('search_display-none');
+//     resultsArray = Array.from(results).map(mainPackage).sort().reverse();
+//     cardsList.render(resultsArray); //неправильно
+//     console.log(resultsArray);
+//     return resultsArray;
+//   }
+// }
+
+const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)? /i); // регулярное выражение отсеивающее ссылку в начале текста
+
+//перевожу объект, получанный в результате fetch-запроса от сервера, в искомый массив
+function mainPackage (resultsArray) {
+  const descriptionTextPreview = resultsArray.description.replace(regExpHTTPLinkFirst, ' ');
+  const cardDate = formatDate(resultsArray.publishedAt);
+  const dateTime = resultsArray.publishedAt;
+  return [dateTime, resultsArray.url, resultsArray.urlToImage, cardDate, resultsArray.title, descriptionTextPreview, resultsArray.source.name];
 }
 
 
-let masterPageData = [];
-const cards = document.getElementsByClassName('cards__cell');
-const searchSection = document.querySelector('.search');
-// Функция получения массива новостей
 
-function browserStorage (serverData) {
-  localStorage.clear()
+const searchStatus = document.querySelector('.search-status');
+
+// Функция получения массива новостей с сервера
+
+function cardsFromServer (serverData) {
+  localStorage.clear ();
   localStorage.setItem("NewsApiRequest", inputRequest);
 
   // КОГДА НИЧЕГО НЕ НАЙДЕНО
   if (serverData.length === 0) {
     preloader.classList.add('preloader_display-none');
-    document.querySelector('.search-status').classList.remove('search-status_display-none'); // показываю секцию ненайденных результатов
+    searchStatus.classList.remove('search-status_display-none'); // показываю секцию ненайденных результатов
     closeResultsSection();
   }
   // КОГДА НАЙДЕНЫ РЕЗУЛЬТАТЫ
@@ -125,98 +104,15 @@ function browserStorage (serverData) {
     // Сохраняю полученный ответ в локальное хранилище
     const serialObj = JSON.stringify(serverData);
     localStorage.setItem("NewsApiLocalStorage", serialObj);
-    // Запрос данных из локального хранилища //ПОЛНЫЙ несортированный массив
-    const localData = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
-    //ВЫБОРОЧНО РАНЖИРОВАННЫЙ массив, сортировываю значения по первому ключу dateTime (исходный masterPageData.publishedAt)
-    masterPageData =  Array.from(localData).map(mainPackage).sort().reverse();
+    // Запрос данных из локального хранилища ПОЛНЫЙ несортированный массив
+    const results = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
+    //ВЫБОРОЧНО РАНЖИРОВАННЫЙ массив, сортировываю значения по первому ключу dateTime (исходный resultsArray.publishedAt)
+    resultsArray = Array.from(results).map(mainPackage).sort().reverse();
 
     preloader.classList.add('preloader_display-none');
     renderAndOpenResultsSection();
-
-    return masterPageData;
-  }
-}
-
-
-
-
-class Card {
-    constructor (date, link, urlToImage, publishedAt, title, description, name) {
-    this.date = date;
-    this.link = link;
-    this.imageReplacement = lostedPicturesReplacement[getRandomInt(lostedPicturesReplacement.length)];
-    this.image = urlToImage;
-    this.publishedAt = publishedAt;
-    this.title = title;
-    this.description = description;
-    this.name = name;
-    this.cardElement = this.createCard();
-  }
-
-  createCard() {
-    const cardContainer =  document.createElement('article');
-    const linkElement = document.createElement('a');
-    const imageElement = document.createElement('img');
-    const dateElement = document.createElement('p');
-    const timeElement = document.createElement('time');
-    const articleContainer =  document.createElement('div');
-    const headingElement = document.createElement('h4');
-    const descriptionElement = document.createElement('p');
-    const nameSourceElement = document.createElement('p');
-
-    cardContainer.classList.add('cards__cell');
-    cardContainer.classList.add('cards__cell_dispay-none');
-    linkElement.classList.add('cards__cell-link');
-    imageElement.classList.add('cards__cell-image');
-    dateElement.classList.add('cards__cell-date');
-    articleContainer.classList.add('cards__article-container');
-    headingElement.classList.add('cards__cell-heading');
-    descriptionElement.classList.add('cards__cell-text');
-    nameSourceElement.classList.add('cards__cell-news-source');
-
-    linkElement.setAttribute('href', this.link);
-    linkElement.setAttribute('target', '_blank');
-    imageElement.setAttribute('src', this.image ? this.image: this.imageReplacement);
-    imageElement.setAttribute('alt', 'картинка к новости');
-    dateElement.setAttribute('itemscope', '');
-    timeElement.setAttribute('itemprop', 'pubdate');
-    timeElement.setAttribute('datetime', this.date.slice(0, 10));
-    timeElement.textContent = this.publishedAt;
-    headingElement.textContent = this.title;
-    descriptionElement.textContent = this.description;
-    nameSourceElement.textContent = this.name;
-
-    //родительство и рендер
-    cardContainer.appendChild(linkElement);
-    cardContainer.appendChild(imageElement);
-    cardContainer.appendChild(dateElement);
-    dateElement.appendChild(timeElement);
-    cardContainer.appendChild(articleContainer);
-    articleContainer.appendChild(headingElement);
-    articleContainer.appendChild(descriptionElement);
-    cardContainer.appendChild(nameSourceElement);
-
-    return cardContainer;
-  }
-}
-
-class CardList {
-  constructor() {
-    this.cardsContainer = document.querySelector('.cards');
-    this.slidesContainer = document.querySelector('.slider__slides');
-    this.bulletsContainer = document.querySelector('.slider__bullets');
-    this.render();
-  }
-
-  addCard(date, link, urlToImage, publishedAt, title, description, name) { //метод для добавления карточки в список карточек
-    const card = new Card(date, link, urlToImage, publishedAt, title, description, name);
-    this.cardsContainer.appendChild(card.cardElement);
-  }
-
-  render() { //метод для автоматической отрисовки карточек из списка addCard
-    for (let i=0; i < masterPageData.length; i++) {
-      this.addCard(masterPageData[i][0], masterPageData[i][1], masterPageData[i][2], masterPageData[i][3], masterPageData[i][4], masterPageData[i][5], masterPageData[i][6]);
-    }
+    console.log(resultsArray);
+    return resultsArray;
   }
 }
 
@@ -226,89 +122,230 @@ function closeResultsSection() {
   }
 }// скрываю секцию с результатами поиска
 
-function renderAndOpenResultsSection() {
-  const cardList = new CardList(masterPageData);
-  buttonOpenMore.addEventListener('click', threeOpenCards);
-  // Функция автоматически-предварительного автооткрытия 3-х результатов
-  let manualEvent = new Event("click");
-  buttonOpenMore.dispatchEvent(manualEvent);
 
+function renderAndOpenResultsSection() {
+  const cardsList = new CardsList(cardArguments);
+  cardsList.startMount();
   searchSection.classList.remove('search_display-none'); // открывать секцию с результатами поиска
   closeSearchStatus();
 }
 
 function closeSearchStatus() {
-  if (!document.querySelector('.search-status').classList.contains('search-status_display-none')) {
-    document.querySelector('.search-status').classList.add('search-status_display-none');
+  if (!searchStatus.classList.contains('search-status_display-none')) {
+    searchStatus.classList.add('search-status_display-none');
   }
 }// скрываю секцию с уведомлением о ненайденных результатах
 
 
 
 
+export class CardsList {
+  constructor(cardArguments) {
+    this._cardsContainer = document.querySelector('.cards');
+    this._cards = document.querySelectorAll('.cards__cell');
+    this._cardArguments = cardArguments;
+    this._fromCardPosition = 0;
+    this._openPerOnce = 3;
+    this._buttonOpenMore = document.querySelector('.search__button-open-more');
+    this._openMoreCards = this._openMoreCards.bind(this);
 
-const buttonOpenMore = document.getElementById('button-search');
-const cardsNotDisplayed = document.getElementsByClassName('cards__cell_dispay-none');
+    this._buttonOpenMore.addEventListener('click', this._openMoreCards);
+  }
 
-// Функция открытия по клику 3-х карточек
-function threeOpenCards(event) {
-  buttonOpenMore.classList.remove('search__button-open-more_display-none');
-  const childClassList = Array.from(cardsNotDisplayed);
-  for (let j = 0; j < 3; j++) {
-    if (j === childClassList.length - 1) {
-      buttonOpenMore.classList.add('search__button-open-more_display-none');
-      buttonOpenMore.removeEventListener('click', threeOpenCards);
-    }
-    else {
-      childClassList[j].classList.remove('cards__cell_dispay-none');
+  startMount() {
+    this._deleteOldCards();
+    this._render();
+    this._openMoreCards();
+  }
+
+  _deleteOldCards() { //метод удаления старых карточек на странице
+    this._cards.forEach((element) => this._cardsContainer.removeChild(element));
+  }
+
+  _addCard(...args) { //метод для добавления карточки в список карточек
+    const _card = this._cardArguments(...args);
+    this._cardsContainer.appendChild(_card.createCard());
+  }
+
+  _render() { //метод для автоматической отрисовки карточек из списка addCard
+    resultsArray.forEach((resultsArray) => this._addCard(resultsArray[0], resultsArray[1], resultsArray[2], resultsArray[3], resultsArray[4], resultsArray[5], resultsArray[6]));
+  }
+
+  _openMoreCards() {
+    this._buttonOpenMore.classList.remove('search__button-open-more_display-none');
+    const _cardsNotDisplayed = Array.from(document.querySelectorAll('.cards__cell_dispay-none')); //тут список карточек меняется поэтому при каждом вызове функции нужен новый список - обновление списка элементов.
+    _cardsNotDisplayed.slice(this._fromCardPosition, this._openPerOnce).forEach((_cardsNotDisplayed) => _cardsNotDisplayed.classList.remove('cards__cell_dispay-none'));
+    if (_cardsNotDisplayed.length < this._openPerOnce) {
+      this._buttonOpenMore.classList.add('search__button-open-more_display-none');
+      this._buttonOpenMore.removeEventListener('click', this._openMoreCards);
     }
   }
 }
 
+// const cardsList = new CardsList(resultsArray);
+// cardsList.startMount();
+const cardsList = new CardsList(cardArguments);
+// cardsList.startMount();
 
 
-const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)? /i); // регулярное выражение отсеивающее ссылку в начале текста
 
-//перевожу объект, получанный в результате fetch-запроса от сервера, в искомый массив
-function mainPackage (masterPageData) {
-  const descriptionTextPreview = masterPageData.description.replace(regExpHTTPLinkFirst, ' ');
-  const cardDate = formatDate(masterPageData.publishedAt);
-  const dateTime = masterPageData.publishedAt;
-  return [dateTime, masterPageData.url, masterPageData.urlToImage, cardDate, masterPageData.title, descriptionTextPreview, masterPageData.source.name];
+
+// class NewServerData {
+//   constructor () {
+//     this._preloader = document.querySelector('.preloader');
+//     this._preloaderCircle = document.querySelector('.preloader__circle');
+//     this._preloaderCurrentStatus = document.querySelector('.preloader__current-status');
+//     this._preloaderCurrentError = document.querySelector('.preloader__current-error');
+//     this._searchStatus = document.querySelector('.search-status');
+//     this._searchSection = document.querySelector('.search');
+//     this._regExpHTTPLinkFirst = regExpHTTPLinkFirst;
+//     this._resultsArray = resultsArray;
+//     this._button = buttonSearch;
+//     this._input = input;
+//     this._newsApi = newsApi;
+
+//     this._button.addEventListener('click', this.getData.bind(this));
+//   }
+
+//   _cardsFromServer (serverData) {// Метод получения массива новостей с сервера
+//     localStorage.clear ();
+//     localStorage.setItem("NewsApiRequest", inputRequest);
+
+//     // КОГДА НИЧЕГО НЕ НАЙДЕНО
+//     if (serverData.length === 0) {
+//       _disablePreloader();
+//       _openSearchStatus ();// показываю секцию ненайденных результатов
+//       _closeResultsSection();
+//     }
+//     // КОГДА НАЙДЕНЫ РЕЗУЛЬТАТЫ
+//     if (serverData.length !== 0) {
+//       // Сохраняю полученный ответ в локальное хранилище
+//       const serialObj = JSON.stringify(serverData);
+//       localStorage.setItem("NewsApiLocalStorage", serialObj);
+//       // Запрос данных из локального хранилища ПОЛНЫЙ несортированный массив
+//       const results = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
+//       console.log(this._resultsArray);
+//       //ВЫБОРОЧНО РАНЖИРОВАННЫЙ массив, сортировываю значения по первому ключу dateTime (исходный resultsArray.publishedAt)
+//       this._resultsArray = Array.from(results).map(this._preparePackageArray (this._resultsArray)).sort().reverse();
+
+//       this._disablePreloader();
+//       this._initializeRender();
+//       this._closeSearchStatus();
+//       this._openResultsSection();
+//       console.log(this._resultsArray);
+//       return this._resultsArray;
+//     }
+//   }
+
+//   _enablePreloader () {
+//     this._preloader.classList.remove('preloader_display-none');
+//     this._preloaderCircle.classList.remove('preloader__circle_display-none');
+//     this._preloaderCurrentStatus.classList.remove('preloader__current-status_display-none');
+//     this._preloaderCurrentError.classList.add('preloader__current-error_display-none');
+//   }
+
+//   _disablePreloader () {
+//     this.preloader.classList.add('preloader_display-none');
+//   }
+
+//   _disableForm () {
+//     this._button.setAttribute('disabled', true);
+//     this._input.setAttribute('disabled', true);
+//   }
+
+//   _enableForm () {
+//     this._button.removeAttribute('disabled');
+//     this._input.removeAttribute('disabled');
+//   }
+
+//   _lostConnection () {
+//     this._preloader.classList.remove('preloader_display-none');
+//     this._preloaderCircle.classList.add('preloader__circle_display-none');
+//     this._preloaderCurrentStatus.classList.add('preloader__current-status_display-none');
+//     this._preloaderCurrentError.classList.remove('preloader__current-error_display-none');
+//   }
+
+//   _closeSearchStatus () {// метод скрытия секции с уведомлением о ненайденных результатах
+//     if (!this._searchStatus.classList.contains('search-status_display-none')) {
+//       this._searchStatus.classList.add('search-status_display-none');
+//     }
+//   }
+
+//   _openSearchStatus ()  {
+//     this._searchStatus.classList.remove('search-status_display-none');
+//   }
+
+//   openResultsSection ()  {
+//     this._searchSection.classList.remove('search_display-none'); // открыть секцию с результатами поиска
+//   }
+
+//   _closeResultsSection () {// метод скрытия секции с результатами поиска
+//     if (!this._searchSection.classList.contains('search_display-none')) {
+//       this._searchSection.classList.add('search_display-none');
+//     }
+//   }
+
+//   getData (event) { //Метод отправки поискового запроса после нажатия кнопки
+//     event.preventDefault(); // заместо попробовать this._button.remove();
+//     this._disableForm();
+//     this._enablePreloader();
+//     this._closeSearchStatus();
+
+//     inputRequest = this._input.value;
+
+//     this._newsApi.getNews(inputRequest)
+//                 .then((data) => this._cardsFromServer (data.articles))
+//                 .catch(function (err) {
+//                   // this._lostConnection();
+//                   console.log('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.', err);
+//                   return Promise.reject(`Ошибка: ${err}`); //дополнительно прочитать правильно ли я сделал
+//                 })
+//                 .finally(this._enableForm.bind(this));
+//   }
+// }
+
+// const displayResults = new NewServerData();
+
+
+
+export class StorageData {
+  constructor (resultsArray) {
+    this.resultsArray = resultsArray;
+    this._cardsList = cardsList;
+    this._displayResults = displayResults;
+  }
+
+  startMount () {
+    this._chekingStorage();
+    this._initializeRender();
+    this._displayResults.openResultsSection();
+  }
+
+  _chekingStorage () {// Метод получения массива новостей с локального хранилища
+    const inputRequest = localStorage.getItem("NewsApiRequest");
+    const results = JSON.parse(localStorage.getItem("NewsApiLocalStorage"));
+    if( inputRequest !== undefined && results !== undefined) {
+      input.value = inputRequest;
+      resultsArray = Array.from(results).map(this._preparePackageArray).sort().reverse();
+      return resultsArray;
+    } else {
+      this._displayResults.getData();
+    }
+  }
+
+  _preparePackageArray (results) {
+    const _descriptionTextPreview = results.description.replace(regExpHTTPLinkFirst, ' ');
+    const _cardDate = formatDate(results.publishedAt);
+    const _dateTime = results.publishedAt;
+    return [_dateTime, results.url, results.urlToImage, _cardDate, results.title, _descriptionTextPreview, results.source.name];
+  }
+
+  _initializeRender () {
+    this._cardsList.startMount();
+  }
 }
 
-function formatDate(data){
-  const cd = new Date(data);
-  return cd.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'}) + ', ' + cd.toLocaleDateString('ru-RU', {year: 'numeric'});
-}
 
-// Массив и функция для выдачи случайного изображения
-
-const lostedPicturesReplacement = [
-  'https://i.ibb.co/S0JyQr0/1.png',
-  'https://i.ibb.co/2gf1WYW/2.png',
-  'https://i.ibb.co/HpC0xT0/3.png',
-  'https://i.ibb.co/sHTH044/6.png',
-  'https://i.ibb.co/BHkDpRW/7.png',
-  'https://i.ibb.co/X7H7Jf3/8.png',
-  'https://i.ibb.co/6Y4ZH24/9.png',
-  'https://i.ibb.co/f10s1tV/12.png',
-  'https://i.ibb.co/YdS9275/13.png',
-  'https://i.ibb.co/NYyGhPg/14.png',
-  'https://i.ibb.co/nzVbZT9/15.png',
-  'https://i.ibb.co/qrPtCM5/17.png',
-  'https://i.ibb.co/Zm4WSyp/18.png',
-  'https://i.ibb.co/fqqrpVg/19.png',
-  'https://i.ibb.co/gmB5ctQ/20.png',
-  'https://i.ibb.co/NxT6zDb/21.png',
-  'https://i.ibb.co/tMWwTG5/22.png',
-  'https://i.ibb.co/L09dNLq/25.png',
-  'https://i.ibb.co/DwnfsNs/26.png',
-  'https://i.ibb.co/HGrKJfq/28.png',
-  'https://i.ibb.co/dKTCJsJ/30.png'
-];
-
-// Функция для выдачи случайного целого числа от 0 (верхний предел max не включается в выдачу)
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
+const loadStorageCards = new StorageData();
+loadStorageCards.startMount();
+console.log(resultsArray);

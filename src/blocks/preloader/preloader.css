@@ -2,6 +2,7 @@
 @import url('__fake-header/preloader__fake-header.css');
 @import url('__circle/preloader__circle.css');
 @import url('__current-status/preloader__current-status.css');
+@import url('__current-error/preloader__current-error.css');
 
 .preloader {
   z-index: 1;

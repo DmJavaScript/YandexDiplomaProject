@@ -1,11 +1,11 @@
 import "./details.css";
-import {recivedData, recivedDataRequest, regExpRequest, statistics, detailsPageDataNew, createdDates, datesPerMentions, createdDatesComplite, plusExtraDay, counter, daily, fromMonth, currentMonth, publishDates, zeroCalibrationArray} from "../js/costants.js";
-import {titleRepitsNumber, createDates, createEmptyLastWeekArray, correctionDistortionsAmmount} from "../js/utils.js";
+import {recivedData, recivedDataRequest, daily, fromMonth, currentMonth, publishDates, timeNodeList, valueNodeList} from "../js/constants.js";
+import {titleRepitsNumber} from "../js/utils.js";
 
 //Рендер темы запроса
-document.querySelector('.header__request-input').textContent = recivedDataRequest.charAt(0).toUpperCase() + recivedDataRequest.slice(1);
-statistics[0].textContent = recivedData.length; // Новостей за неделю
-statistics[1].textContent = titleRepitsNumber(); // Упоминаний в заголовках
+document.querySelector('#request-title').textContent = recivedDataRequest.charAt(0).toUpperCase() + recivedDataRequest.slice(1);
+document.querySelector('#news-amount').textContent = recivedData.length; // Новостей за неделю
+document.querySelector('#header-menshions').textContent = titleRepitsNumber(); // Упоминаний в заголовках
 
 // Вставка текущего месяца в заголовок таблицы
 document.querySelector('.search-analitics__bar-title-cur-month').textContent = '(' + currentMonth + ')';
@@ -16,8 +16,8 @@ if (fromMonth !== currentMonth) {
 }
 
 for (let c = 0; c <publishDates.length; c++) {
-  document.querySelectorAll('time')[c].dateTime = publishDates[c];
-  document.querySelectorAll('time')[c].textContent = new Date(publishDates[c]).toLocaleDateString('ru-RU', {day: 'numeric'}) + ', ' + new Date(publishDates[c]).toLocaleDateString('ru-RU', {weekday: 'short'});
-  document.querySelectorAll('.search-analitics__value')[c].textContent = daily[c];
-  document.querySelectorAll('.search-analitics__value')[c].style.width = daily[c] + '%';
+  timeNodeList[c].dateTime = publishDates[c];
+  timeNodeList[c].textContent = new Date(publishDates[c]).toLocaleDateString('ru-RU', {day: 'numeric'}) + ', ' + new Date(publishDates[c]).toLocaleDateString('ru-RU', {weekday: 'short'});
+  valueNodeList[c].textContent = daily[c];
+  valueNodeList[c].style.width = daily[c] + '%';
 }

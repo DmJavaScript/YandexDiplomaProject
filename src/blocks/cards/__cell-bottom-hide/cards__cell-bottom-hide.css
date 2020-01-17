@@ -1,0 +1,27 @@
+.cards__cell-bottom-hide {
+  position: absolute;
+  bottom: 45px;
+  z-index: 1;
+  height: 30px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(245, 246, 247, 0) 10%, #ffffff 70%);
+}
+
+@media screen and (max-width : 768px) {
+.cards__cell-bottom-hide {
+    bottom: 35px;
+  }
+}
+
+@media screen and (max-width : 425px) {
+  .cards__cell-bottom-hide {
+      bottom: 45px;
+    }
+  }
+
+@media screen and (max-width : 320px) {
+  /* стили для малого смартфона */
+.cards__cell-bottom-hide {
+    bottom: 35px;
+  }
+}

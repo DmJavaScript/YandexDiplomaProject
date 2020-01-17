@@ -3,6 +3,7 @@
 @import url('../__cell-image/cards__cell-image.css');
 @import url('../__cell-date/cards__cell-date.css');
 @import url('../__cell-news-source/cards__cell-news-source.css');
+@import url('../__cell-bottom-hide/cards__cell-bottom-hide.css');
 @import url('../__article-container/cards__article-container.css');
 
 .cards__cell {
@@ -17,6 +18,12 @@
   margin-top: 16px;
 
   background-color: white;
+}
+
+.cards__cell:hover {
+  box-shadow: -1px 9px 16px 3px rgba(0,0,0,0.05);
+  -webkit-box-shadow: -1px 9px 16px 3px rgba(0,0,0,0.05);
+  -moz-box-shadow: -1px 9px 16px 3px rgba(0,0,0,0.05);
 }
 
 @media screen and (max-width : 1300px) {

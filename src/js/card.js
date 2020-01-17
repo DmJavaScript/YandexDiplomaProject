@@ -1,6 +1,5 @@
 import {lostedPicturesReplacement} from './constants.js';
 import {getRandomInt} from './utils.js';
-// import {CardsList} from './cards-list';
 
 export class Card {
     constructor (date, link, urlToImage, publishedAt, title, description, name) {
@@ -23,6 +22,7 @@ export class Card {
     const _articleContainer =  document.createElement('div');
     const _headingElement = document.createElement('h4');
     const _descriptionElement = document.createElement('p');
+    const _bottomHideArtefacts = document.createElement('div');
     const _nameSourceElement = document.createElement('p');
 
     _cardContainer.classList.add('cards__cell');
@@ -33,11 +33,13 @@ export class Card {
     _articleContainer.classList.add('cards__article-container');
     _headingElement.classList.add('cards__cell-heading');
     _descriptionElement.classList.add('cards__cell-text');
+    _bottomHideArtefacts.classList.add('cards__cell-bottom-hide');
     _nameSourceElement.classList.add('cards__cell-news-source');
 
     _linkElement.setAttribute('href', this._link);
     _linkElement.setAttribute('target', '_blank');
-    _imageElement.setAttribute('src', this._image ? this._image: this._imageReplacement);
+    _imageElement.setAttribute('src', this._image);
+    _imageElement.addEventListener('error', () => _imageElement.setAttribute('src', this._imageReplacement));
     _imageElement.setAttribute('alt', 'картинка к новости');
     _dateElement.setAttribute('itemscope', '');
     _timeElement.setAttribute('itemprop', 'pubdate');
@@ -55,6 +57,7 @@ export class Card {
     _cardContainer.appendChild(_articleContainer);
     _articleContainer.appendChild(_headingElement);
     _articleContainer.appendChild(_descriptionElement);
+    _cardContainer.appendChild(_bottomHideArtefacts);
     _cardContainer.appendChild(_nameSourceElement);
 
     return _cardContainer;

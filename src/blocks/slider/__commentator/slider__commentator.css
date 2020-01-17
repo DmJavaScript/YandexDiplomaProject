@@ -8,6 +8,8 @@
   align-content: flex-start;
   height: 64px;
   margin: 16px auto;
+
+  overflow: hidden;
 }
 
 @media screen and (max-width : 990px) {

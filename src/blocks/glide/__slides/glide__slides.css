@@ -18,14 +18,3 @@
   transition: transform 0ms cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
   transform: translate3d(-431.25px, 0px, 0px);
 }
-
-/* @media screen and (max-width : 768px) {
-.glide__slides {
-  }
-}
-
-@media screen and (max-width : 435px) {
-.glide__slides {
-    min-width: 1480px;
-  }
-} */

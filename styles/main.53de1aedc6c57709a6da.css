@@ -1189,6 +1189,33 @@
     left: 5%;
   }
 }
+.cards__cell-bottom-hide {
+  position: absolute;
+  bottom: 45px;
+  z-index: 1;
+  height: 30px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(245, 246, 247, 0) 10%, #ffffff 70%);
+}
+
+@media screen and (max-width : 768px) {
+.cards__cell-bottom-hide {
+    bottom: 35px;
+  }
+}
+
+@media screen and (max-width : 425px) {
+  .cards__cell-bottom-hide {
+      bottom: 45px;
+    }
+  }
+
+@media screen and (max-width : 320px) {
+  /* стили для малого смартфона */
+.cards__cell-bottom-hide {
+    bottom: 35px;
+  }
+}
 .cards__cell-heading {
   font-family: 'Roboto Slab';
   font-weight: normal;
@@ -1245,7 +1272,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   width: 88%;
   margin: 16px auto 0;
@@ -1274,7 +1301,7 @@
   width: 86%;
   margin: 10px auto 0;
 
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
   }
 }
 
@@ -1322,6 +1349,12 @@
   margin-top: 16px;
 
   background-color: white;
+}
+
+.cards__cell:hover {
+  box-shadow: -1px 9px 16px 3px rgba(0,0,0,0.05);
+  -webkit-box-shadow: -1px 9px 16px 3px rgba(0,0,0,0.05);
+  -moz-box-shadow: -1px 9px 16px 3px rgba(0,0,0,0.05);
 }
 
 @media screen and (max-width : 1300px) {
@@ -1499,9 +1532,6 @@
    display: none;
 }
 
-.preloader__current-status.preloader__current-status_display-none:nth-last-child(2) {
-  display: none;
-}
 .preloader__current-status {
   margin: 0 auto ;
   max-width: 572px;
@@ -1512,15 +1542,29 @@
   font-weight: normal;
   font-size: 1.125em;
   color: #B6BCBF;
-
 }
 
-.preloader__current-status span {
+.preloader__current-error.preloader__current-error_display-none {
+  display: none;
+}
+.preloader__current-error {
+  margin: 0 auto ;
+  max-width: 572px;
+  text-align: center;
+  line-height: 24px;
+
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-size: 1.125em;
+  color: #B6BCBF;
+}
+
+.preloader__current-error span {
   display: block;
 }
 
 @media screen and (max-width : 570px) {
-  .preloader__current-status {
+  .preloader__current-error {
     width: 90%;
   }
 }

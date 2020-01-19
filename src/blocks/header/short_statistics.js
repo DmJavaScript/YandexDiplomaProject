@@ -1,4 +1,4 @@
-import {recivedData, recivedDataRequest, regExpRequest} from "../js/constants.js";
+import {recivedData, recivedDataRequest, regExpRequest} from '../../pages/details.js';
 
 export class ShortStatistics {
   constructor () {
@@ -15,7 +15,7 @@ export class ShortStatistics {
    }
 
   _titleRepitsNumber () { //Метод сужения всех заголовков до строки и подсчёта количества совпадений
-    const _titlesArray = JSON.parse(this._localStorage.getItem("NewsApiLocalStorage"));
+    const _titlesArray = JSON.parse(this._localStorage.getItem('NewsApiLocalStorage'));
     _titlesArray.map(_storageString => [_storageString.title]);
     return JSON.stringify(_titlesArray).match(regExpRequest).length;
   }

@@ -1,4 +1,4 @@
-import {currentDate, sevenDaysAgo, recivedData, regExpRequest} from "../js/constants.js";
+import {currentDate, sevenDaysAgo, recivedData, regExpRequest} from '../../pages/details.js';
 
 export class Table {
   constructor () {

@@ -1,11 +1,10 @@
-import {lostedPicturesReplacement} from './constants.js';
-import {getRandomInt} from './utils.js';
+import {lostedPicturesReplacement} from '../../../pages/index.js';
+import {getRandomInt} from '../../../js/utils.js';
 
 export class Card {
     constructor (date, link, urlToImage, publishedAt, title, description, name) {
     this._date = date;
     this._link = link;
-    this._imageReplacement = lostedPicturesReplacement[getRandomInt(lostedPicturesReplacement.length)];
     this._image = urlToImage;
     this._publishedAt = publishedAt;
     this._title = title;
@@ -39,7 +38,7 @@ export class Card {
     _linkElement.setAttribute('href', this._link);
     _linkElement.setAttribute('target', '_blank');
     _imageElement.setAttribute('src', this._image);
-    _imageElement.addEventListener('error', () => _imageElement.setAttribute('src', this._imageReplacement));
+    _imageElement.addEventListener('error', () => _imageElement.setAttribute('src', lostedPicturesReplacement[getRandomInt(lostedPicturesReplacement.length)]));
     _imageElement.setAttribute('alt', 'картинка к новости');
     _dateElement.setAttribute('itemscope', '');
     _timeElement.setAttribute('itemprop', 'pubdate');

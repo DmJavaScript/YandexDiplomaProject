@@ -47,11 +47,8 @@ export class Slide {
 
   createSlideBullet() {
     this._bulletElement = document.createElement('button');
-
     this._bulletElement.classList.add('slider__bullet');
     this._bulletElement.classList.add('glide__bullet');
-
-    console.log(this._currentNum);
     this._bulletElement.setAttribute('data-glide-dir', this._currentNum);
 
     //рендер

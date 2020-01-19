@@ -1,4 +1,5 @@
-import {buttonSearch, input, newsApi, storageData} from '../js/constants.js';
+import {buttonSearch, input} from '../js/constants.js';
+import {storageData, newsApi} from '../pages/index.js';
 
 export class NewServerData {
   constructor () {
@@ -28,8 +29,8 @@ export class NewServerData {
     // КОГДА НАЙДЕНЫ РЕЗУЛЬТАТЫ
     if (serverData.length !== 0) {
       const _serialObj = JSON.stringify(serverData);
-      localStorage.setItem("NewsApiLocalStorage", _serialObj);
-      localStorage.setItem("NewsApiRequest", this._input.value);
+      localStorage.setItem('NewsApiLocalStorage', _serialObj);
+      localStorage.setItem('NewsApiRequest', this._input.value);
       this._closeSearchStatus ();
       this._storageData.chekingStorage ();
     }

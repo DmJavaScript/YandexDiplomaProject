@@ -27,7 +27,6 @@ export class CardsList {
   }
 
   _render(resultsArray) { //метод для автоматической отрисовки карточек из списка addCard
-    console.log('megasuper', resultsArray);
     resultsArray.forEach((resultsArray) => this._addCard(resultsArray[0], resultsArray[1], resultsArray[2], resultsArray[3], resultsArray[4], resultsArray[5], resultsArray[6]));
   }
 

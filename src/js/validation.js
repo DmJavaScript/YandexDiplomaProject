@@ -28,7 +28,7 @@ export class Validation {
 
   _customValidationMessages() {
     if (this._input.validity.valueMissing) {
-      this._input.setCustomValidity("Нужно ввести ключевое слово");
+      this._input.setCustomValidity('Нужно ввести ключевое слово');
     }
     if (this._input.value.length > 1 ) {
       this._input.setCustomValidity('');

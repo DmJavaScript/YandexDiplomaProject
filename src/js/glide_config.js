@@ -1,6 +1,6 @@
 export const glideConfig = {
   container: '#options-focus-at',
-  settings:{
+  settings: {
     type: 'slider',
     bound: 'false',
     gap: 16,

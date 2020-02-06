@@ -1,5 +1,6 @@
 import {buttonSearch, input} from '../js/constants.js';
-import {storageData, newsApi} from '../pages/index.js';
+import {storageData} from '../pages/index.js';
+import {newsApi} from '../js/news_api.js';
 
 export class NewServerData {
   constructor () {

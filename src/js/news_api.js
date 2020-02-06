@@ -13,3 +13,5 @@ export class NewsApi {
     })
   }
 }
+
+export const newsApi = new NewsApi ();

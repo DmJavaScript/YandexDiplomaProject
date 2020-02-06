@@ -38,5 +38,4 @@ export class CardsList {
       this._buttonOpenMore.classList.add('search__button-open-more_display-none');
     }
   }
-
 }

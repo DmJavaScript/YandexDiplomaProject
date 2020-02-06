@@ -13,9 +13,9 @@ export const githubApi = new GithubApi ({
     'Content-Type': 'application/json'
   }
 });
-export const createSlide = (...args) => new Slide(...args);
-export const slidesList = new SlidesList();
-export const glide = new Glide(glideConfig.container, glideConfig.settings);
+export const createSlide = (...args) => new Slide (...args);
+export const slidesList = new SlidesList ();
+export const glide = new Glide (glideConfig.container, glideConfig.settings);
 
 githubApi.getSlidesData()
           .then(data => slidesList.render(data))

@@ -10,13 +10,9 @@ export const today = 'to=' + currentDate.toJSON().slice(0, 10);
 
 //страница index.js
 
-export const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)? /i); // регулярное выражение отсеивающее ссылку в начале текста
+export const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)?\.* /i); // регулярное выражение отсеивающее ссылку в начале текста
 export const buttonSearch = document.querySelector('.header__search-button');
 export const input = document.querySelector('.header__search-input');
-// export const cardArguments = (...args) => new Card (...args);
-// export const storageData = new StorageData();
-// export const cardsList = new CardsList(cardArguments);
-// export const newsApi = new NewsApi();
 
 
 // Массив для выдачи случайного изображения //пока не понял как локально сгенерить внутри images папку search-results и подтащить туда локальные файлы
@@ -93,21 +89,3 @@ export const recivedData = JSON.parse(localStorage.getItem('NewsApiLocalStorage'
 export const recivedDataRequest = localStorage.getItem('NewsApiRequest');
 // Регулярное выражение игнорируещее регистр словосочетаний
 export const regExpRequest = new RegExp('\\s' + recivedDataRequest +'\\s', 'gi');
-// export const shortStatistics = new ShortStatistics;
-// export const table = new Table;
-
-
-
-// страница about.js
-
-// export const githubApi = new GithubApi({
-//   baseUrl: 'https://api.github.com/repos/DmJavaScript/YandexDiplomaProject/commits',
-//   headers: {
-//     authorization: 'ca68fe15b70347d75428771071b8dfe19e1a8ba5',
-//     'Content-Type': 'application/json'
-//   }
-// });
-
-// export const createSlide = (...args) => new Slide(...args);
-// export const slidesList = new SlidesList();
-// export const glide = new Glide(glideConfig.container, glideConfig.settings);

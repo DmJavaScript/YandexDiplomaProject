@@ -50,23 +50,23 @@ export const glideConfig = {
         focusAt: 0,
       },
       720: {
-        perView: 2.10,
+        perView: 2.091,
         peek: 0,
         focusAt: 0,
       },
       425: {
-        perView: 1.28,
+        perView: 1.283,
         peek: 0,
         focusAt: 0,
       },
       375: {
-        perView: 1.14,
+        perView: 1.1375,
         peek: 0,
         focusAt: 0,
       },
       320: {
         gap: 8,
-        perView: 1.11,
+        perView: 1.108,
         peek: 0,
         focusAt: 0,
       },

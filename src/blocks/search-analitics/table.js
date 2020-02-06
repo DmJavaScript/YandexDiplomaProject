@@ -115,5 +115,6 @@ export class Table {
       this._valueNodeList[c].style.width = this._daily[c] + '%';
     });
   }
-
 }
+
+export const table = new Table ();

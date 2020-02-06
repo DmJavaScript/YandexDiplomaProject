@@ -21,7 +21,7 @@ export class StorageData {
   }
 
   _preparePackageArray (resultsArray) {
-    const _descriptionTextPreview = resultsArray.description; //.replace(regExpHTTPLinkFirst, ''); //временно отложил решение(необязательная для диплома функция)
+    const _descriptionTextPreview = resultsArray.description.replace(regExpHTTPLinkFirst, '');
     const _cardDate = formatDate(resultsArray.publishedAt);
     const _dateTime = resultsArray.publishedAt;
     return [_dateTime, resultsArray.url, resultsArray.urlToImage, _cardDate, resultsArray.title, _descriptionTextPreview, resultsArray.source.name];

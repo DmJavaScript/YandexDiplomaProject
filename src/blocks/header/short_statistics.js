@@ -21,3 +21,5 @@ export class ShortStatistics {
   }
 
 }
+
+export const shortStatistics = new ShortStatistics ();

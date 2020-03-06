@@ -1,10 +1,10 @@
 import "./about.css";
 import Glide from '@glidejs/glide';
-import {glideConfig} from '../js/glide_config.js';
+import {glideConfig} from '../js/glide-config.js';
 
-import {GithubApi} from '../js/github_api.js';
+import {GithubApi} from '../js/github-api.js';
 import {Slide} from '../blocks/slider/__card/slide.js';
-import {SlidesList} from '../blocks/slider/__slides/slides_list.js';
+import {SlidesList} from '../blocks/slider/__slides/slides-list.js';
 
 export const githubApi = new GithubApi ({
   baseUrl: 'https://api.github.com/repos/DmJavaScript/YandexDiplomaProject/commits',

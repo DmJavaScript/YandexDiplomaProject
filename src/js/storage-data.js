@@ -1,5 +1,5 @@
 import {regExpHTTPLinkFirst, cardsList, input} from '../pages/index.js';
-import {formatDate} from '../js/utils.js';
+import {formatDate} from './utils.js';
 
 export class StorageData {
   constructor () {
@@ -7,7 +7,7 @@ export class StorageData {
     this._input = input;
   }
 
-  chekingStorage () {// Метод получения массива новостей с локального хранилища
+  chekingStorage () { // Метод получения массива новостей с локального хранилища
     const _recivedData = JSON.parse(localStorage.getItem('NewsApiLocalStorage'));
     const _recivedDataRequest = localStorage.getItem('NewsApiRequest');
     if (_recivedDataRequest !== null && _recivedData !== null) {

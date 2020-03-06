@@ -1,3 +1,5 @@
+@import url('_display-none/search__button-open-more_display-none.css');
+
 .search__button-open-more {
   font-family:'Roboto';
   font-weight: 500;
@@ -13,7 +15,7 @@
   min-width: 240px;
   width: 20%;
   padding: 22px 0;
-  margin: 64px auto 80px;
+  margin: 64px auto 0px;
 }
 
 .search__button-open-more:hover {
@@ -24,7 +26,7 @@
 .search__button-open-more {
     padding: 18px 0;
     border-radius: 28px;
-    margin: 32px auto 40px;
+    margin: 32px auto 0px;
   }
 }
 
@@ -32,7 +34,7 @@
 /* стили для малого смартфона */
 .search__button-open-more {
     min-width: 288px;
-    margin: 13px auto 44px;
+    margin: 13px auto 0px;
     border-radius: 28px;
   }
 }

@@ -5,7 +5,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <meta name='keywords' content='NewsAnalyzer, Яндекс Практикум, дипломная работа курса Фронтенд-разработки, поиск по новостям средствами HTML CSS Java Script'>
   <meta name='revisit-after' content='10 days'>
-  <meta name='description' content='Поиск последних новостей за неделю средствами (HTML5,CSS3,javaScript) Визитка разработчика проекта'>
+  <meta name='description' content='Поиск последних новостей за неделю средствами (HTML5, CSS3, JavaScript, NPM, Webpack, GitHub) Визитка разработчика проекта'>
   <meta name='author' content='Дмитрий Ковегин'>
   <title>NewsAnalyzer дипломный проект</title>
   <link rel='icon' href="<%=require('./images/head/favicon.svg')%>" sizes='any' type='image/svg+xml'>
@@ -30,87 +30,29 @@
       <form id='form-search' class='header__search-form' name='search'>
         <div class='header__input-container'>
           <input id='search-input' required type='text' name='request' class='header__search-input' minlength='3' maxlength='30' placeholder='Введите тему'>
-          <ul class='header__input-requirements header__input-requirements_display-none'>
-            <li>Длинна может быть от 3 до 30 символов</li>
-            <li>Только буквы и цифры допустимы</li>
-          </ul>
+          <p class='header__input-requirements'></p>
         </div>
         <button id='start-search' type='submit' class='button header__search-button'>Искать</button>
       </form>
     </header>
 
     <main class='content-index'>
-      <section class='search'>
+      <section class='search search_display-none'>
         <div class='search__header-container'>
           <h2 class='search__results-title'>Результаты поиска</h2>
-          <a href='./details.html' class='search__analitics-link' target='_blank'>Посмотреть&nbsp;аналитику&nbsp;&nbsp;&#x276F;</a>
+          <a href='./details.html' class='search__analitics-link'>Посмотреть&nbsp;аналитику&nbsp;&nbsp;&#x276F;</a>
         </div>
         <section class='cards'>
-          <h3 class='visually-hidden' hidden>Секция таблицы с карточками полученными со стороннего сервера</h3>
-          <article class='cards__cell'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/result_template_01.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-data' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>Национальное достояние – парки</h4>
-              <p class='cards__cell-text'>В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-            </div>
-            <p class='cards__cell-news-source'>Лента.ру</p>
-          </article>
-          <article class='cards__cell'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/result_template_02.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-data' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>Лесные огоньки: история одной фотографии</h4>
-              <p class='cards__cell-text'>Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                из местных чудес природы.</p>
-            </div>
-            <p class='cards__cell-news-source'>Медуза</p>
-          </article>
-          <article class='cards__cell cards__cell_dispay-none'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/result_template_03.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-data' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-              <p class='cards__cell-text'>Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-            </div>
-            <p class='cards__cell-news-source'>Риа</p>
-          </article>
-          <article class='cards__cell'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/result_template_04.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-data' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>Национальное достояние – парки</h4>
-              <p class='cards__cell-text'>В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-            </div>
-            <p class='cards__cell-news-source'>Лента.ру</p>
-          </article>
-          <article class='cards__cell cards__cell_dispay-none'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/result_template_05.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-data' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>Лесные огоньки: история одной фотографии</h4>
-              <p class='cards__cell-text'>Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                из местных чудес природы.</p>
-            </div>
-            <p class='cards__cell-news-source '>Медуза</p>
-          </article>
-          <article class='cards__cell cards__cell_dispay-none'>
-            <img class='cards__cell-image' src="<%=require('./images/search-results/result_template_06.png')%>" alt='картинка к новости'>
-            <p class='cards__cell-data' itemscope><time itemprop='pubdate' datetime='2019-08-02'>2 августа, 2019</time></p>
-            <div class='cards__article-container'>
-              <h4 class='cards__cell-heading'>«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-              <p class='cards__cell-text'>Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-            </div>
-            <p class='cards__cell-news-source'>Риа</p>
-          </article>
+          <h3 class='visually-hidden' hidden>Секция новостных карточек, полученных со стороннего сервера</h3>
         </section>
-        <button id='button-search' type='submit' class='button search__button-open-more'>Показать еще</button>
+        <button id='open-more-cards' type='submit' class='button search__button-open-more'>Показать еще</button>
       </section>
 
       <section class='preloader preloader_display-none'>
         <h3 class='preloader__fake-header visually-hidden' hidden>Секция прелоудера для ожидания загрузки данных</h3>
         <i class='preloader__circle'></i>
         <p class='preloader__current-status'>Идет поиск новостей…</p>
+        <p class='preloader__current-error preloader__current-error_display-none'>Во время запроса произошла&nbsp;ошибка.<span>Возможно&nbsp;проблема с&nbsp;соединением или сервер недоступен. Подождите немного и&nbsp;попробуйте ещё раз.</span></p>
       </section>
 
       <section class='search-status search-status_display-none'>
@@ -159,6 +101,6 @@
       </nav>
     </footer>
   </div>
-<script src="<%=htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  <script src="<%=htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 </html>

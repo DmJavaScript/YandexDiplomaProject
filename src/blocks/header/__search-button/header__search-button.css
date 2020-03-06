@@ -1,3 +1,5 @@
+@import url('_invalid/header__search-button_invalid.css');
+
 .header__search-button {
   font-family:'Roboto';
   font-weight: 500;
@@ -12,6 +14,7 @@
   padding: 22px 0;
   cursor: pointer;
 
+  z-index: 2;
   position: absolute;
   top: 0;
   right: 0;
@@ -24,10 +27,6 @@
 .header__search-button:focus,
 .header__search-button:active {
   background-color: #2A65CC;
-}
-
-.header__search-button:disabled {
-  background-color: #B6BCBF;
 }
 
 @media screen and (max-width : 768px) {

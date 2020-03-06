@@ -2,5 +2,7 @@
 @import url('../__search-button/header__search-button.css');
 
 .header__input-container {
-
+  display: flex;
+  position: relative;
+  flex-direction: column;
 }

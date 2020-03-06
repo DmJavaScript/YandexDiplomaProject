@@ -11,6 +11,10 @@
   background-color: #ffffff;
   padding: 24px 24px;
   cursor: pointer;
+
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width : 990px) {

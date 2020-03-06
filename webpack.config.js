@@ -53,7 +53,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({ //
+        new MiniCssExtractPlugin({
             filename: './styles/[name].[contenthash].css',
         }),
         new HtmlWebpackPlugin({

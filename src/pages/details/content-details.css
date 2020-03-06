@@ -1,5 +1,12 @@
 @import url('../../blocks/search-analitics/search-analitics.css');
 
-.content_details {
+.content-details {
   background-color: #F5F6F7;
+  height: 866px;
+}
+
+@media screen and (max-width : 320px) {
+.content-details  {
+    height: 478px;
+  }
 }

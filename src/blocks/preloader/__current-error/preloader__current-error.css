@@ -1,0 +1,23 @@
+@import url('_display-none/preloader__current-error_display-none.css');
+
+.preloader__current-error {
+  margin: 0 auto ;
+  max-width: 572px;
+  text-align: center;
+  line-height: 24px;
+
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-size: 1.125em;
+  color: #B6BCBF;
+}
+
+.preloader__current-error span {
+  display: block;
+}
+
+@media screen and (max-width : 570px) {
+  .preloader__current-error {
+    width: 90%;
+  }
+}

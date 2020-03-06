@@ -5,7 +5,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <meta name='keywords' content='NewsAnalyzer, Новостная аналитика за неделю, Яндекс Практикум, дипломная работа курса Фронтенд-разработки, HTML CSS Java Script'>
   <meta name='revisit-after' content='10 days'>
-  <meta name='description' content='Новостная аналитика за неделю средствами (HTML5,CSS3,javaScript) Визитка разработчика проекта'>
+  <meta name='description' content='Новостная аналитика за неделю средствами (HTML5, CSS3, JavaScript, NPM, Webpack, GitHub) Визитка разработчика проекта'>
   <meta name='author' content='Дмитрий Ковегин'>
   <title>NewsAnalyzer Новостная аналитика</title>
   <link rel='icon' href="<%=require('./images/head/favicon.svg')%>" sizes='any' type='image/svg+xml'>
@@ -30,14 +30,14 @@
         <span class='header__span'> / </span>
         <h1 class='header__page-title'>Аналитика</h1>
       </div>
-      <h2 class='header__request-title'>Вы спросили: «<span class='header__request-input'>Путешествия</span>»</h2>
+      <h2 class='header__request-title'>Вы спросили: «<span id='request-title' class='header__request-input'></span>»</h2>
       <div class='header__week-data'>
         <p class='header__week-text'>Новостей за неделю:</p>
-        <p class='header__week-number'>34 324</p>
+        <p id='news-amount' class='header__week-number'>0</p>
       </div>
       <div class='header__week-data'>
         <p class='header__week-text'>Упоминаний в заголовках:</p>
-        <p class='header__week-number header__week-number_mentions'>235</p>
+        <p id='header-menshions' class='header__week-number'>0</p>
       </div>
     </header>
 
@@ -46,7 +46,7 @@
         <caption class='search-analitics__table-title'>Аналитика по дням</caption>
         <thead class='search-analitics__table'>
           <tr class='search-analitics__bars-headers'>
-            <th class='search-analitics__bar-title'><span class='search-analitics__bar-title-prev-month'>Дата</span><span class='search-analitics__bar-title-cur-month'>(Август)</span></th>
+            <th class='search-analitics__bar-title'><span class='search-analitics__bar-title-prev-month'>Дата</span><span class='search-analitics__bar-title-cur-month'></span></th>
             <th class='search-analitics__bar-title'>Кол-во упоминаний</th>
             <th></th>
             <th></th>
@@ -62,63 +62,63 @@
             <th class='search-analitics__ruller-horizontal-mark'>100</th>
           </tr>
           <tr class='search-analitics__bar'>
-            <th class='search-analitics__data-mark'><time datetime='2019-08-19'>19, пн</time></th>
+            <th class='search-analitics__data-mark'><time datetime=''></time></th>
             <td class='search-analitics__data'>
-              <div class='search-analitics__mon'>15</div>
+              <div class='search-analitics__value'>0</div>
             </td>
             <th></th>
             <th></th>
             <th></th>
           </tr>
           <tr class='search-analitics__bar'>
-            <th class='search-analitics__data-mark'><time datetime='2019-08-19'>20, вт</time></th>
+            <th class='search-analitics__data-mark'><time datetime=''></time></th>
             <td class='search-analitics__data'>
-                <div class='search-analitics__tue'>18</div>
+                <div class='search-analitics__value'>0</div>
             </td>
             <th></th>
             <th></th>
             <th></th>
           </tr>
           <tr class='search-analitics__bar'>
-            <th class='search-analitics__data-mark'><time datetime='2019-08-19'>21, ср</time></th>
+            <th class='search-analitics__data-mark'><time datetime=''></time></th>
             <td class='search-analitics__data'>
-                <div class='search-analitics__wed'>11</div>
+                <div class='search-analitics__value'>0</div>
             </td>
             <th></th>
             <th></th>
             <th></th>
           </tr>
           <tr class='search-analitics__bar'>
-            <th class='search-analitics__data-mark'><time datetime='2019-08-19'>22, чт</time></th>
+            <th class='search-analitics__data-mark'><time datetime=''></time></th>
             <td class='search-analitics__data'>
-                <div class='search-analitics__thu'>39</div>
+                <div class='search-analitics__value'>0</div>
             </td>
             <th></th>
             <th></th>
             <th></th>
           </tr>
           <tr class='search-analitics__bar'>
-            <th class='search-analitics__data-mark'><time datetime='2019-08-19'>23, пт</time></th>
+            <th class='search-analitics__data-mark'><time datetime=''></time></th>
             <td class='search-analitics__data'>
-                <div class='search-analitics__fri'>45</div>
+                <div class='search-analitics__value'>0</div>
             </td>
             <th></th>
             <th></th>
             <th></th>
           </tr>
           <tr class='search-analitics__bar'>
-            <th class='search-analitics__data-mark'><time datetime='2019-08-19'>24, сб</time></th>
+            <th class='search-analitics__data-mark'><time datetime=''></time></th>
             <td class='search-analitics__data'>
-                <div class='search-analitics__sat'>73</div>
+                <div class='search-analitics__value'>0</div>
             </td>
             <th></th>
             <th></th>
             <th></th>
           </tr>
           <tr class='search-analitics__bar'>
-            <th class='search-analitics__data-mark'><time datetime='2019-08-19'>25, вс</time></th>
+            <th class='search-analitics__data-mark'><time datetime=''></time></th>
             <td class='search-analitics__data'>
-                <div class='search-analitics__sun'>34</div>
+                <div class='search-analitics__value'>0</div>
             </td>
             <th></th>
             <th></th>
@@ -161,6 +161,6 @@
       </nav>
     </footer>
   </div>
-<script src="<%=htmlWebpackPlugin.files.chunks.details.entry %>"></script>
+  <script src="<%=htmlWebpackPlugin.files.chunks.details.entry %>"></script>
 </body>
 </html>

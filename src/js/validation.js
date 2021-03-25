@@ -1,10 +1,10 @@
-import {input, buttonSearch} from './constants.js';
+import {input, buttonSearch, inputRequirements} from './constants.js';
 
 export class Validation {
   constructor() {
-  this._inputRequirements = document.querySelector('.header__input-requirements');
-  this._buttonSearch = buttonSearch;
   this._input = input;
+  this._buttonSearch = buttonSearch;
+  this._inputRequirements = inputRequirements;
 
   this._input.addEventListener('input', this._finalFieldCheck.bind(this));
   }

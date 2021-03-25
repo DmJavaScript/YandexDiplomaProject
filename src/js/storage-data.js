@@ -1,34 +1,35 @@
-import {regExpHTTPLinkFirst, cardsList, input} from '../pages/index.js';
+import {regExpHTTPLinkFirst, searchSection, cardsList, input} from '../pages/index.js';
 import {formatDate} from './utils.js';
 
 export class StorageData {
   constructor () {
-    this._searchSection = document.querySelector('.search');
+    this._searchSection = searchSection;
+    this._cardsList = cardsList;
     this._input = input;
   }
 
   chekingStorage () { // Метод получения массива новостей с локального хранилища
-    const _recivedData = JSON.parse(localStorage.getItem('NewsApiLocalStorage'));
-    const _recivedDataRequest = localStorage.getItem('NewsApiRequest');
-    if (_recivedDataRequest !== null && _recivedData !== null) {
-      this._input.value = _recivedDataRequest;
+    const recivedData = JSON.parse(localStorage.getItem('NewsApiLocalStorage'));
+    const recivedDataRequest = localStorage.getItem('NewsApiRequest');
+    if (recivedDataRequest !== null && recivedData !== null) {
+      this._input.value = recivedDataRequest;
       let resultsArray = [];
-      resultsArray = Array.from(_recivedData).map(this._preparePackageArray).sort().reverse();
+      resultsArray = recivedData.map(this._preparePackageArray).sort().reverse();
       this._initializeRender(resultsArray);
       this._openResultsSection ();
       return resultsArray;
     }
   }
 
-  _preparePackageArray (resultsArray) {
-    const _descriptionTextPreview = resultsArray.description.replace(regExpHTTPLinkFirst, '');
-    const _cardDate = formatDate(resultsArray.publishedAt);
-    const _dateTime = resultsArray.publishedAt;
-    return [_dateTime, resultsArray.url, resultsArray.urlToImage, _cardDate, resultsArray.title, _descriptionTextPreview, resultsArray.source.name];
+  _preparePackageArray (eventData) {
+    const descriptionTextPreview = eventData.description.replace(regExpHTTPLinkFirst, '');
+    const cardDate = formatDate(eventData.publishedAt);
+    const dateTime = eventData.publishedAt;
+    return [dateTime, eventData.url, eventData.urlToImage, cardDate, eventData.title, descriptionTextPreview, eventData.source.name];
   }
 
   _initializeRender (resultsArray) {
-    cardsList.startMount(resultsArray);
+    this._cardsList.startMount(resultsArray);
   }
 
   _openResultsSection ()  {

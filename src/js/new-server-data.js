@@ -1,15 +1,15 @@
-import {buttonSearch, input} from './constants.js';
+import {preloader, preloaderCircle, preloaderCurrentStatus, preloaderCurrentError, searchStatus, searchSection, input, buttonSearch} from './constants.js';
 import {storageData} from '../pages/index.js';
 import {newsApi} from './news-api.js';
 
 export class NewServerData {
   constructor () {
-    this._preloader = document.querySelector('.preloader');
-    this._preloaderCircle = document.querySelector('.preloader__circle');
-    this._preloaderCurrentStatus = document.querySelector('.preloader__current-status');
-    this._preloaderCurrentError = document.querySelector('.preloader__current-error');
-    this._searchStatus = document.querySelector('.search-status');
-    this._searchSection = document.querySelector('.search');
+    this._preloader = preloader;
+    this._preloaderCircle = preloaderCircle;
+    this._preloaderCurrentStatus = preloaderCurrentStatus;
+    this._preloaderCurrentError = preloaderCurrentError;
+    this._searchStatus = searchStatus;
+    this._searchSection = searchSection;
     this._input = input;
     this._newsApi = newsApi;
     this._storageData = storageData;
@@ -29,8 +29,8 @@ export class NewServerData {
     }
     // КОГДА НАЙДЕНЫ РЕЗУЛЬТАТЫ
     if (serverData.length !== 0) {
-      const _serialObj = JSON.stringify(serverData);
-      localStorage.setItem('NewsApiLocalStorage', _serialObj);
+      const serialObj = JSON.stringify(serverData);
+      localStorage.setItem('NewsApiLocalStorage', serialObj);
       localStorage.setItem('NewsApiRequest', this._input.value);
       this._closeSearchStatus ();
       this._storageData.chekingStorage ();

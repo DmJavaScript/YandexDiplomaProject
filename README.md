@@ -1,6 +1,5 @@
 # YandexDiplomaProject
 ![Version][shield-version]
-![Build status][shield-build]
 
 3-х страничный cайт-визитка разработчика — сервис “NewsAnalyzer”, новостной поисковик-анализатор. Количество выдаваемых новостей ограничено бесплатной версией News API, максимум 100 штук. Разработан на курсе обучения профессии Frontend Developer в Яндекс.Практикум.
 ## Стек: HTML, CSS (Flexbox), JS (ES6, ООП, модули), БЭМ.
@@ -100,5 +99,4 @@ git pull origin develop (если всё в порядке, то придет о
 * safari: "10"
 
 [shield-version]: https://img.shields.io/github/v/release/DmJavaScript/YandexDiplomaProject?style=flat-square
-[shield-build]: https://img.shields.io/appveyor/ci/DmJavaScript/YandexDiplomaProject?style=flat-square
 ### ссылка на репозиторий https://github.com/DmJavaScript/YandexDiplomaProject

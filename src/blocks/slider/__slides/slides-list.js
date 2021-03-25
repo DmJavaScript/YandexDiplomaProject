@@ -1,26 +1,26 @@
-import {createSlide, glideConfig, glide} from '../../../pages/about.js';
+import {slidesContainer, bulletsContainer} from '../../../js/constants.js';
+import {glide, createSlide} from '../../../pages/about.js';
 import {formatDate} from '../../../js/utils.js';
 
 export class SlidesList {
   constructor() {
-    this._slidesContainer = document.querySelector('.slider__slides');
-    this._bulletsContainer = document.querySelector('.slider__bullets');
-    this._createSlide = createSlide;
-    this._currentNum = '';
+    this._slidesContainer = slidesContainer;
+    this._bulletsContainer = bulletsContainer;
   }
 
-  _addCard(...args) { //метод для добавления карточки в список карточек
-    const slide = this._createSlide (...args);
+  render(data) { //метод для автоматической отрисовки слайдов из списка коммитов
+    data.forEach((e, i) => {
+      const currentNum =  `=` + `${i}`;
+      this._addSlide(formatDate(data[i].commit.author.date), data[i].author.avatar_url, data[i].commit.author.name, data[i].commit.author.email, data[i].commit.message, currentNum);
+    });
+    glide.mount ();
+  }
+
+  _addSlide(...args) { //метод для добавления слайда в набор слайдов
+    const slide = createSlide (...args);
+    slide.render();
     this._slidesContainer.appendChild(slide.slideElement);
     this._bulletsContainer.appendChild(slide.bulletElement);
-  }
-
-  render(data) { //метод для автоматической отрисовки карточек из списка addCard
-    data.forEach((e, i) => {
-      this._currentNum =  `=` + `${i}`;
-      this._addCard(formatDate(data[i].commit.author.date), data[i].author.avatar_url, data[i].commit.author.name, data[i].commit.author.email, data[i].commit.message, this._currentNum);
-    });
-    glide.mount();
   }
 
 }

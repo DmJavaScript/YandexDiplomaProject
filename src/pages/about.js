@@ -1,7 +1,6 @@
 import "./about.css";
 import Glide from '@glidejs/glide';
 import {glideConfig} from '../js/glide-config.js';
-
 import {GithubApi} from '../js/github-api.js';
 import {Slide} from '../blocks/slider/__card/slide.js';
 import {SlidesList} from '../blocks/slider/__slides/slides-list.js';
@@ -14,8 +13,8 @@ export const githubApi = new GithubApi ({
   }
 });
 export const createSlide = (...args) => new Slide (...args);
-export const slidesList = new SlidesList ();
 export const glide = new Glide (glideConfig.container, glideConfig.settings);
+export const slidesList = new SlidesList ();
 
 githubApi.getSlidesData()
           .then(data => slidesList.render(data))

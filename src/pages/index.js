@@ -1,5 +1,5 @@
 import "./index.css";
-export {currentDate, fullDaysPassed, gapSixDaysInMS, dateWithoutUTC, sevenDaysAgo, fromDate, today, regExpHTTPLinkFirst, buttonSearch, input, lostedPicturesReplacement} from '../js/constants.js';
+export {regExpHTTPLinkFirst, searchSection, input, buttonSearch} from '../js/constants.js';
 
 import {Validation} from '../js/validation.js';
 import {Card} from '../blocks/cards/__cell/card.js';
@@ -8,10 +8,10 @@ import {StorageData} from '../js/storage-data.js';
 import {NewServerData} from '../js/new-server-data.js';
 
 export const cardArguments = (...args) => new Card (...args);
-export const storageData = new StorageData ();
 export const cardsList = new CardsList (cardArguments);
+export const storageData = new StorageData (cardsList);
 
-new Validation();
+new Validation ();
 new NewServerData();
 
 storageData.chekingStorage();

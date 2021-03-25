@@ -1,3 +1,9 @@
+@media screen and (max-width : 1325px) {
+.developer_about-down {
+    margin-bottom: 80px;
+  }
+}
+
 @media screen and (max-width : 768px) {
 .developer_about-down {
     margin-bottom: 62px;

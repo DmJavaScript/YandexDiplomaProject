@@ -1,13 +1,16 @@
+import {cardsContainer, buttonOpenMore} from '../../js/constants.js';
+
 export class CardsList {
   constructor(cardArguments) {
-    this._cardsContainer = document.querySelector('.cards');
+    this._cardsContainer = cardsContainer;
     this._cardArguments = cardArguments;
     this._fromCardPosition = 0;
     this._openPerOnce = 3;
     this._openMoreCards = this._openMoreCards.bind(this);
-    this._buttonOpenMore = document.querySelector('.search__button-open-more');
+    this._buttonOpenMore = buttonOpenMore;
 
     this._buttonOpenMore.addEventListener('click', this._openMoreCards);
+
   }
 
   startMount(resultsArray) {
@@ -22,8 +25,8 @@ export class CardsList {
   }
 
   _addCard(...args) { //метод для добавления карточки в список карточек
-    const _card = this._cardArguments(...args);
-    this._cardsContainer.appendChild(_card.createCard());
+    const card = this._cardArguments (...args);
+    this._cardsContainer.appendChild(card.createCard());
   }
 
   _render(resultsArray) { //метод для автоматической отрисовки карточек из списка addCard
@@ -32,9 +35,9 @@ export class CardsList {
 
   _openMoreCards() {
     this._buttonOpenMore.classList.remove('search__button-open-more_display-none');
-    const _cardsNotDisplayed = Array.from(document.querySelectorAll('.cards__cell_dispay-none')); //тут список карточек меняется поэтому при каждом вызове функции нужен новый список - обновление списка элементов.
-    _cardsNotDisplayed.slice(this._fromCardPosition, this._openPerOnce).forEach((_cardsNotDisplayed) => _cardsNotDisplayed.classList.remove('cards__cell_dispay-none'));
-    if (_cardsNotDisplayed.length <= this._openPerOnce) {
+    const cardsNotDisplayed = Array.from(document.querySelectorAll('.cards__cell_dispay-none')); //тут список карточек меняется поэтому при каждом вызове функции нужен новый список - обновление списка элементов.
+    cardsNotDisplayed.slice(this._fromCardPosition, this._openPerOnce).forEach((cardsNotDisplayed) => cardsNotDisplayed.classList.remove('cards__cell_dispay-none'));
+    if (cardsNotDisplayed.length <= this._openPerOnce) {
       this._buttonOpenMore.classList.add('search__button-open-more_display-none');
     }
   }

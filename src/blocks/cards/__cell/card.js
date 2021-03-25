@@ -1,4 +1,4 @@
-import {lostedPicturesReplacement} from '../../../pages/index.js';
+import {lostedPicturesReplacement} from '../../../js/constants.js';
 import {getRandomInt} from '../../../js/utils.js';
 
 export class Card {
@@ -13,52 +13,52 @@ export class Card {
   }
 
   createCard() {
-    const _cardContainer =  document.createElement('article');
-    const _linkElement = document.createElement('a');
-    const _imageElement = document.createElement('img');
-    const _dateElement = document.createElement('p');
-    const _timeElement = document.createElement('time');
-    const _articleContainer =  document.createElement('div');
-    const _headingElement = document.createElement('h4');
-    const _descriptionElement = document.createElement('p');
-    const _bottomHideArtefacts = document.createElement('div');
-    const _nameSourceElement = document.createElement('p');
+    const cardContainer =  document.createElement('article');
+    const linkElement = document.createElement('a');
+    const imageElement = document.createElement('img');
+    const dateElement = document.createElement('p');
+    const timeElement = document.createElement('time');
+    const articleContainer =  document.createElement('div');
+    const headingElement = document.createElement('h4');
+    const descriptionElement = document.createElement('p');
+    const bottomHideArtefacts = document.createElement('div');
+    const nameSourceElement = document.createElement('p');
 
-    _cardContainer.classList.add('cards__cell');
-    _cardContainer.classList.add('cards__cell_dispay-none');
-    _linkElement.classList.add('cards__cell-link');
-    _imageElement.classList.add('cards__cell-image');
-    _dateElement.classList.add('cards__cell-date');
-    _articleContainer.classList.add('cards__article-container');
-    _headingElement.classList.add('cards__cell-heading');
-    _descriptionElement.classList.add('cards__cell-text');
-    _bottomHideArtefacts.classList.add('cards__cell-bottom-hide');
-    _nameSourceElement.classList.add('cards__cell-news-source');
+    cardContainer.classList.add('cards__cell');
+    cardContainer.classList.add('cards__cell_dispay-none');
+    linkElement.classList.add('cards__cell-link');
+    imageElement.classList.add('cards__cell-image');
+    dateElement.classList.add('cards__cell-date');
+    articleContainer.classList.add('cards__article-container');
+    headingElement.classList.add('cards__cell-heading');
+    descriptionElement.classList.add('cards__cell-text');
+    bottomHideArtefacts.classList.add('cards__cell-bottom-hide');
+    nameSourceElement.classList.add('cards__cell-news-source');
 
-    _linkElement.setAttribute('href', this._link);
-    _linkElement.setAttribute('target', '_blank');
-    _imageElement.setAttribute('src', this._image);
-    _imageElement.addEventListener('error', () => _imageElement.setAttribute('src', lostedPicturesReplacement[getRandomInt(lostedPicturesReplacement.length)]));
-    _imageElement.setAttribute('alt', 'картинка к новости');
-    _dateElement.setAttribute('itemscope', '');
-    _timeElement.setAttribute('itemprop', 'pubdate');
-    _timeElement.setAttribute('datetime', this._date.slice(0, 10));
-    _timeElement.textContent = this._publishedAt;
-    _headingElement.textContent = this._title;
-    _descriptionElement.textContent = this._description;
-    _nameSourceElement.textContent = this._name;
+    linkElement.setAttribute('href', this._link);
+    linkElement.setAttribute('target', '_blank');
+    imageElement.setAttribute('src', this._image);
+    imageElement.addEventListener('error', () => imageElement.setAttribute('src', lostedPicturesReplacement[getRandomInt(lostedPicturesReplacement.length)]));
+    imageElement.setAttribute('alt', 'картинка к новости');
+    dateElement.setAttribute('itemscope', '');
+    timeElement.setAttribute('itemprop', 'pubdate');
+    timeElement.setAttribute('datetime', this._date.slice(0, 10));
+    timeElement.textContent = this._publishedAt;
+    headingElement.textContent = this._title;
+    descriptionElement.textContent = this._description;
+    nameSourceElement.textContent = this._name;
 
     //родительство и рендер
-    _cardContainer.appendChild(_linkElement);
-    _cardContainer.appendChild(_imageElement);
-    _cardContainer.appendChild(_dateElement);
-    _dateElement.appendChild(_timeElement);
-    _cardContainer.appendChild(_articleContainer);
-    _articleContainer.appendChild(_headingElement);
-    _articleContainer.appendChild(_descriptionElement);
-    _cardContainer.appendChild(_bottomHideArtefacts);
-    _cardContainer.appendChild(_nameSourceElement);
+    cardContainer.appendChild(linkElement);
+    cardContainer.appendChild(imageElement);
+    cardContainer.appendChild(dateElement);
+    dateElement.appendChild(timeElement);
+    cardContainer.appendChild(articleContainer);
+    articleContainer.appendChild(headingElement);
+    articleContainer.appendChild(descriptionElement);
+    cardContainer.appendChild(bottomHideArtefacts);
+    cardContainer.appendChild(nameSourceElement);
 
-    return _cardContainer;
+    return cardContainer;
   }
 }

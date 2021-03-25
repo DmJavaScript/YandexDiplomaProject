@@ -6,52 +6,57 @@ export class Slide {
     this._email = email;
     this._message = message;
     this._currentNum = currentNum;
-    this.slideElement = this.createSlide()
-    this.bulletElement = this.createSlideBullet();
+    // this.slideElement = this._createSlide();
+    // this.bulletElement = this._createSlideBullet();
   }
 
-  createSlide() {
-    const _slideContainer = document.createElement('article');
-    const _dateElement = document.createElement('p');
-    const _profileContainer = document.createElement('div');
-    const _photoElement = document.createElement('img');
-    const _nameElement = document.createElement('h3');
-    const _emailElement = document.createElement('p');
-    const _messageElement = document.createElement('p');
+  render() {
+    this.slideElement = this._createSlide();
+    this.bulletElement = this._createSlideBullet();
+  }
 
-    _slideContainer.classList.add('slider__card');
-    _slideContainer.classList.add('glide__slide');
-    _dateElement.classList.add('slider__date');
-    _profileContainer.classList.add('slider__commentator');
-    _photoElement.classList.add('slider__photo');
-    _nameElement.classList.add('slider__name');
-    _emailElement.classList.add('slider__email');
-    _messageElement.classList.add('slider__quote');
+  _createSlide() {
+    const slideContainer = document.createElement('article');
+    const dateElement = document.createElement('p');
+    const profileContainer = document.createElement('div');
+    const photoElement = document.createElement('img');
+    const nameElement = document.createElement('h3');
+    const emailElement = document.createElement('p');
+    const messageElement = document.createElement('p');
 
-    _dateElement.textContent = this._date;
-    _photoElement.setAttribute('src', this._avatar);
-    _nameElement.textContent = this._name;
-    _emailElement.textContent = this._email;
-    _messageElement.textContent = this._message;
+    slideContainer.classList.add('slider__card');
+    slideContainer.classList.add('glide__slide');
+    dateElement.classList.add('slider__date');
+    profileContainer.classList.add('slider__commentator');
+    photoElement.classList.add('slider__photo');
+    nameElement.classList.add('slider__name');
+    emailElement.classList.add('slider__email');
+    messageElement.classList.add('slider__quote');
+
+    dateElement.textContent = this._date;
+    photoElement.setAttribute('src', this._avatar);
+    nameElement.textContent = this._name;
+    emailElement.textContent = this._email;
+    messageElement.textContent = this._message;
 
     //родительство и рендер
-    _slideContainer.appendChild(_dateElement);
-    _slideContainer.appendChild(_profileContainer);
-    _profileContainer.appendChild(_photoElement);
-    _profileContainer.appendChild(_nameElement);
-    _profileContainer.appendChild(_emailElement);
-    _slideContainer.appendChild(_messageElement);
+    slideContainer.appendChild(dateElement);
+    slideContainer.appendChild(profileContainer);
+    profileContainer.appendChild(photoElement);
+    profileContainer.appendChild(nameElement);
+    profileContainer.appendChild(emailElement);
+    slideContainer.appendChild(messageElement);
 
-    return _slideContainer;
+    return slideContainer;
   }
 
-  createSlideBullet() {
-    this._bulletElement = document.createElement('button');
-    this._bulletElement.classList.add('slider__bullet');
-    this._bulletElement.classList.add('glide__bullet');
-    this._bulletElement.setAttribute('data-glide-dir', this._currentNum);
+  _createSlideBullet() {
+    const bulletElement = document.createElement('button');
+    bulletElement.classList.add('slider__bullet');
+    bulletElement.classList.add('glide__bullet');
+    bulletElement.setAttribute('data-glide-dir', this._currentNum);
 
     //рендер
-    return this._bulletElement;
+    return bulletElement;
   }
 }

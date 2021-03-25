@@ -11,9 +11,20 @@ export const today = 'to=' + currentDate.toJSON().slice(0, 10);
 //страница index.js
 
 export const regExpHTTPLinkFirst = new RegExp(/(https|http)?:\/\/(www.)?[^-_.\s](\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})?(:\d+)?(\w+.[a-z]{2,})*(.\w+)*\/*\w*\/*\w*\/*\w*\/*\w+(\/*#?)?\.* /i); // регулярное выражение отсеивающее ссылку в начале текста
-export const buttonSearch = document.querySelector('.header__search-button');
-export const input = document.querySelector('.header__search-input');
 
+export const cardsContainer = document.querySelector('.cards');
+export const cardsNodeList = document.querySelectorAll('.cards__cell');
+// export const cardsNotDisplayedNodeList = document.querySelectorAll('.cards__cell_dispay-none');
+export const preloader = document.querySelector('.preloader');
+export const preloaderCircle = document.querySelector('.preloader__circle');
+export const preloaderCurrentStatus = document.querySelector('.preloader__current-status');
+export const preloaderCurrentError = document.querySelector('.preloader__current-error');
+export const searchStatus = document.querySelector('.search-status');
+export const searchSection = document.querySelector('.search');
+export const input = document.querySelector('.header__search-input');
+export const buttonSearch = document.querySelector('.header__search-button');
+export const buttonOpenMore = document.querySelector('.search__button-open-more');
+export const inputRequirements = document.querySelector('.header__input-requirements');
 
 // Массив для выдачи случайного изображения //пока не понял как локально сгенерить внутри images папку search-results и подтащить туда локальные файлы
 
@@ -83,9 +94,25 @@ export const lostedPicturesReplacement = [
 ];
 
 
+
 // страница details.js
 
 export const recivedData = JSON.parse(localStorage.getItem('NewsApiLocalStorage'));
 export const recivedDataRequest = localStorage.getItem('NewsApiRequest');
 // Регулярное выражение игнорируещее регистр словосочетаний
 export const regExpRequest = new RegExp('\\s' + recivedDataRequest +'\\s', 'gi');
+
+export const requestTitleElement = document.querySelector('#request-title');
+export const newsAmountElement = document.querySelector('#news-amount');
+export const headerMensionsElement = document.querySelector('#header-menshions');
+export const currentMonthElement = document.querySelector('.search-analitics__bar-title-cur-month');
+export const previousMonthElement = document.querySelector('.search-analitics__bar-title-prev-month');
+export const timeNodeList = document.querySelectorAll('time');
+export const valueNodeList = document.querySelectorAll('.search-analitics__value');
+
+
+
+// страница about.js
+
+export const slidesContainer = document.querySelector('.slider__slides');
+export const bulletsContainer = document.querySelector('.slider__bullets');
